@@ -5,70 +5,28 @@
 <title>상품관리 스토리보드 + 프로토타입</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html, body {
-  height: 100vh;
-  overflow: hidden;
-  background: #111;
-  font-family: "Noto Sans KR", sans-serif;
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100vh;overflow:hidden;background:#111;font-family:"Noto Sans KR",sans-serif;}
+.app-shell{display:grid;grid-template-columns:420px 1fr;height:100vh;overflow:hidden;}
+.proto-panel{display:flex;flex-direction:column;height:100vh;background:#1a1a1a;border-right:2px solid #333;overflow:hidden;}
+.proto-header{flex-shrink:0;background:#0A0A0A;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #333;}
+.proto-title{font-size:12px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px;}
+.proto-dot{width:10px;height:10px;border-radius:50%;background:#00D084;box-shadow:0 0 6px rgba(0,208,132,.5);}
+.proto-sub{font-size:10px;color:#555;margin-top:2px;}
+.proto-badge{font-size:9px;font-weight:700;background:#0041FF;color:#fff;padding:2px 8px;border-radius:10px;}
+.proto-frame{flex:1;overflow:hidden;background:#1a1a1a;}
+.proto-frame iframe{width:100%;height:100%;border:none;display:block;}
+.sb-panel{height:100vh;overflow-y:auto;overflow-x:auto;background:#fff;}
+
+:root{
+  --blue:#0041FF;--blue-lt:#EBF0FF;--blk:#1A1A1A;--body:#363636;
+  --desc:#767676;--dim:#AAAAAA;--line:#EBEBEB;--line2:#D4D4D4;--bg:#F5F5F7;--bg2:#FAFAFA;
+  --green:#00A86B;--glt:#E6F7F1;--red:#D93025;--rlt:#FDECEA;
+  --orange:#C96A00;--olt:#FFF4E5;--purple:#6D28D9;--plt:#F3EEFF;
+  --yellow:#7A6000;--ylt:#FFFDE8;
 }
-.app-shell {
-  display: grid;
-  grid-template-columns: 420px 1fr;
-  height: 100vh;
-  overflow: hidden;
-}
-.proto-panel {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background: #1a1a1a;
-  border-right: 2px solid #333;
-  overflow: hidden;
-}
-.proto-header {
-  flex-shrink: 0;
-  background: #0A0A0A;
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #333;
-}
-.proto-title {
-  font-size: 12px; font-weight: 800; color: #fff;
-  display: flex; align-items: center; gap: 8px;
-}
-.proto-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: #00D084; box-shadow: 0 0 6px rgba(0,208,132,.5);
-}
-.proto-sub { font-size: 10px; color: #555; margin-top: 2px; }
-.proto-badge {
-  font-size: 9px; font-weight: 700;
-  background: #0041FF; color: #fff;
-  padding: 2px 8px; border-radius: 10px;
-}
-.proto-frame {
-  flex: 1;
-  overflow: hidden;
-  background: #1a1a1a;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-.proto-frame iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-.sb-panel {
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: auto;
-  background: #fff;
-}
+
+/* flow 스타일 */
 
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -265,6 +223,104 @@ body{min-width:1400px;}
 .mcm{font-size:4px;color:#767676;line-height:1.5;margin-bottom:5px;}
 .mcbs{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
 
+
+/* 목업 스타일 */
+
+.mock-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;margin-right:20px;}
+.mock-label{font-size:9px;font-weight:700;color:var(--desc);text-align:center;margin-top:5px;}
+.mock-badge{font-size:8px;font-weight:800;padding:2px 8px;border-radius:3px;color:#fff;margin-bottom:5px;display:inline-block;}
+.ph{width:120px;background:#fff;border:1.5px solid var(--line2);border-radius:14px;padding:5px 4px 4px;box-shadow:0 3px 12px rgba(0,0,0,.09);}
+.ph-di{width:30px;height:8px;background:var(--blk);border-radius:5px;margin:0 auto 3px;}
+.ph-sc{background:var(--bg);border-radius:10px;overflow:hidden;}
+.msb{height:11px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 4px;font-size:5px;font-weight:800;}
+.mhd{background:#fff;padding:3px 4px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;}
+.mht{font-size:8px;font-weight:900;color:var(--blk);}
+.mht s{color:var(--blue);text-decoration:none;}
+.mbt{margin:2px 3px;background:#fff;border-radius:3px;border:1px solid #eee;padding:3px 4px;font-size:6px;font-weight:800;}
+.mtabs{display:flex;background:#fff;border-bottom:1px solid #eee;}
+.mtab{flex:1;padding:3px 0;text-align:center;font-size:5px;font-weight:600;color:#aaa;border-bottom:1.5px solid transparent;}
+.mtab.on{color:var(--blue);border-bottom-color:var(--blue);font-weight:800;}
+.mch{display:flex;gap:2px;padding:2px 3px;background:#fff;border-bottom:1px solid #eee;}
+.mchp{font-size:4px;font-weight:700;padding:1px 4px;border-radius:50px;border:1px solid #eee;color:#767676;}
+.mchp.on{background:var(--blue);border-color:var(--blue);color:#fff;}
+.msum{margin:2px 3px;background:#fff;border-radius:3px;border:1px solid #eee;padding:3px;}
+.msum-g{display:grid;grid-template-columns:repeat(4,1fr);}
+.msv{text-align:center;font-size:4px;color:#aaa;}
+.msv .v{font-size:6px;font-weight:900;display:block;}
+.mdh{background:var(--blk);color:#fff;padding:3px 3px;margin:2px 2px 0;border-radius:3px 3px 0 0;font-size:5px;font-weight:700;display:flex;justify-content:space-between;}
+.mcard{background:#fff;margin:0 2px 2px;border-radius:0 0 4px 4px;border:1px solid #eee;border-top:none;padding:3px;}
+.mcr{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;}
+.mtg{width:13px;height:7px;border-radius:4px;background:var(--blue);position:relative;}
+.mtg::after{content:"";position:absolute;right:1px;top:1px;width:5px;height:5px;border-radius:50%;background:#fff;}
+.mtg.off{background:#ccc;}.mtg.off::after{right:auto;left:1px;}
+.mbdg{font-size:4px;font-weight:700;padding:1px 2px;border-radius:2px;}
+.mbdg.bl{background:#EBF0FF;color:var(--blue);}
+.mbdg.rd{background:var(--rlt);color:var(--red);}
+.mbdg.or{background:var(--olt);color:var(--orange);}
+.mpg{height:1.5px;background:#f0f0f0;border-radius:1px;margin:2px 0;}
+.mbrow{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #eee;}
+.mbb{padding:3px 0;text-align:center;font-size:4px;font-weight:700;color:var(--blk);}
+.mbb.bl{color:var(--blue);}
+.mb2r{display:flex;justify-content:space-around;padding:2px 0;}
+.mb2{font-size:4px;color:#aaa;}.mb2.rd{color:var(--red);}
+.mnav{height:20px;background:#fff;border-top:1px solid #eee;display:flex;}
+.mni{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.mni span{font-size:4px;color:#ccc;}.mni.on span{color:var(--blue);font-weight:800;}
+.movbg{background:rgba(0,0,0,.35);padding-top:4px;}
+.mmd{background:#fff;border-radius:4px 4px 0 0;}
+.mmh{display:flex;align-items:center;justify-content:space-between;padding:4px 5px;border-bottom:1px solid #eee;}
+.mmtt{font-size:7px;font-weight:800;color:var(--blk);}
+.mmss{font-size:4px;color:#aaa;margin-top:1px;}
+.mm2{padding:3px 5px;}
+.mmr{margin-bottom:3px;}
+.mml{font-size:4px;font-weight:700;color:#767676;margin-bottom:1px;}
+.minp{width:100%;border:1px solid #eee;border-radius:2px;padding:2px 3px;font-size:5px;background:#fff;color:var(--blk);}
+.mmf{display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:3px 5px 4px;border-top:1px solid #eee;}
+.mct{padding:4px;border-radius:3px;text-align:center;font-size:6px;font-weight:700;}
+.mct.pri{background:var(--blue);color:#fff;}
+.mct.line{border:1.5px solid #eee;color:#767676;}
+.mct.red{background:var(--red);color:#fff;}
+.mwb{background:#FFFBEB;padding:2px 4px;font-size:4px;color:#7A6000;line-height:1.3;}
+.mmc{margin:2px 3px;background:#fff;border-radius:3px;border:1px solid #eee;padding:3px 4px;}
+.mmn{font-size:6px;font-weight:800;color:var(--blk);margin-bottom:1px;}
+.mmmm{font-size:4px;color:#aaa;margin-bottom:2px;line-height:1.3;}
+.mmbs{display:flex;gap:2px;}
+.mmbtn{font-size:4px;font-weight:700;padding:1px 4px;border-radius:2px;}
+.mmbtn.out{border:1px solid #eee;color:#767676;}
+.mmbtn.rd{color:var(--red);border:1px solid #FFCDD2;background:var(--rlt);}
+.mib{margin:2px 3px;background:#EBF0FF;border-radius:3px;padding:3px 4px;}
+.mib .t{font-size:5px;font-weight:800;color:var(--blue);margin-bottom:1px;}
+.mib .d{font-size:4px;color:#3361CC;line-height:1.3;}
+.madd{text-align:right;padding:2px 3px;}
+.madd span{display:inline-block;background:var(--blue);color:#fff;font-size:4px;font-weight:700;padding:2px 4px;border-radius:2px;}
+.mcap{display:flex;align-items:center;border:1px solid #eee;border-radius:3px;overflow:hidden;margin:2px 0;}
+.mcapb{width:14px;height:14px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:#767676;}
+.mcapv{flex:1;text-align:center;font-size:10px;font-weight:900;}
+.mqs{display:flex;gap:1px;margin-bottom:2px;}
+.mqb{flex:1;text-align:center;border:1px solid #eee;border-radius:2px;padding:2px 0;font-size:4px;font-weight:700;color:#767676;}
+.mqb.rd{border-color:#FFCDD2;color:var(--red);}
+.mstg{display:grid;grid-template-columns:repeat(4,1fr);background:#f9f9f9;border-radius:3px;padding:3px 0;margin-bottom:3px;}
+.mstc{text-align:center;font-size:4px;}.mstc .sv{font-size:7px;font-weight:800;display:block;}
+.mplat{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:3px;}
+.mplc{padding:3px;text-align:center;border:1px solid #eee;border-radius:2px;font-size:4px;font-weight:700;color:#767676;}
+.mplc.on{border-color:var(--blk);background:var(--blk);color:#fff;}
+.mfsh{display:flex;flex-wrap:wrap;gap:1px;margin-bottom:2px;}
+.mfs{font-size:4px;padding:1px 3px;border-radius:50px;border:1px solid #eee;color:#aaa;}
+.mfs.on{border-color:var(--blue);background:#EBF0FF;color:var(--blue);font-weight:700;}
+.mwk{display:flex;gap:1px;margin-bottom:2px;}
+.mwkb{font-size:4px;font-weight:700;padding:1px 2px;border-radius:2px;border:1px solid #eee;color:#767676;}
+.mwkb.on{border-color:var(--blue);background:#EBF0FF;color:var(--blue);}
+.mcov{background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;padding:8px 5px;}
+.mcf{background:#fff;border-radius:6px;padding:8px;width:100%;}
+.mct2{font-size:7px;font-weight:800;color:var(--blk);margin-bottom:3px;}
+.mcm{font-size:4px;color:#767676;line-height:1.5;margin-bottom:5px;}
+.mcbs{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+
+
+/* storyboard 추가 스타일 */
+.sb-badge{font-size:9px;font-weight:800;padding:3px 10px;border-radius:4px;color:#fff;}
+.sb-title{font-size:14px;font-weight:900;color:var(--blk);letter-spacing:-.4px;margin-bottom:3px;}
+.sb-desc{font-size:12px;color:var(--desc);line-height:1.6;}
 </style>
 </head>
 <body>
@@ -272,17 +328,13 @@ body{min-width:1400px;}
   <div class="proto-panel">
     <div class="proto-header">
       <div>
-        <div class="proto-title">
-          <div class="proto-dot"></div>
-          선주앱 프로토타입
-        </div>
+        <div class="proto-title"><div class="proto-dot"></div>선주앱 프로토타입</div>
         <div class="proto-sub">captain-app-aboutfishing · 인터랙티브</div>
       </div>
       <div class="proto-badge">LIVE</div>
     </div>
     <div class="proto-frame">
-      <iframe
-        srcdoc="<!DOCTYPE html>
+      <iframe srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;>
@@ -2646,14 +2698,27 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
 </script>
 </body>
 </html>
-"
-        title="어바웃피싱 선주앱 프로토타입"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-modals"
-      ></iframe>
+" title="어바웃피싱 선주앱 프로토타입"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-modals"></iframe>
     </div>
   </div>
-  <div class="sb-panel">
 
+  <div class="sb-panel">
+    <!-- 문서 헤더 -->
+    <div style="padding:22px 48px 18px;border-bottom:2.5px solid var(--blk);display:flex;align-items:flex-end;justify-content:space-between;">
+      <div>
+        <div style="font-size:10px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;">어바웃피싱 선주앱 · 기획파트</div>
+        <div style="font-size:22px;font-weight:900;color:var(--blk);letter-spacing:-1px;line-height:1.2;">상품관리 탭 기획 스토리보드</div>
+        <div style="font-size:11px;color:var(--desc);margin-top:5px;">① 화면 플로우 · ② 화면별 상세 기능 명세 · ③ 알림 레퍼런스</div>
+      </div>
+      <div style="font-size:10px;color:var(--dim);text-align:right;line-height:2.2;">v4.0 · 2026.03 · 기획파트</div>
+    </div>
+
+    <div style="background:var(--blk);padding:14px 48px;position:sticky;top:0;z-index:500;">
+  <div style="font-size:12px;font-weight:900;color:#fff;letter-spacing:-.2px;">① 화면 플로우 — 실제 화면·모달·팝업 전체 배치</div>
+  <div style="font-size:10px;color:rgba(255,255,255,.45);margin-top:1px;">S1~S4 · M1~M7 · 진입/전환 경로 · 클릭 액션</div>
+</div>
+    
 
 <div class="hd">
 <div class="hd-l">
@@ -2750,340 +2815,724 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="12" height="10"><polygon points="3,0 9,0 6,10" fill="#888"/></svg>
     </div>
   </div>
-</div></div></div><div class="sec-div"></div><div class="phase-hd"><div class="pnum">2</div><div><div class="pttl">일자별상품 탭 &amp; 출조종류 탭 — 카드 액션 플로우</div><div class="psub">카드 버튼 클릭 → 모달 전환 · 자동 처리 · 알림 발생</div></div></div><div style="padding:0 36px;display:grid;grid-template-columns:1fr 1fr;gap:0;"><div style="border-right:2px dashed var(--line);padding-right:32px;"><div style="font-size:11px;font-weight:800;color:var(--bl);margin-bottom:10px;padding:4px 10px;background:var(--blt);border-radius:5px;display:inline-block;">일자별상품 탭 (S2) 액션 플로우</div><div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;"><div class="sc">
-<div class="sc-badge" style="background:var(--bl);">S2</div>
-<div class="phone" style="width:140px;">
-<div class="phone-di"></div>
-<div class="phone-sc">
-<div class="msb">9:41 <span>🔋</span></div>
-<div class="mhd"><div class="mht">상품관리.</div></div>
+</div></div></div>
+
+    <div style="background:var(--blk);padding:14px 48px;position:sticky;top:0;z-index:500;">
+  <div style="font-size:12px;font-weight:900;color:#fff;letter-spacing:-.2px;">② 화면별 상세 기능 명세</div>
+  <div style="font-size:10px;color:rgba(255,255,255,.45);margin-top:1px;">각 UI 요소의 동작 조건 · 상세 설명 · 알림 발생 — 해당 화면/모달 UI 포함</div>
+</div>
+    <div style="display:flex;align-items:center;gap:12px;padding:24px 48px 16px;border-bottom:1.5px solid var(--blk);">
+  <div style="width:28px;height:28px;border-radius:50%;background:var(--blk);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">S1</div>
+  <div><div style="font-size:15px;font-weight:900;color:var(--blk);letter-spacing:-.4px;">상품관리 메인 — 진입 & 선박 선택</div><div style="font-size:11px;color:var(--desc);">하단 탭바 3번째 탭. 기본 탭: 일자별상품.</div></div>
+</div>
+<div style="padding:24px 48px;border-bottom:1px solid var(--line);">
+  <div style="display:flex;align-items:flex-start;gap:0;margin-bottom:14px;">
+    <span class="sb-badge" style="background:var(--blk);margin-right:12px;margin-top:3px;">S1</span>
+    <div>
+      <div class="sb-title">상품관리 메인 화면</div>
+      <div class="sb-desc">하단 탭바 '상품관리' 탭 진입 시 최초 로드. AppHeader + 선박 드롭다운 + 탭(일자별/출조종류)으로 구성.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:20px;">
+    <div class="mock-wrap">
+  <span class="mock-badge" style="background:var(--blk);">S1</span>
+  <div class="ph"><div class="ph-di"></div><div class="ph-sc"><div class="msb">9:41</div>
+<div class="mhd"><div class="mht">상품관리<s>.</s></div></div>
+<div class="mbt">왕감자호 ▼</div>
+<div class="mtabs"><div class="mtab on">일자별상품</div><div class="mtab">출조종류</div></div>
+<div style="height:55px;background:var(--bg);"></div>
+<div class="mnav"><div class="mni"><span>홈</span></div><div class="mni on"><span>상품관리</span></div><div class="mni"><span>조황</span></div></div></div></div>
+  <div class="mock-label">상품관리 메인</div>
+</div>
+    <div style="flex:1;min-width:0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;">
+<tr style="background:var(--blk);"><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:90px;">UI 요소</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:100px;">조건·트리거</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;">상세 동작 설명</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:110px;">알림 발생</th></tr>
+<tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">하단 탭바</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">탭 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>ProductListScreen으로 전환. <b>기본 탭: 일자별상품 탭</b>이 항상 활성화된 상태로 진입.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>재진입(다른 탭 갔다가 돌아올 때) 이전 탭·스크롤 위치 유지.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">선박 드롭다운</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">드롭다운 탭 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>로그인 선주의 등록된 선박 전체 목록이 펼쳐짐. 기본 선택: 첫 번째 선박(boat_idx 오름차순).</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>선박 0대인 경우: 드롭다운 대신 '등록된 선박이 없습니다' 안내 + 등록 유도 버튼. <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">선박 항목 선택</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">목록에서 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>선택된 선박의 <span style="background:var(--blue-lt);color:var(--blue);padding:0 3px;border-radius:2px;font-weight:700;">boat_idx</span> 기준으로 일자별상품·출조종류·예약 데이터 재필터링.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>선박 변경 시 날짜 필터(선택된 날짜 칩) 초기화. 현재 탭(일자별/출조종류)은 유지.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">reserve_sell_state</span> 선박 정보와 함께 로드 필요 (1=수기확정, 2=자동확정). <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:var(--rlt);color:var(--red);margin-left:2px;">[DB] 현재 미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">일자별상품 탭</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">탭 텍스트 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>S2 일자별상품 탭으로 전환. 파란색 2.5px 하단 언더라인 + 폰트 800 활성 표시.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">출조종류 탭</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">탭 텍스트 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>S4 출조종류 관리 탭으로 전환. 두 탭 간 데이터 공유 — 출조종류 등록 시 일자별 탭에 즉시 반영.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr>
+</table></div>
+  </div>
+</div><div style="display:flex;align-items:center;gap:12px;padding:24px 48px 16px;border-bottom:1.5px solid var(--blk);">
+  <div style="width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">S2-A</div>
+  <div><div style="font-size:15px;font-weight:900;color:var(--blk);letter-spacing:-.4px;">일자별상품 탭 — 날짜 필터 & 현황 요약</div><div style="font-size:11px;color:var(--desc);">월 네비게이션 · 날짜 칩 · 현황 패널 연동.</div></div>
+</div>
+<div style="padding:24px 48px;border-bottom:1px solid var(--line);">
+  <div style="display:flex;align-items:flex-start;gap:0;margin-bottom:14px;">
+    <span class="sb-badge" style="background:var(--blue);margin-right:12px;margin-top:3px;">S2-A</span>
+    <div>
+      <div class="sb-title">날짜 필터 & 현황 요약 패널</div>
+      <div class="sb-desc">화면 상단 월 네비게이션 + 날짜 칩 필터 + 현황 요약 패널. 날짜 선택에 따라 카드와 현황이 실시간 연동됨.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:20px;">
+    <div class="mock-wrap">
+  <span class="mock-badge" style="background:var(--blue);">S2-A</span>
+  <div class="ph"><div class="ph-di"></div><div class="ph-sc"><div class="msb">9:41</div>
+<div class="mhd"><div class="mht">상품관리<s>.</s></div></div>
 <div class="mbt">왕감자호</div>
 <div class="mtabs"><div class="mtab on">일자별상품</div><div class="mtab">출조종류</div></div>
 <div style="display:flex;justify-content:space-between;align-items:center;padding:2px 4px;background:#fff;border-bottom:1px solid #eee;font-size:5px;font-weight:800;"><span style="font-size:8px;color:#ccc;">‹</span><span>2026년 2월</span><span style="font-size:8px;color:#ccc;">›</span></div>
-<div class="mch"><div class="mc on">전체</div><div class="mc" style="padding:1px 3px;"><div style="font-size:3px;color:#aaa;text-align:center;">토</div><div style="font-size:6px;font-weight:900;text-align:center;">28</div></div></div>
-<div class="msum"><div style="font-size:3px;color:#aaa;margin-bottom:1px;">2026.02.28 현황</div><div style="display:grid;grid-template-columns:repeat(4,1fr);font-size:5px;text-align:center;"><div><div style="font-size:3px;color:#aaa;">노출</div><b style="color:var(--bl);">3</b></div><div><div style="font-size:3px;color:#aaa;">숨김</div><b>0</b></div><div><div style="font-size:3px;color:#aaa;">예약</div><b>14명</b></div><div><div style="font-size:3px;color:#aaa;">잔여</div><b style="color:var(--green);">14/37</b></div></div></div>
+<div class="mch"><div class="mchp">전체</div><div class="mchp on" style="padding:1px 3px;"><div style="font-size:3px;text-align:center;">토</div><div style="font-size:6px;font-weight:900;text-align:center;">28</div></div><div class="mchp" style="padding:1px 3px;"><div style="font-size:3px;text-align:center;">일</div><div style="font-size:6px;font-weight:900;text-align:center;">29</div></div></div>
+<div class="msum"><div style="font-size:3px;color:#aaa;margin-bottom:1px;">2026.02.28 현황</div><div class="msum-g"><div class="msv"><span class="v" style="color:var(--blue);">3</span>노출</div><div class="msv"><span class="v" style="color:#aaa;">1</span>숨김</div><div class="msv"><span class="v">14명</span>예약</div><div class="msv"><span class="v" style="color:var(--green);">14/37</span>잔여</div></div></div>
+<div style="height:25px;background:var(--bg);"></div></div></div>
+  <div class="mock-label">날짜 필터 & 현황</div>
+</div>
+    <div style="flex:1;min-width:0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;">
+<tr style="background:var(--blk);"><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:90px;">UI 요소</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:100px;">조건·트리거</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;">상세 동작 설명</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:110px;">알림 발생</th></tr>
+<tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">‹ 이전월 버튼</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>현재 월을 1개월 이전으로 이동.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>이동 후 해당 월에 bpi가 있는 날짜만 칩으로 재렌더링. '전체' 칩이 기본 선택 상태로 초기화.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>해당 월에 상품 없으면 칩 영역 비어있음 + 카드 영역에 빈 상태 메시지.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">월 텍스트 클릭</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">예: '2026년 2월' 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>오늘 날짜가 속한 월로 즉시 리셋.</b> 날짜 칩 선택도 해제 → '전체' 상태 복귀.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">날짜 칩<br>(예: 28)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">미선택 칩 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>해당 날짜의 bpi 상품만 카드 영역에 노출.</b> 해당 날짜에 상품이 없는 날짜 칩은 표시되지 않음.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>현황 요약 패널도 선택된 날짜 기준으로 재계산.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>칩 가로 스크롤. 한 번에 여러 칩 노출.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">날짜 칩</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">이미 선택된 칩 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>선택 해제 → '전체' 상태로 복귀. 해당 월 전체 상품이 다시 표시됨.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">현황 요약 패널</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">날짜 선택·상태 변경 시<br>자동 갱신</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>노출:</b> bpi_is_display=true인 상품 수.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>숨김:</b> bpi_is_display=false인 상품 수. (숨김 카드도 선주 화면에는 계속 표시됨.)</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>총 예약:</b> 유효 예약(예약완료·이용완료·입금대기) 인원 합계.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>잔여:</b> (전체 판매석 - 예약 인원) / 전체 판매석. 예: 14/37.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>노출 토글·인원조정·예약추가 등 상태 변경 즉시 실시간 반영.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">sold 현재 하드코딩</span> → 실제는 RESERVATIONS 유효 상태 인원 합계로 동적 계산 필요. <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:var(--rlt);color:var(--red);margin-left:2px;">[DB] 불일치</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr>
+</table></div>
+  </div>
+</div><div style="display:flex;align-items:center;gap:12px;padding:24px 48px 16px;border-bottom:1.5px solid var(--blk);">
+  <div style="width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">S2-B</div>
+  <div><div style="font-size:15px;font-weight:900;color:var(--blk);letter-spacing:-.4px;">일자별상품 탭 — 날짜 그룹 & 상품 카드</div><div style="font-size:11px;color:var(--desc);">각 카드에서 6가지 액션 버튼 제공.</div></div>
+</div>
+<div style="padding:24px 48px;border-bottom:1px solid var(--line);">
+  <div style="display:flex;align-items:flex-start;gap:0;margin-bottom:14px;">
+    <span class="sb-badge" style="background:var(--blue);margin-right:12px;margin-top:3px;">S2-B</span>
+    <div>
+      <div class="sb-title">날짜 그룹 & 상품 카드</div>
+      <div class="sb-desc">날짜별로 그룹화된 상품 카드. 각 그룹은 날짜 헤더(검정 바) + 소속 상품 카드로 구성. 카드당 인원조정·예약추가·예약명단·개별수정·즉시마감·노출토글 6가지 액션.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:20px;">
+    <div class="mock-wrap">
+  <span class="mock-badge" style="background:var(--blue);">S2-B</span>
+  <div class="ph"><div class="ph-di"></div><div class="ph-sc"><div class="msb">9:41</div>
+<div class="mhd"><div class="mht">상품관리<s>.</s></div></div>
+<div class="mbt">왕감자호</div>
+<div class="mtabs"><div class="mtab on">일자별상품</div><div class="mtab">출조종류</div></div>
 <div class="mdh"><span>2026.02.28(토) · 3개</span></div>
 <div class="mcard">
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;"><div style="display:flex;align-items:center;gap:2px;"><div class="mtg"></div><div class="mbdg bl">노출중</div><div class="mbdg or">주말</div></div><div class="mbdg rd">매진</div></div>
-<div style="font-size:3px;color:#aaa;margin-bottom:1px;"><span style="background:#f5f5f5;padding:1px 2px;border-radius:1px;">출조종류: 갑오징어/주꾸미</span></div>
-<div style="display:flex;justify-content:space-between;margin-bottom:1px;"><div style="font-size:6px;font-weight:800;">갑오징어/주꾸미</div><div style="font-size:6px;font-weight:900;color:var(--bl);">94,000</div></div>
-<div style="font-size:3px;color:#aaa;margin-bottom:2px;">05:00~15:30 · 당일 · 소인70,000</div>
-<div class="mpg"><div style="height:100%;width:100%;background:var(--red);border-radius:1px;"></div></div>
-<div class="mbrow"><div class="mbb">인원조정</div><div class="mbb bl" style="border-left:1px solid #eee;border-right:1px solid #eee;">예약추가</div><div class="mbb">예약명단</div></div>
-<div class="mb2r"><span>개별수정</span><span class="rd">즉시마감</span></div>
+  <div class="mcr"><div style="display:flex;align-items:center;gap:2px;"><div class="mtg"></div><div class="mbdg bl">노출중</div><div class="mbdg or">주말</div></div><div class="mbdg rd">매진</div></div>
+  <div style="font-size:3px;color:#aaa;margin-bottom:1px;"><span style="background:#f5f5f5;padding:1px 2px;border-radius:1px;font-size:3px;">출조종류: 갑오징어/주꾸미</span></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:1px;"><div style="font-size:6px;font-weight:800;">갑오징어/주꾸미</div><div style="font-size:6px;font-weight:900;color:var(--blue);">94,000</div></div>
+  <div style="font-size:3px;color:#aaa;margin-bottom:2px;">05:00~15:30 · 당일 · 소인70,000</div>
+  <div class="mpg"><div style="height:100%;width:100%;background:var(--red);border-radius:1px;"></div></div>
+  <div class="mbrow"><div class="mbb">인원조정</div><div class="mbb bl" style="border-left:1px solid #eee;border-right:1px solid #eee;">예약추가</div><div class="mbb">예약명단</div></div>
+  <div class="mb2r"><span>개별수정</span><span class="rd">즉시마감</span></div>
 </div>
-<div class="mnav"><div class="mni on"><span>상품관리</span></div></div></div>
+<div style="height:14px;background:var(--bg);"></div></div></div>
+  <div class="mock-label">상품 카드뷰</div>
 </div>
-<div class="sc-lbl">일자별상품 카드뷰</div>
-</div><div style="margin-top:24px;font-size:10px;color:var(--desc);line-height:1.8;max-width:240px;">
-<b style="color:var(--blk);">S2 카드뷰 정책</b><br>
-· 날짜 칩: 상품 있는 날짜만 표시<br>
-· 현황 요약: 노출/숨김/예약/잔여 실시간<br>
-· <span style="color:var(--red);font-weight:700;">[DB]</span> sold = RESERVATIONS 동적 계산<br>
-· 매진: bpiQty-sold=0 시 뱃지 자동 노출<br>
-· 주말요금 뱃지: 토·일 + is_weekend_rate=true
-</div></div><div style="width:1.5px;height:20px;background:var(--line2);margin-left:69px;margin-bottom:4px;"></div><div class="action-row" style="margin-bottom:12px;align-items:flex-start;">
-<div class="action-btn blue" style="margin-top:4px;">① 노출 토글</div>
-<div style="display:flex;flex-direction:column;align-items:center;margin:0 4px;margin-top:6px;">
-<svg width="40" height="12"><line x1="2" y1="6" x2="30" y2="6" stroke="var(--bl)" stroke-width="1.5"/><polygon points="30,3 38,6 30,9" fill="var(--bl)"/></svg>
+    <div style="flex:1;min-width:0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;">
+<tr style="background:var(--blk);"><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:90px;">UI 요소</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:100px;">조건·트리거</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;">상세 동작 설명</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:110px;">알림 발생</th></tr>
+<tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">날짜 그룹 헤더<br>(검정 바)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>해당 날짜 그룹의 카드 목록 <b>접기/펼치기 토글.</b></span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>기본 상태: 모든 그룹 펼침. 날짜 칩으로 특정 날짜 선택 시 해당 그룹 자동 펼침.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>헤더에 날짜·요일·상품 수·노출 상품 수·예약/판매 현황 표시.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">노출 토글<br>(카드 상단 좌)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">토글 스위치 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>ON(파랑)→OFF(회색):</b> bpi_is_display=false. 고객 앱에서 상품 미노출. 단 <b>선주 화면에는 숨김 카드도 계속 표시</b> (관리 목적).</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>OFF→ON:</b> bpi_is_display=true. 즉시 고객 앱 노출.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>낙관적 업데이트: UI 즉시 변경 → API PATCH 호출 → 실패 시 롤백.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>변경 즉시 현황 요약 패널 노출/숨김 수 재계산.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><span style="background:var(--olt);color:var(--orange);padding:0 3px;border-radius:2px;font-weight:700;">예약이 있는 상품을 OFF할 때</span>: C03 Confirm 표시 필요. <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">T 01</span><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;margin:1px 1px;">C 03</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">즉시마감<br>(카드 하단 우)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">버튼 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>비가역 작업.</b> 클릭 시 먼저 C02 Confirm 표시 필요. <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">현재 Confirm 없이 바로 처리</span></span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>확인 시: bpi_qty = 현재 sold → 잔여석 0 → 매진 배지 자동 노출.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>원복 방법: M1 인원조정으로만 가능.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;margin:1px 1px;">C 02</span><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">T 02</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">매진 배지<br>(카드 상단 우)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">자동 표시/소멸</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>bpi_qty - sold = 0 일 때 자동 노출. 선주가 수동 설정·해제하는 것이 아님.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>인원 조정으로 qty 늘리거나 예약 취소로 sold 줄면 자동 소멸.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">주말요금 배지</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">자동 표시</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>bpi_is_weekend_rate=true 이고 해당 상품 날짜가 <b>토·일요일</b>인 경우에만 표시.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">예약 현황 바</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">자동 갱신</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>sold / bpi_qty 비율로 채워짐. <b>0~69%: 파랑</b> / <b>70~99%: 주황</b> / <b>100%: 빨강.</b></span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>width에 CSS transition 0.3s 적용. 인원조정·예약추가·취소 후 즉시 갱신.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr>
+</table></div>
+  </div>
+</div><div style="display:flex;align-items:center;gap:12px;padding:24px 48px 16px;border-bottom:1.5px solid var(--blk);">
+  <div style="width:28px;height:28px;border-radius:50%;background:#7C3AED;color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">M1</div>
+  <div><div style="font-size:15px;font-weight:900;color:var(--blk);letter-spacing:-.4px;">인원조정 모달 — CapacityModal</div><div style="font-size:11px;color:var(--desc);">판매 좌석 수(bpi_qty) 조정. 결제 완료 예약 인원 수 미만으로 줄일 수 없음.</div></div>
 </div>
-<div class="auto-node" style="width:140px;">
-<div style="font-size:9px;font-weight:800;color:var(--green);margin-bottom:3px;">⚙ 즉시 상태 변경</div>
-<div style="font-size:9px;color:var(--desc);line-height:1.4;">bpi_is_display 반전<br>현황 요약 즉시 갱신<br>낙관적 업데이트</div>
-<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:3px;"><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;">T 01</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;">C 03</span></div>
-</div>
-</div><div class="action-row" style="margin-bottom:12px;align-items:flex-start;">
-<div class="action-btn red" style="margin-top:4px;">② 즉시마감</div>
-<div style="display:flex;flex-direction:column;align-items:center;margin:0 4px;margin-top:6px;">
-<svg width="40" height="12"><line x1="2" y1="6" x2="30" y2="6" stroke="var(--red)" stroke-width="1.5"/><polygon points="30,3 38,6 30,9" fill="var(--red)"/></svg>
-</div>
-<div style="display:flex;align-items:center;gap:4px;">
-<div class="confirm-node" style="width:100px;">⚠️ C02 Confirm<br><span style="font-size:8px;">"잔여 N석 폐기하고<br>마감합니다"</span></div>
-<svg width="20" height="12"><line x1="2" y1="6" x2="12" y2="6" stroke="var(--red)" stroke-width="1.5"/><polygon points="12,3 18,6 12,9" fill="var(--red)"/></svg>
-<div class="auto-node" style="width:90px;">bpiQty=sold<br>매진 자동<span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;">T 02</span></div>
-</div>
-</div><div class="action-row" style="margin-bottom:12px;align-items:flex-start;">
-<div class="action-btn blue" style="margin-top:4px;">③ 인원조정</div>
-<div style="display:flex;flex-direction:column;align-items:center;margin:0 4px;margin-top:6px;">
-<svg width="40" height="12"><line x1="2" y1="6" x2="30" y2="6" stroke="var(--bl)" stroke-width="1.5"/><polygon points="30,3 38,6 30,9" fill="var(--bl)"/></svg>
-</div>
-<div class="modal-card">
-<div class="mc-header">
-<div class="mc-badge" style="background:#6D28D9;">M1 · CapacityModal</div>
-<div class="mc-title">인원 조정</div>
-<div class="mc-desc">± 버튼 · 퀵(+1/2/3/5) · 마감 · 통계</div>
-</div>
-<div class="phone" style="width:110px;margin:6px auto 0;"><div class="phone-di" style="width:28px;height:7px;"></div><div class="phone-sc">
-<div class="msb" style="height:9px;font-size:4px;"></div>
-<div style="height:12px;background:var(--bg);"></div>
+<div style="padding:24px 48px;border-bottom:1px solid var(--line);">
+  <div style="display:flex;align-items:flex-start;gap:0;margin-bottom:14px;">
+    <span class="sb-badge" style="background:#7C3AED;margin-right:12px;margin-top:3px;">M1</span>
+    <div>
+      <div class="sb-title">인원조정 모달 — CapacityModal</div>
+      <div class="sb-desc">카드 '인원조정' 버튼 클릭 시 바텀 시트 형태로 오픈. bpi_qty 조정 + 실시간 통계 확인.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:20px;">
+    <div class="mock-wrap">
+  <span class="mock-badge" style="background:#7C3AED;">M1</span>
+  <div class="ph"><div class="ph-di"></div><div class="ph-sc"><div style="height:12px;background:var(--bg);"></div>
 <div class="movbg"><div class="mmd">
-<div class="mmh"><div><div class="mmtt">인원 조정</div></div><span style="font-size:7px;color:#aaa;">✕</span></div>
-<div class="mb2body" style="padding:4px;">
-<div style="font-size:4px;color:#767676;margin-bottom:2px;">예약 <b style="color:var(--bl);">5명</b> (결제완료 3명)</div>
-<div class="mcap"><div class="mcapb">−</div><div class="mcapv">11</div><div class="mcapb">+</div></div>
-<div class="mqs"><div class="mqb">+1</div><div class="mqb">+2</div><div class="mqb">+3</div><div class="mqb">+5</div><div class="mqb rd">마감</div></div>
-<div class="mstg"><div class="mstc">총정원<span class="sv">11명</span></div><div class="mstc">예약<span class="sv" style="color:var(--bl);">5명</span></div><div class="mstc">잔여<span class="sv" style="color:var(--green);">6석</span></div><div class="mstc">점유<span class="sv">45%</span></div></div>
+<div class="mmh"><div class="mmtt">인원 조정</div><span style="font-size:7px;color:#aaa;">✕</span></div>
+<div class="mm2" style="padding:4px;">
+  <div style="font-size:4px;color:#767676;margin-bottom:2px;">예약 <b style="color:var(--blue);">5명</b> (결제완료 3명)</div>
+  <div class="mcap"><div class="mcapb">−</div><div class="mcapv">11</div><div class="mcapb">+</div></div>
+  <div class="mqs"><div class="mqb">+1</div><div class="mqb">+2</div><div class="mqb">+3</div><div class="mqb">+5</div><div class="mqb rd">마감</div></div>
+  <div class="mstg"><div class="mstc">총정원<span class="sv">11명</span></div><div class="mstc">예약<span class="sv" style="color:var(--blue);">5명</span></div><div class="mstc">잔여<span class="sv" style="color:var(--green);">6석</span></div><div class="mstc">점유<span class="sv">45%</span></div></div>
 </div>
 <div class="mmf"><div class="mct line">취소</div><div class="mct pri">저장</div></div>
 </div></div>
 <div style="height:14px;background:#fff;border-top:1px solid #eee;"></div></div></div>
-<div class="mc-body"><div class="mc-spec"><b>최솟값 = 결제완료 인원</b> <span class="tag tw">[핵심]</span><br>status∈{예약완료·이용완료·입금대기} 합계. 취소완료 제외.<br>직접 숫자 입력 시에도 저장 시 검증.</div></div>
-<div class="mc-chips"><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;">C 04</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;">C 05</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;">A 06</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;">A 07</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;">T 03</span></div>
+  <div class="mock-label">인원조정</div>
 </div>
-</div><div class="action-row" style="margin-bottom:12px;align-items:flex-start;">
-<div class="action-btn blue" style="margin-top:4px;">④ 예약추가</div>
-<div style="display:flex;flex-direction:column;align-items:center;margin:0 4px;margin-top:6px;">
-<svg width="40" height="12"><line x1="2" y1="6" x2="30" y2="6" stroke="var(--bl)" stroke-width="1.5"/><polygon points="30,3 38,6 30,9" fill="var(--bl)"/></svg>
+    <div style="flex:1;min-width:0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;">
+<tr style="background:var(--blk);"><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:90px;">UI 요소</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:100px;">조건·트리거</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;">상세 동작 설명</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:110px;">알림 발생</th></tr>
+<tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">− 버튼</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>현재 qty를 1 감소. <b>최솟값 = 결제 완료된 예약 인원 수</b>(status가 예약완료·이용완료·입금대기인 건의 adults+kids 합계. 취소완료 제외).</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>최솟값 도달 시 − 버튼 비활성화. 클릭 시 <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">C04 Alert</span>: '결제가 완료된 예약 N명이 있어 N석 이하로 줄일 수 없습니다.' <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">Alert 미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;margin:1px 1px;">C 04</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">+ 버튼</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>현재 qty를 1 증가. 최댓값 제한 없음(서버에서 선박 정원 기준 검증).</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">퀵버튼<br>(+1/+2/+3/+5)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">버튼 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>현재 qty에 해당 수치 누적 추가. 활성 퀵버튼 파란 테두리 표시.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>+/- 버튼 클릭 시 퀵버튼 활성 해제.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">마감 버튼</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>qty를 현재 sold와 동일하게 설정 → 잔여석 0 → 저장 시 매진.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>잔여석 있는 상태(qty>sold)에서 클릭 시 <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">C05 Confirm</span>: '잔여 N석을 폐기하고 즉시 마감합니다.' <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>이미 마감 상태(qty=sold)에서 클릭 시 <span style="background:var(--olt);color:var(--orange);padding:0 3px;border-radius:2px;font-weight:700;">C06 Alert</span>: '이미 마감 상태입니다.' <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>저장 전까지는 취소 버튼으로 원복 가능.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;margin:1px 1px;">C 05</span><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">A 06</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">숫자 직접 입력</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">입력 후 저장</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>0 이하 입력 후 저장 시 <span style="background:var(--olt);color:var(--orange);padding:0 3px;border-radius:2px;font-weight:700;">C07 Alert</span>: '0석 이하는 설정할 수 없습니다.' <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>결제 완료 인원 미만 입력 후 저장 시 <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">C04 Alert</span>.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">A 07</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">통계 패널</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">qty 변경 시 자동</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>총정원</b>: 현재 qty / <b>예약</b>: 현재 sold / <b>잔여</b>: qty-sold (0이면 빨강) / <b>점유율</b>: sold/qty×100% (100%이면 빨강).</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">저장 버튼</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>변경된 qty로 bpi_qty 업데이트 후 모달 닫힘. 카드 예약 현황 바·수치·현황 요약 패널 즉시 갱신.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>스크롤 시에도 저장/취소 버튼은 모달 하단에 항상 고정.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">T 03</span></td>
+</tr>
+</table></div>
+  </div>
+</div><div style="display:flex;align-items:center;gap:12px;padding:24px 48px 16px;border-bottom:1.5px solid var(--blk);">
+  <div style="width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">M2</div>
+  <div><div style="font-size:15px;font-weight:900;color:var(--blk);letter-spacing:-.4px;">예약 직접 추가 — DirectReservationModal</div><div style="font-size:11px;color:var(--desc);">전화·카카오·현장 등 플랫폼 외 경로 예약을 선주가 직접 등록.</div></div>
 </div>
-<div class="modal-card">
-<div class="mc-header">
-<div class="mc-badge" style="background:#6D28D9;">M2 · DirectReservationModal</div>
-<div class="mc-title">예약 직접 추가</div>
-<div class="mc-desc">전화/카카오/현장 · 이름·연락처·상품·인원</div>
-</div>
-<div class="phone" style="width:110px;margin:6px auto 0;"><div class="phone-di" style="width:28px;height:7px;"></div><div class="phone-sc">
-<div style="height:10px;background:var(--bg);"></div>
+<div style="padding:24px 48px;border-bottom:1px solid var(--line);">
+  <div style="display:flex;align-items:flex-start;gap:0;margin-bottom:14px;">
+    <span class="sb-badge" style="background:var(--green);margin-right:12px;margin-top:3px;">M2</span>
+    <div>
+      <div class="sb-title">예약 직접 추가 — DirectReservationModal</div>
+      <div class="sb-desc">카드 '예약추가' 버튼 클릭 시 오픈. 클릭한 카드의 상품이 defaultProductId로 자동 선택된 상태 진입.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:20px;">
+    <div class="mock-wrap">
+  <span class="mock-badge" style="background:var(--green);">M2</span>
+  <div class="ph"><div class="ph-di"></div><div class="ph-sc"><div style="height:10px;background:var(--bg);"></div>
 <div class="movbg"><div class="mmd">
 <div class="mmh"><div><div class="mmtt">예약 직접 추가</div><div class="mmss">전화·현장·타플랫폼</div></div><span style="font-size:7px;color:#aaa;">✕</span></div>
-<div class="mb2body" style="padding:3px 5px;">
-<div class="mpl"><div class="mplc on">전화</div><div class="mplc">카카오</div><div class="mplc">현장</div></div>
-<div class="mmr"><div class="mml">이름 *</div><div class="minp" style="color:var(--blk);">홍길동</div></div>
-<div class="mmr"><div class="mml">연락처 *</div><div class="minp" style="color:var(--blk);">010-1234-5678</div></div>
-<div class="mmr"><div class="mml">상품 (자동선택됨)</div><div class="minp" style="color:var(--bl);font-size:4px;font-weight:700;">갑오징어/주꾸미 94,000원</div></div>
-<div class="mmr"><div class="mml">대인/소인</div><div style="display:flex;gap:2px;"><div class="minp" style="flex:1;">2</div><div class="minp" style="flex:1;">0</div></div></div>
+<div class="mm2" style="padding:3px 5px;">
+  <div class="mplat"><div class="mplc on">전화</div><div class="mplc">카카오</div><div class="mplc">현장</div></div>
+  <div class="mmr"><div class="mml">이름 *</div><div class="minp" style="color:var(--blk);">홍길동</div></div>
+  <div class="mmr"><div class="mml">연락처 *</div><div class="minp" style="color:var(--blk);">010-1234-5678</div></div>
+  <div class="mmr"><div class="mml">상품 (자동선택됨)</div><div class="minp" style="color:var(--blue);font-size:4px;font-weight:700;">갑오징어/주꾸미 94,000원</div></div>
+  <div class="mmr"><div class="mml">대인/소인</div><div style="display:flex;gap:2px;"><div class="minp" style="flex:1;">2</div><div class="minp" style="flex:1;">0</div></div></div>
 </div>
 <div class="mmf"><div class="mct line">취소</div><div class="mct pri">추가</div></div>
 </div></div>
 <div style="height:12px;background:#fff;border-top:1px solid #eee;"></div></div></div>
-<div class="mc-body"><div class="mc-spec"><b>reserve_sell_state 연동</b> <span class="tag tw">[DB]</span><br>수기확정(1)→예약대기, 자동확정(2)→예약완료<br>직접입금→입금대기 <span class="tag tt">현재 항상 예약완료</span></div></div>
-<div class="mc-chips"><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;">A 08</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;">A 09</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;">C 10</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;">T 04</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#F3EEFF;color:#6D28D9;border:1px solid #A5B4FC;white-space:nowrap;">P 01</span></div>
+  <div class="mock-label">예약추가</div>
 </div>
-</div><div class="action-row" style="margin-bottom:12px;align-items:flex-start;">
-<div class="action-btn gray" style="margin-top:4px;">⑤ 예약명단</div>
-<div style="display:flex;flex-direction:column;align-items:center;margin:0 4px;margin-top:6px;">
-<svg width="40" height="12"><line x1="2" y1="6" x2="30" y2="6" stroke="#888" stroke-width="1.5"/><polygon points="30,3 38,6 30,9" fill="#888"/></svg>
+    <div style="flex:1;min-width:0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;">
+<tr style="background:var(--blk);"><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:90px;">UI 요소</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:100px;">조건·트리거</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;">상세 동작 설명</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:110px;">알림 발생</th></tr>
+<tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">예약 경로 선택</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">탭 버튼 선택</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>필수 선택. <span style="background:var(--blue-lt);color:var(--blue);padding:0 3px;border-radius:2px;font-weight:700;">isManual=true</span>, <span style="background:var(--blue-lt);color:var(--blue);padding:0 3px;border-radius:2px;font-weight:700;">platform</span> 필드로 저장 → 예약명단에서 경로 배지로 구분 표시.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>직접입금 선택 시 예약 상태 '입금대기'로 자동 설정.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">상품 드롭다운</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">진입 시 자동/변경</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>카드에서 진입 시 <span style="background:var(--blue-lt);color:var(--blue);padding:0 3px;border-radius:2px;font-weight:700;">defaultProductId</span>로 자동 선택. 드롭다운으로 변경 가능(같은 선박 노출 중 상품만).</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>매진 상품(잔여=0)은 비활성. 선택 시도 시 <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">C08 Alert</span>: '판매가 마감된 상품입니다.' <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">A 08</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">이름·연락처</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">필수 입력</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>미입력 시 추가 버튼 클릭 시 해당 필드 하단 인라인 에러 + 빨간 테두리 + 포커스 이동.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">대인수·소인수</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">숫자 입력</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>대인+소인이 잔여석 초과 시 <span style="background:var(--olt);color:var(--orange);padding:0 3px;border-radius:2px;font-weight:700;">C09 Alert</span>: '잔여석(N석)보다 많은 인원입니다.' <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">A 09</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">추가 버튼</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>출조 당일</b> 상품이면 <span style="background:var(--olt);color:var(--orange);padding:0 3px;border-radius:2px;font-weight:700;">C10 Confirm</span>: '출항 당일 예약입니다. 계속 추가하시겠습니까?' <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>예약 상태 자동 설정: <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">reserve_sell_state</span> 기반 분기 필요. 자동확정(2)→예약완료, 수기확정(1)→예약대기, 직접입금→입금대기. <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:var(--rlt);color:var(--red);margin-left:2px;">[DB] 현재 항상 예약완료</span></span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>추가 완료: sold += (adults+kids) → 카드 프로그레스바 갱신 → 잔여=0 시 매진 배지 → 예약명단 카운트 증가.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;margin:1px 1px;">C 10</span><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">T 04</span><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#F3EEFF;color:#6D28D9;border:1px solid #A5B4FC;white-space:nowrap;margin:1px 1px;">P 01</span></td>
+</tr>
+</table></div>
+  </div>
+</div><div style="display:flex;align-items:center;gap:12px;padding:24px 48px 16px;border-bottom:1.5px solid var(--blk);">
+  <div style="width:28px;height:28px;border-radius:50%;background:#555;color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">M3</div>
+  <div><div style="font-size:15px;font-weight:900;color:var(--blk);letter-spacing:-.4px;">예약자 명단 — ReservationListModal</div><div style="font-size:11px;color:var(--desc);">카드 '예약명단(N)' 버튼 클릭 시 오픈. 해당 상품의 전체 예약 이력 조회.</div></div>
 </div>
-<div class="modal-card">
-<div class="mc-header">
-<div class="mc-badge" style="background:#6D28D9;">M3 · ReservationListModal</div>
-<div class="mc-title">예약자 명단</div>
-<div class="mc-desc">전체 표시(취소포함) · 연락처복사 · 명단복사</div>
-</div>
-<div class="phone" style="width:110px;margin:6px auto 0;"><div class="phone-di" style="width:28px;height:7px;"></div><div class="phone-sc">
-<div style="height:10px;background:var(--bg);"></div>
+<div style="padding:24px 48px;border-bottom:1px solid var(--line);">
+  <div style="display:flex;align-items:flex-start;gap:0;margin-bottom:14px;">
+    <span class="sb-badge" style="background:#555;margin-right:12px;margin-top:3px;">M3</span>
+    <div>
+      <div class="sb-title">예약자 명단 — ReservationListModal</div>
+      <div class="sb-desc">해당 상품(prodId) 기준 예약 전체 목록. 취소 건 포함 전체 이력 확인 가능.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:20px;">
+    <div class="mock-wrap">
+  <span class="mock-badge" style="background:#555;">M3</span>
+  <div class="ph"><div class="ph-di"></div><div class="ph-sc"><div style="height:10px;background:var(--bg);"></div>
 <div class="movbg"><div class="mmd">
 <div class="mmh"><div class="mmtt">예약자 명단</div><span style="font-size:7px;color:#aaa;">✕</span></div>
-<div class="mb2body" style="padding:4px;">
-<div style="padding-bottom:3px;border-bottom:1px solid #eee;margin-bottom:3px;"><div style="font-size:7px;font-weight:800;">갑오징어/주꾸미</div><div style="font-size:4px;color:#aaa;">2026.02.28 · 2건</div></div>
-<div style="padding-bottom:2px;border-bottom:1px solid #eee;margin-bottom:2px;"><div style="display:flex;justify-content:space-between;"><span style="font-size:6px;font-weight:800;">서현일</span><span class="mbdg bl">예약완료</span></div><div style="font-size:4px;color:#aaa;">대인2·188,000원</div></div>
-<div><div style="display:flex;justify-content:space-between;"><span style="font-size:6px;font-weight:800;">박지수</span><span class="mbdg or">입금대기</span></div><div style="font-size:4px;color:#aaa;">대인1+소인1</div></div>
+<div class="mm2" style="padding:4px;">
+  <div style="padding-bottom:3px;border-bottom:1px solid #eee;margin-bottom:3px;"><div style="font-size:7px;font-weight:800;">갑오징어/주꾸미</div><div style="font-size:4px;color:#aaa;">2026.02.28 · 2건</div></div>
+  <div style="padding-bottom:2px;border-bottom:1px solid #eee;margin-bottom:2px;"><div style="display:flex;justify-content:space-between;"><span style="font-size:6px;font-weight:800;">서현일</span><span class="mbdg bl">예약완료</span></div><div style="font-size:4px;color:#aaa;">대인2·188,000원</div></div>
+  <div><div style="display:flex;justify-content:space-between;"><span style="font-size:6px;font-weight:800;">박지수</span><span class="mbdg or">입금대기</span></div><div style="font-size:4px;color:#aaa;">대인1+소인1</div></div>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:3px 5px 4px;border-top:1px solid #eee;"><div class="mct pri" style="font-size:5px;">명단복사</div><div class="mct line" style="font-size:5px;">닫기</div></div>
 </div></div>
 <div style="height:12px;background:#fff;border-top:1px solid #eee;"></div></div></div>
-<div class="mc-body"><div class="mc-spec">상태 배지: 예약완료=파랑, 이용완료=초록, 취소=빨강, 입금대기=노랑.<br>예약 취소 기능 <span class="tag tt">미구현</span></div></div>
-<div class="mc-chips"><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;">T 05</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;">T 06</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;">C 13</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#F3EEFF;color:#6D28D9;border:1px solid #A5B4FC;white-space:nowrap;">P 02</span></div>
+  <div class="mock-label">예약명단</div>
 </div>
-</div><div class="action-row" style="margin-bottom:12px;align-items:flex-start;">
-<div class="action-btn gray" style="margin-top:4px;">⑥ 개별수정</div>
-<div style="display:flex;flex-direction:column;align-items:center;margin:0 4px;margin-top:6px;">
-<svg width="40" height="12"><line x1="2" y1="6" x2="30" y2="6" stroke="#888" stroke-width="1.5"/><polygon points="30,3 38,6 30,9" fill="#888"/></svg>
+    <div style="flex:1;min-width:0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;">
+<tr style="background:var(--blk);"><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:90px;">UI 요소</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:100px;">조건·트리거</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;">상세 동작 설명</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:110px;">알림 발생</th></tr>
+<tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">모달 상단 요약</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">자동 표시</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>모달 타이틀: 상품명. 서브타이틀: 날짜·총 건수·대인/소인 합계.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>예약 없을 시 '예약자가 없습니다' 빈 상태 메시지 표시.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">예약 상태 배지</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">자동 표시</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>예약완료</b>: 파랑 / <b>이용완료</b>: 초록 / <b>취소완료</b>: 빨강 / <b>입금대기</b>: 노랑 / <b>예약대기</b>: 주황 (수기확정 선박).</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>isManual=true(선주 직접 추가) 건은 경로(전화/현장 등) 배지 추가 표시.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">연락처 복사 버튼</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>해당 예약자 연락처를 클립보드에 복사.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">T 05</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">명단 복사 버튼<br>(모달 하단)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>전체 예약자 명단을 텍스트로 클립보드 복사. 형식: [번호] 이름 / 대인N·소인N / 연락처 / 상태. <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">T 06</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">예약 취소 버튼<br>(각 항목)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">C13 Confirm</span>: '[이름]님의 예약을 취소합니다. 직접입금은 환불을 직접 처리하세요.'</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>확인 시: status→취소완료, sold -= 인원, 카드 현황 갱신, P02 취소 알림톡 발송.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>기능 자체 <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;margin:1px 1px;">C 13</span><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#F3EEFF;color:#6D28D9;border:1px solid #A5B4FC;white-space:nowrap;margin:1px 1px;">P 02</span></td>
+</tr>
+</table></div>
+  </div>
+</div><div style="display:flex;align-items:center;gap:12px;padding:24px 48px 16px;border-bottom:1.5px solid var(--blk);">
+  <div style="width:28px;height:28px;border-radius:50%;background:#7C3AED;color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">M4</div>
+  <div><div style="font-size:15px;font-weight:900;color:var(--blk);letter-spacing:-.4px;">일자별 개별수정 — DailyProductEditModal</div><div style="font-size:11px;color:var(--desc);">이 날짜의 bpi만 수정. 마스터상품 설정 변경 불가.</div></div>
 </div>
-<div class="modal-card">
-<div class="mc-header">
-<div class="mc-badge" style="background:#6D28D9;">M4 · DailyProductEditModal</div>
-<div class="mc-title">일자별 개별수정</div>
-<div class="mc-desc">시간/요금4종/좌석수/노출 · 이 날짜만</div>
-</div>
-<div class="phone" style="width:110px;margin:6px auto 0;"><div class="phone-di" style="width:28px;height:7px;"></div><div class="phone-sc">
-<div style="height:10px;background:var(--bg);"></div>
+<div style="padding:24px 48px;border-bottom:1px solid var(--line);">
+  <div style="display:flex;align-items:flex-start;gap:0;margin-bottom:14px;">
+    <span class="sb-badge" style="background:#7C3AED;margin-right:12px;margin-top:3px;">M4</span>
+    <div>
+      <div class="sb-title">일자별 개별수정 — DailyProductEditModal</div>
+      <div class="sb-desc">카드 '개별수정' 텍스트 버튼 클릭 시 오픈. 해당 날짜(bpi)의 설정값만 독립 수정.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:20px;">
+    <div class="mock-wrap">
+  <span class="mock-badge" style="background:#7C3AED;">M4</span>
+  <div class="ph"><div class="ph-di"></div><div class="ph-sc"><div style="height:8px;background:var(--bg);"></div>
 <div class="movbg"><div class="mmd">
 <div class="mmh"><div><div class="mmtt">일자별 개별수정</div><div class="mmss">2026.02.28 · 이 날짜만</div></div><span style="font-size:7px;color:#aaa;">✕</span></div>
-<div class="mwb">⚠ 이 날짜만. 출조종류 변경 불가.</div>
-<div class="mb2body" style="overflow-y:auto;max-height:80px;padding:3px 5px;">
-<div class="mmr"><div class="mml">노출</div><div style="display:flex;align-items:center;gap:2px;"><div class="mtg"></div><span style="font-size:4px;color:var(--bl);">노출중</span></div></div>
-<div class="mmr"><div class="mml">시간 [HHMM변환]</div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;">05:00</div><div class="minp" style="flex:1;">15:30</div></div></div>
-<div class="mmr"><div class="mml">대인 평일/주말</div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;font-size:4px;">94,000</div><div class="minp" style="flex:1;font-size:4px;">110,000</div></div></div>
-<div class="mmr"><div class="mml">판매 좌석수</div><div class="minp">11</div></div>
+<div class="mwb">⚠ 이 날짜만 수정. 출조종류 변경 불가.</div>
+<div class="mm2" style="overflow-y:auto;max-height:80px;padding:3px 5px;">
+  <div class="mmr"><div class="mml">노출</div><div style="display:flex;align-items:center;gap:2px;"><div class="mtg"></div><span style="font-size:4px;color:var(--blue);">노출중</span></div></div>
+  <div class="mmr"><div class="mml">시간 [HHMM변환]</div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;">05:00</div><div class="minp" style="flex:1;">15:30</div></div></div>
+  <div class="mmr"><div class="mml">대인 평일/주말</div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;font-size:4px;">94,000</div><div class="minp" style="flex:1;font-size:4px;">110,000</div></div></div>
+  <div class="mmr"><div class="mml">판매 좌석수</div><div class="minp">11</div></div>
 </div>
 <div class="mmf"><div class="mct line">취소</div><div class="mct pri">수정 저장</div></div>
 </div></div>
 <div style="height:12px;background:#fff;border-top:1px solid #eee;"></div></div></div>
-<div class="mc-body"><div class="mc-spec">수정불가: 출조종류·날짜 자체.<br><b>시간 HHMM 변환 필수</b> <span class="tag tw">[DB]</span> "05:00"→"0500".<br>좌석수 최솟값 = 결제완료 인원.</div></div>
-<div class="mc-chips"><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;">C 04</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;">C 11</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;">T 07</span></div>
+  <div class="mock-label">개별수정</div>
 </div>
-</div></div><div style="padding-left:32px;"><div style="font-size:11px;font-weight:800;color:var(--blk);margin-bottom:10px;padding:4px 10px;background:var(--bg2);border:1px solid var(--line);border-radius:5px;display:inline-block;">출조종류 관리 탭 (S4) 액션 플로우</div><div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;"><div class="sc">
-<div class="sc-badge" style="background:var(--blk);">S4</div>
-<div class="phone" style="width:140px;">
-<div class="phone-di"></div>
-<div class="phone-sc">
-<div class="msb">9:41 <span>🔋</span></div>
-<div class="mhd"><div class="mht">상품관리.</div></div>
+    <div style="flex:1;min-width:0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;">
+<tr style="background:var(--blk);"><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:90px;">UI 요소</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:100px;">조건·트리거</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;">상세 동작 설명</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:110px;">알림 발생</th></tr>
+<tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">경고 배너<br>(모달 상단)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">항상 고정</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>'이 날짜 상품만 개별 수정됩니다. 출조종류 설정은 변경되지 않습니다.' 스크롤 시에도 헤더에 고정.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">수정 가능 항목</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">편집</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>상품명 / 출조 시작·종료 시간 / 당일·익일 / 대인 평일·주말 요금 / 소인 평일·주말 요금 / 판매 좌석 수 / 노출 여부 / 주말요금 여부 / 소인요금 여부.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">수정 불가 항목</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">읽기 전용</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">출조종류(마스터상품) 변경</span> 불가. 출조종류 자체를 바꾸려면 삭제 후 재등록.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">날짜 자체</span> (bpi_s/e_release_dt) 변경 불가.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">시간 필드</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">입력</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>화면 표시: HH:MM (예: 05:00). <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">저장 전 HHMM 변환 필수</span> (05:00 → 0500). <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:var(--rlt);color:var(--red);margin-left:2px;">[DB] 불일치</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">판매 좌석수</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">숫자 입력</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>최솟값 = 결제 완료 예약 인원. 미만 입력 후 저장 시 <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">C04 Alert</span>.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;margin:1px 1px;">C 04</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">요금 변경 + 저장</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">예약 있는 경우</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><span style="background:var(--olt);color:var(--orange);padding:0 3px;border-radius:2px;font-weight:700;">C11 Confirm</span>: '기존 N건 예약 금액은 변경되지 않습니다. 새 예약부터 적용됩니다. 계속?' <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;margin:1px 1px;">C 11</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">수정 저장 버튼</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>해당 bpi 업데이트 후 모달 닫힘. 카드 상품명·시간·요금·좌석수·배지 즉시 갱신.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">T 07</span></td>
+</tr>
+</table></div>
+  </div>
+</div><div style="display:flex;align-items:center;gap:12px;padding:24px 48px 16px;border-bottom:1.5px solid var(--blk);">
+  <div style="width:28px;height:28px;border-radius:50%;background:var(--blk);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">S4</div>
+  <div><div style="font-size:15px;font-weight:900;color:var(--blk);letter-spacing:-.4px;">출조종류 관리 탭 — 마스터상품 목록</div><div style="font-size:11px;color:var(--desc);">마스터상품(boat_product) CRUD 진입점. 1개 마스터 → N개 bpi 자동 생성.</div></div>
+</div>
+<div style="padding:24px 48px;border-bottom:1px solid var(--line);">
+  <div style="display:flex;align-items:flex-start;gap:0;margin-bottom:14px;">
+    <span class="sb-badge" style="background:var(--blk);margin-right:12px;margin-top:3px;">S4</span>
+    <div>
+      <div class="sb-title">출조종류 관리 탭 목록</div>
+      <div class="sb-desc">선박에 등록된 출조 종류 카드 목록. 각 카드에서 수정·삭제 진입 가능.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:20px;">
+    <div class="mock-wrap">
+  <span class="mock-badge" style="background:var(--blk);">S4</span>
+  <div class="ph"><div class="ph-di"></div><div class="ph-sc"><div class="msb">9:41</div>
+<div class="mhd"><div class="mht">상품관리<s>.</s></div></div>
 <div class="mbt">왕감자호</div>
 <div class="mtabs"><div class="mtab">일자별상품</div><div class="mtab on">출조종류 관리</div></div>
-<div class="mib"><div class="t">출조종류 관리란?</div><div class="d">출조상품 종류·운영기간·요금 등록. 등록 후 날짜별 자동 생성.</div></div>
+<div class="mib"><div class="t">출조종류 관리란?</div><div class="d">등록 후 날짜별 출조 자동 생성.</div></div>
 <div class="madd"><span>+ 출조종류 등록</span></div>
-<div class="mmc"><div class="mmn">갑오징어/주꾸미</div><div class="mmm">01/01~12/31 · 매일 · 05:00~15:30<br>대인 94,000 / 주말 110,000 · 5건</div><div class="mmbs"><span class="mmb out">수정</span><span class="mmb rd">삭제</span></div></div>
-<div class="mmc"><div class="mmn">야간 쭈꾸미/낙지</div><div class="mmm">03/01~10/31 · 금토 · 익일 · 2건</div><div class="mmbs"><span class="mmb out">수정</span><span class="mmb rd">삭제</span></div></div>
-<div class="mnav"><div class="mni on"><span>상품관리</span></div></div></div>
+<div class="mmc"><div class="mmn">갑오징어/주꾸미</div><div class="mmmm">01/01~12/31 · 매일 · 94,000원 · 5건</div><div class="mmbs"><span class="mmbtn out">수정</span><span class="mmbtn rd">삭제</span></div></div>
+<div class="mmc"><div class="mmn">야간 쭈꾸미/낙지</div><div class="mmmm">03/01~10/31 · 금토 · 익일 · 2건</div><div class="mmbs"><span class="mmbtn out">수정</span><span class="mmbtn rd">삭제</span></div></div>
+<div style="height:14px;background:#fff;border-top:1px solid #eee;"></div></div></div>
+  <div class="mock-label">출조종류 관리</div>
 </div>
-<div class="sc-lbl">출조종류 관리 목록</div>
-</div><div style="margin-top:24px;font-size:10px;color:var(--desc);line-height:1.8;max-width:220px;">
-<b style="color:var(--blk);">S4 마스터상품 목록 정책</b><br>
-· 안내 배너 고정 노출 (접기 불가)<br>
-· 카드: 상품명/기간/요일/시간/요금/연결건수<br>
-· 삭제: 예약 존재 여부 선 확인 후 분기<br>
-· 0건 시 빈 상태 + 등록 유도 버튼
-</div></div><div style="width:1.5px;height:20px;background:var(--line2);margin-left:69px;margin-bottom:4px;"></div><div class="action-row" style="margin-bottom:12px;align-items:flex-start;">
-<div class="action-btn blue" style="margin-top:4px;">① 등록 버튼</div>
-<div style="display:flex;flex-direction:column;align-items:center;margin:0 4px;margin-top:6px;">
-<svg width="40" height="12"><line x1="2" y1="6" x2="30" y2="6" stroke="var(--bl)" stroke-width="1.5"/><polygon points="30,3 38,6 30,9" fill="var(--bl)"/></svg>
+    <div style="flex:1;min-width:0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;">
+<tr style="background:var(--blk);"><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:90px;">UI 요소</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:100px;">조건·트리거</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;">상세 동작 설명</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:110px;">알림 발생</th></tr>
+<tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">안내 배너<br>(탭 최상단)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">항상 고정</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>'출조상품의 종류·운영기간·요금을 등록합니다. 등록한 종류 기준으로 날짜별 출조가 자동 생성됩니다.' 접기 불가.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">마스터상품 카드<br>표시 정보</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">자동 표시</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>상품명 / 운영기간 / 운영 요일 / 출조 시간 / 당일·익일 / 대인 평일·주말 요금.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>연결된 날짜별 출조 N건</b>: 해당 masterProductId와 연결된 bpi 수. 클릭 시 일자별 탭 딥링크 <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">등록 0건<br>빈 상태</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">마스터상품 0개</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>📋 아이콘 + '등록된 출조종류가 없습니다.' + '출조종류 등록하기' 버튼 → M5 모달 오픈.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">+ 출조종류 등록</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">버튼 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>M5 등록 모달 빈 폼으로 오픈.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">상품수정</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">버튼 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>M6 수정 모달을 해당 마스터상품 데이터로 pre-fill하여 오픈.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">상품삭제</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">버튼 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>1단계 예약 확인:</b> 연결 bpi에 유효 예약(예약완료·입금대기) 있으면 <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">C14 Alert</span> 차단: '예약이 있는 상품은 삭제할 수 없습니다.' <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>예약 없으면:</b> <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">C15 Confirm</span>: '상품명과 연결된 날짜별 출조 N건을 모두 삭제합니다. 되돌릴 수 없습니다.'</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">A 14</span><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;margin:1px 1px;">C 15</span></td>
+</tr>
+</table></div>
+  </div>
+</div><div style="display:flex;align-items:center;gap:12px;padding:24px 48px 16px;border-bottom:1.5px solid var(--blk);">
+  <div style="width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">M5</div>
+  <div><div style="font-size:15px;font-weight:900;color:var(--blk);letter-spacing:-.4px;">출조종류 등록 — MasterProductModal (신규)</div><div style="font-size:11px;color:var(--desc);">등록 후 운영기간 × 요일 매트릭스로 bpi 자동 생성.</div></div>
 </div>
-<div class="modal-card">
-<div class="mc-header">
-<div class="mc-badge" style="background:var(--bl);">M5 · MasterProductModal (신규)</div>
-<div class="mc-title">출조종류 등록</div>
-<div class="mc-desc">상품명·어종·기간·요일·시간·요금4종</div>
-</div>
-<div class="phone" style="width:110px;margin:6px auto 0;"><div class="phone-di" style="width:28px;height:7px;"></div><div class="phone-sc">
-<div style="height:8px;background:var(--bg);"></div>
+<div style="padding:24px 48px;border-bottom:1px solid var(--line);">
+  <div style="display:flex;align-items:flex-start;gap:0;margin-bottom:14px;">
+    <span class="sb-badge" style="background:var(--blue);margin-right:12px;margin-top:3px;">M5</span>
+    <div>
+      <div class="sb-title">출조종류 등록 — MasterProductModal</div>
+      <div class="sb-desc">S4의 '+ 출조종류 등록' 버튼 클릭 시 오픈. 출조의 기본 정보를 설정하는 마스터 데이터 등록 폼.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:20px;">
+    <div class="mock-wrap">
+  <span class="mock-badge" style="background:var(--blue);">M5</span>
+  <div class="ph"><div class="ph-di"></div><div class="ph-sc"><div style="height:6px;background:var(--bg);"></div>
 <div class="movbg"><div class="mmd">
 <div class="mmh"><div class="mmtt">출조종류 등록</div><span style="font-size:7px;color:#aaa;">✕</span></div>
-<div class="mb2body" style="overflow-y:auto;max-height:100px;padding:3px 5px;">
-<div class="mmr"><div class="mml">상품명 *</div><div class="minp" style="color:#aaa;font-size:4px;">예) 갑오징어/주꾸미</div></div>
-<div class="mmr"><div class="mml" style="display:flex;gap:2px;">어종 * <span style="color:var(--orange);font-size:3px;">[코드변환필요]</span></div><div class="mfsh"><span class="mfs on">갑오징어</span><span class="mfs on">주꾸미</span><span class="mfs">광어</span></div></div>
-<div class="mmr"><div class="mml">운영기간 MMDD *</div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;">01/01</div><div class="minp" style="flex:1;">12/31</div></div></div>
-<div class="mmr"><div class="mml" style="color:var(--red);">금년/내년 * [UI없음]</div><div class="minp" style="font-size:3px;color:#aaa;">T/N 미구현</div></div>
-<div class="mmr"><div class="mml">출조 요일 *</div><div class="mwk"><span class="mwkb on">월</span><span class="mwkb on">화</span><span class="mwkb on">수</span><span class="mwkb on">목</span><span class="mwkb on">금</span><span class="mwkb on">토</span><span class="mwkb on">일</span></div></div>
-<div class="mmr"><div class="mml" style="display:flex;gap:2px;">시간 <span style="color:var(--orange);font-size:3px;">[HHMM변환]</span></div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;">05:00</div><div class="minp" style="flex:1;">15:30</div></div></div>
-<div class="mmr"><div class="mml" style="color:var(--red);">자리배정 D/R * [미구현]</div><div class="minp" style="font-size:3px;color:#aaa;">추첨/지정 미구현</div></div>
-<div class="mmr"><div class="mml">대인 평일/주말</div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;font-size:4px;">94,000</div><div class="minp" style="flex:1;font-size:4px;color:#aaa;">0</div></div></div>
+<div class="mm2" style="overflow-y:auto;max-height:100px;padding:3px 5px;">
+  <div class="mmr"><div class="mml">상품명 *</div><div class="minp" style="color:#aaa;font-size:4px;">예) 갑오징어/주꾸미</div></div>
+  <div class="mmr"><div class="mml">어종 * [코드변환필요]</div><div class="mfsh"><span class="mfs on">갑오징어</span><span class="mfs on">주꾸미</span><span class="mfs">광어</span></div></div>
+  <div class="mmr"><div class="mml">운영기간 MMDD *</div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;">01/01</div><div class="minp" style="flex:1;">12/31</div></div></div>
+  <div class="mmr"><div class="mml" style="color:var(--red);">금년/내년 * [UI없음]</div><div class="minp" style="font-size:3px;color:#aaa;">T/N 미구현</div></div>
+  <div class="mmr"><div class="mml">출조 요일 *</div><div class="mwk"><span class="mwkb on">월</span><span class="mwkb on">화</span><span class="mwkb on">수</span><span class="mwkb on">목</span><span class="mwkb on">금</span><span class="mwkb on">토</span><span class="mwkb on">일</span></div></div>
+  <div class="mmr"><div class="mml">시간 [HHMM변환]</div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;">05:00</div><div class="minp" style="flex:1;">15:30</div></div></div>
+  <div class="mmr"><div class="mml">대인 평일/주말</div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;font-size:4px;">94,000</div><div class="minp" style="flex:1;font-size:4px;color:#aaa;">0</div></div></div>
 </div>
 <div class="mmf"><div class="mct line">취소</div><div class="mct pri">등록</div></div>
 </div></div>
-<div style="height:12px;background:#fff;border-top:1px solid #eee;"></div></div></div>
-<div class="mc-body"><div class="mc-spec"><span class="tag tw">[DB]</span> <b>변환 필수</b>: 시간 HHMM / 어종코드 / products_fee string.<br>release_date·seat_type UI <span class="tag tt">미구현</span><br>등록 후 bpi 날짜별 자동 생성.</div></div>
-<div class="mc-chips"><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;">A 16</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;">T 08</span></div>
+<div style="height:10px;background:#fff;border-top:1px solid #eee;"></div></div></div>
+  <div class="mock-label">출조종류 등록</div>
 </div>
-</div><div class="action-row" style="margin-bottom:12px;align-items:flex-start;">
-<div class="action-btn gray" style="margin-top:4px;">② 수정 버튼</div>
-<div style="display:flex;flex-direction:column;align-items:center;margin:0 4px;margin-top:6px;">
-<svg width="40" height="12"><line x1="2" y1="6" x2="30" y2="6" stroke="#888" stroke-width="1.5"/><polygon points="30,3 38,6 30,9" fill="#888"/></svg>
+    <div style="flex:1;min-width:0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;">
+<tr style="background:var(--blk);"><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:90px;">UI 요소</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:100px;">조건·트리거</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;">상세 동작 설명</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:110px;">알림 발생</th></tr>
+<tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">상품명</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">필수 입력</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>플레이스홀더: '예) 갑오징어/주꾸미'. 선박 내 동일 이름 중복 허용.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">어종<br>(멀티 선택 칩)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">칩 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>1개 이상 선택 필수. <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">DB 불일치</span>: 화면 string[] (어종명) / DB number[] (어종 코드). 저장 전 코드 변환 필수. <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:var(--rlt);color:var(--red);margin-left:2px;">[DB] FISH_CODE_MAP 구현 필요</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">운영기간</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">MMDD 입력</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>시작·종료일을 MMDD 4자리로 입력. 연말 넘어가는 경우(예: 1101~0331) 허용.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">release_date</span> (T=금년/N=내년) Y필수 필드이지만 UI 없음. 고정 'T'. <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">출조 요일<br>(멀티 선택)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">요일 칩 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>1개 이상 선택 필수. '매일' 단축 버튼으로 전체 선택/해제 토글.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>저장 형식: string[] ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">출조 시간</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">시간 입력</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>화면: HH:MM. <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">저장 전 HHMM 변환 필수</span> (05:00 → 0500). <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:var(--rlt);color:var(--red);margin-left:2px;">[DB] 불일치</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">자리배정<br>(seat_type)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">라디오</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>D=추첨/R=지정석. <span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">Y필수</span> 필드이지만 UI 없음. 고정 'D'. <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span> R 선택 시 seat_file 업로드 필드 조건부 노출.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">요금 설정</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">금액 입력</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>주말요금 토글 ON 시 주말 입력 활성화. 소인요금 토글 ON 시 소인 입력 활성화.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">products_fee</span>: DB string 타입. 저장 전 number→string 변환 필수. <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:var(--rlt);color:var(--red);margin-left:2px;">[DB] 불일치</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">등록 버튼</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>필수 항목 검사 (상품명·어종·요일·시간·대인요금). 미충족 시 인라인 에러.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>성공: 서버에서 운영기간×요일 매트릭스로 bpi 레코드 <b>자동 생성</b>. 기본 bpi_qty = max_people.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>앱에서 dailyProducts 재조회 → 일자별상품 탭에 즉시 반영.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">A 16</span><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">T 08</span></td>
+</tr>
+</table></div>
+  </div>
+</div><div style="display:flex;align-items:center;gap:12px;padding:24px 48px 16px;border-bottom:1.5px solid var(--blk);">
+  <div style="width:28px;height:28px;border-radius:50%;background:var(--orange);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">M6/M7</div>
+  <div><div style="font-size:15px;font-weight:900;color:var(--blk);letter-spacing:-.4px;">출조종류 수정·삭제 — MasterProductModal (수정) & C15 삭제</div><div style="font-size:11px;color:var(--desc);">수정은 이후 생성 bpi에만 적용. 삭제는 bpi 연쇄 삭제.</div></div>
 </div>
-<div class="modal-card">
-<div class="mc-header">
-<div class="mc-badge" style="background:#555;">M6 · MasterProductModal (수정)</div>
-<div class="mc-title">출조종류 수정</div>
-<div class="mc-desc">동일 폼 isEdit=true · 데이터 pre-fill</div>
-</div>
-<div class="phone" style="width:110px;margin:6px auto 0;"><div class="phone-di" style="width:28px;height:7px;"></div><div class="phone-sc">
-<div style="height:8px;background:var(--bg);"></div>
+<div style="padding:24px 48px;border-bottom:1px solid var(--line);">
+  <div style="display:flex;align-items:flex-start;gap:0;margin-bottom:14px;">
+    <span class="sb-badge" style="background:var(--orange);margin-right:12px;margin-top:3px;">M6</span>
+    <div>
+      <div class="sb-title">출조종류 수정 — MasterProductModal (isEdit=true)</div>
+      <div class="sb-desc">S4 카드 '상품수정' 버튼 클릭 시 오픈. M5와 동일 폼, 기존 데이터 pre-fill. 수정 내용은 이후 생성되는 bpi에만 적용.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:20px;">
+    <div class="mock-wrap">
+  <span class="mock-badge" style="background:var(--orange);">M6</span>
+  <div class="ph"><div class="ph-di"></div><div class="ph-sc"><div style="height:6px;background:var(--bg);"></div>
 <div class="movbg"><div class="mmd">
 <div class="mmh"><div class="mmtt">출조종류 수정</div><span style="font-size:7px;color:#aaa;">✕</span></div>
-<div class="mwb">⚠ 수정은 이후 생성 bpi에만 반영. 기존 날짜별 상품은 개별수정 이용.</div>
-<div class="mb2body" style="overflow-y:auto;max-height:90px;padding:3px 5px;">
-<div class="mmr"><div class="mml">상품명</div><div class="minp" style="color:var(--blk);">갑오징어/주꾸미</div></div>
-<div class="mmr"><div class="mml" style="display:flex;gap:2px;">어종 <span style="color:var(--orange);font-size:3px;">[코드변환]</span></div><div class="mfsh"><span class="mfs on">갑오징어</span><span class="mfs on">주꾸미</span></div></div>
-<div class="mmr"><div class="mml">요일</div><div class="mwk"><span class="mwkb on">월</span><span class="mwkb on">화</span><span class="mwkb on">수</span><span class="mwkb on">목</span><span class="mwkb on">금</span><span class="mwkb on">토</span><span class="mwkb on">일</span></div></div>
-<div class="mmr"><div class="mml">대인 평일/주말</div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;font-size:4px;">94,000</div><div class="minp" style="flex:1;font-size:4px;">110,000</div></div></div>
+<div class="mwb">⚠ 수정은 이후 생성 bpi에만 반영.</div>
+<div class="mm2" style="overflow-y:auto;max-height:90px;padding:3px 5px;">
+  <div class="mmr"><div class="mml">상품명</div><div class="minp" style="color:var(--blk);">갑오징어/주꾸미</div></div>
+  <div class="mmr"><div class="mml">어종 [코드변환]</div><div class="mfsh"><span class="mfs on">갑오징어</span><span class="mfs on">주꾸미</span></div></div>
+  <div class="mmr"><div class="mml">요일</div><div class="mwk"><span class="mwkb on">월</span><span class="mwkb on">화</span><span class="mwkb on">수</span><span class="mwkb on">목</span><span class="mwkb on">금</span><span class="mwkb on">토</span><span class="mwkb on">일</span></div></div>
+  <div class="mmr"><div class="mml">대인 평일/주말</div><div style="display:flex;gap:1px;"><div class="minp" style="flex:1;font-size:4px;">94,000</div><div class="minp" style="flex:1;font-size:4px;">110,000</div></div></div>
 </div>
 <div class="mmf"><div class="mct line">취소</div><div class="mct pri">수정 저장</div></div>
 </div></div>
-<div style="height:12px;background:#fff;border-top:1px solid #eee;"></div></div></div>
-<div class="mc-body"><div class="mc-spec">기존 bpi 소급 미적용. 경고 배너 고정.<br>운영기간/요일 축소 시 C12 Confirm 필요 <span class="tag tt">미구현</span></div></div>
-<div class="mc-chips"><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;">C 12</span><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;">T 09</span></div>
+<div style="height:10px;background:#fff;border-top:1px solid #eee;"></div></div></div>
+  <div class="mock-label">출조종류 수정</div>
 </div>
-</div><div class="action-row" style="margin-bottom:12px;align-items:flex-start;">
-<div class="action-btn red" style="margin-top:4px;">③ 삭제 버튼</div>
-<div style="display:flex;flex-direction:column;align-items:center;margin:0 4px;margin-top:6px;">
-<svg width="40" height="12"><line x1="2" y1="6" x2="30" y2="6" stroke="var(--red)" stroke-width="1.5"/><polygon points="30,3 38,6 30,9" fill="var(--red)"/></svg>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px;max-width:280px;">
-<div style="background:var(--olt);border:1.5px solid #FCD34D;border-radius:6px;padding:7px 10px;font-size:9px;color:var(--orange);">
-<b>⚡ 시스템 판단</b><br>연결 bpi에 유효 예약(예약완료·입금대기) 있음?
-</div>
-<div style="display:flex;gap:8px;align-items:flex-start;">
-<div style="display:flex;flex-direction:column;align-items:center;flex:1;">
-  <div style="font-size:8px;font-weight:700;color:var(--red);margin-bottom:3px;">YES → 차단</div>
-  <div class="confirm-node" style="width:100%;text-align:center;">🚫 C14 Alert<br><span style="font-size:8px;">"예약이 있어<br>삭제 불가"</span><br><span style="font-size:7px;font-weight:600;color:#999;text-decoration:line-through;">미구현</span></div>
-</div>
-<div style="display:flex;flex-direction:column;align-items:center;flex:1;">
-  <div style="font-size:8px;font-weight:700;color:var(--green);margin-bottom:3px;">NO → 삭제 확인</div>
-  <div style="width:100%;">
-    <div class="sc">
-<div class="sc-badge" style="background:var(--red);">C15 Confirm</div>
-<div class="phone" style="width:110px;">
-<div class="phone-di"></div>
-<div class="phone-sc">
-<div style="height:8px;background:var(--bg);"></div>
-<div class="mcov"><div class="mcf">
-<div class="mct2">출조종류 삭제</div>
-<div class="mcm">'갑오징어/주꾸미'를 삭제합니다.<br><b style="color:var(--red);">날짜별 출조 5건도 함께 삭제됩니다.</b><br>되돌릴 수 없습니다.</div>
-<div class="mcbs"><div class="mct line" style="font-size:6px;padding:4px;">취소</div><div class="mct red" style="font-size:6px;padding:4px;">삭제</div></div>
-</div></div>
-<div style="height:12px;background:#fff;border-top:1px solid #eee;"></div></div>
-</div>
-<div class="sc-lbl">삭제 최종 확인 ✅</div>
-</div>
-    <div style="text-align:center;margin-top:3px;display:flex;flex-wrap:wrap;gap:2px;justify-content:center;"><span style="display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;">T 10</span><span style="font-size:9px;color:var(--green);font-weight:700;">⚙ bpi 연쇄 삭제</span></div>
+    <div style="flex:1;min-width:0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;">
+<tr style="background:var(--blk);"><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:90px;">UI 요소</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:100px;">조건·트리거</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;">상세 동작 설명</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:110px;">알림 발생</th></tr>
+<tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">경고 배너<br>(모달 상단)</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">항상 고정</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>'수정 내용은 이후 생성되는 날짜별 출조에 반영됩니다. 기존 날짜별 상품은 개별수정을 이용하세요.'</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">기존 bpi 소급 미적용</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">정책</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><b>이미 생성된 bpi에 소급 적용되지 않음.</b> 이후 생성되는 bpi부터만 적용.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>기존 날짜별 상품 변경 필요 시 M4 개별수정 사용.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">운영기간·요일 축소</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">변경 후 저장</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>기간/요일을 줄여도 <b>기존 bpi는 자동 삭제 안 됨.</b> <span style="background:var(--olt);color:var(--orange);padding:0 3px;border-radius:2px;font-weight:700;">C12 Confirm</span>: '변경된 기간 외 기존 날짜별 출조는 자동 삭제되지 않습니다.' <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;margin:1px 1px;">C 12</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">수정 저장 버튼</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>마스터상품 데이터 업데이트 후 모달 닫힘. S4 카드 즉시 갱신.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>M5와 동일 변환 규칙 적용 (시간 HHMM / 어종 코드 / products_fee string).</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">T 09</span></td>
+</tr>
+</table></div>
   </div>
 </div>
+<div style="padding:24px 48px;border-bottom:1px solid var(--line);">
+  <div style="display:flex;align-items:flex-start;gap:0;margin-bottom:14px;">
+    <span class="sb-badge" style="background:var(--red);margin-right:12px;margin-top:3px;">M7</span>
+    <div>
+      <div class="sb-title">출조종류 삭제 — C14 차단 → C15 Confirm → 연쇄 삭제</div>
+      <div class="sb-desc">S4 카드 '상품삭제' 버튼 클릭 시 2단계 처리. 예약 존재 여부 확인 후 차단 또는 Confirm 진행.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:20px;">
+    <div class="mock-wrap">
+  <span class="mock-badge" style="background:var(--red);">M7</span>
+  <div class="ph"><div class="ph-di"></div><div class="ph-sc"><div style="height:8px;background:var(--bg);"></div>
+<div class="mcov"><div class="mcf">
+<div class="mct2">출조종류 삭제</div>
+<div class="mcm">'갑오징어/주꾸미'를 삭제합니다.<br><b style="color:var(--red);">날짜별 출조 5건도<br>함께 삭제됩니다.</b><br>되돌릴 수 없습니다.</div>
+<div class="mcbs"><div class="mct line" style="font-size:6px;padding:4px;">취소</div><div class="mct red" style="font-size:6px;padding:4px;">삭제</div></div>
+</div></div>
+<div style="height:10px;background:#fff;border-top:1px solid #eee;"></div></div></div>
+  <div class="mock-label">삭제 Confirm</div>
 </div>
+    <div style="flex:1;min-width:0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;">
+<tr style="background:var(--blk);"><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:90px;">UI 요소</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:100px;">조건·트리거</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;">상세 동작 설명</th><th style="padding:8px 12px;font-size:10px;font-weight:700;color:#fff;text-align:left;width:110px;">알림 발생</th></tr>
+<tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">삭제 버튼 클릭<br>예약 있는 경우</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">유효 예약 있음</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">C14 Alert</span> 차단: '예약이 있는 상품은 삭제할 수 없습니다. (N건) 예약을 먼저 취소하세요.' <span style="font-size:7px;font-weight:700;padding:1px 4px;border-radius:3px;background:#f0f0f0;color:#999;text-decoration:line-through;margin-left:2px;">미구현 — 현재 예약 확인 없이 C15로 진행</span></span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFF4E5;color:#C96A00;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">A 14</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">삭제 버튼 클릭<br>예약 없는 경우</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">유효 예약 없음</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span><span style="background:var(--rlt);color:var(--red);padding:0 3px;border-radius:2px;font-weight:700;">C15 Confirm</span>: '[상품명]과 연결된 날짜별 출조 N건을 모두 삭제합니다. 되돌릴 수 없습니다.' 취소(좌)/삭제(우 빨강).</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FDECEA;color:#D93025;border:1px solid #FCA5A5;white-space:nowrap;margin:1px 1px;">C 15</span></td>
+</tr><tr>
+<td style="font-weight:700;color:var(--blk);white-space:nowrap;min-width:90px;font-size:11px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">C15 삭제 확인</td>
+<td style="font-size:10px;color:var(--desc);min-width:90px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);">'삭제' 클릭</td>
+<td style="padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>masterProducts에서 해당 항목 삭제.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>dailyProducts에서 <span style="background:var(--blue-lt);color:var(--blue);padding:0 3px;border-radius:2px;font-weight:700;">masterProductId</span> 일치하는 <b>모든 bpi 연쇄 삭제</b>. DB: ON DELETE CASCADE.</span><span style="display:block;padding-left:10px;position:relative;margin-bottom:3px;font-size:11px;color:var(--body);line-height:1.55;"><span style="position:absolute;left:2px;color:var(--blue);font-weight:800;">·</span>마스터 0건 시 빈 상태 메시지 표시.</span></td>
+<td style="min-width:100px;padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line);"><span style="display:inline-flex;align-items:center;font-size:8px;font-weight:700;padding:2px 6px;border-radius:10px;background:#FFFDE8;color:#7A6000;border:1px solid #FCD34D;white-space:nowrap;margin:1px 1px;">T 10</span></td>
+</tr>
+</table></div>
+  </div>
 </div>
-</div></div></div></div><div class="sec-div"></div><div style="padding:8px 36px 12px;"><div style="font-size:16px;font-weight:900;color:var(--blk);letter-spacing:-.5px;margin-bottom:4px;">🔔 알림 레퍼런스 전체 목록</div>
-<div style="font-size:11px;color:var(--desc);">상품관리 탭에서 발생하는 Toast · Confirm · Alert · 알림톡 · 앱 푸시 전체 목록</div></div><div class="ref-section"><div class="ref-grid"><div class="ref-block">
-<div class="ref-head" style="background:#7A6000;">🟡 Toast 메시지 — T01~T11</div>
+
+    <div style="background:var(--blk);padding:14px 48px;position:sticky;top:0;z-index:500;">
+  <div style="font-size:12px;font-weight:900;color:#fff;letter-spacing:-.2px;">③ 알림 레퍼런스</div>
+  <div style="font-size:10px;color:rgba(255,255,255,.45);margin-top:1px;">Toast T01~T11 · Confirm/Alert C02~C16 · 알림톡/푸시 P01~P06</div>
+</div>
+    
+<div style="padding:28px 48px 40px;background:var(--bg2);">
+  <div style="font-size:16px;font-weight:900;color:var(--blk);letter-spacing:-.5px;margin-bottom:16px;">🔔 알림 레퍼런스 전체 목록</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+    <div style="border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;">
+<div style="background:#7A6000;padding:10px 16px;font-size:12px;font-weight:800;color:#fff;">🟡 Toast — T01~T11</div>
 <div style="font-size:9px;color:#7A6000;padding:4px 14px;background:#FFFDE8;border-bottom:1px solid #FCD34D;">하단 중앙 · 2.2초 자동 소멸 · 동시 1개만</div>
-<table class="ref-table">
-<tr><th style="width:40px;">코드</th><th>트리거</th><th>메시지</th><th style="width:50px;">구현</th></tr><tr><td class="rc" style="color:#7A6000;">T01</td><td>노출 토글 변경 (ON↔OFF)</td><td><span class="rmsg">"노출 상태 변경됨"</span></td><td class="ok">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T02</td><td>즉시마감 처리 완료 (C02 후)</td><td><span class="rmsg">"즉시 마감 처리됨"</span></td><td class="no">⬜ C02미</td></tr><tr><td class="rc" style="color:#7A6000;">T03</td><td>M1 인원조정 저장</td><td><span class="rmsg">"판매 좌석 수 조정 완료"</span></td><td class="ok">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T04</td><td>M2 예약추가 완료</td><td><span class="rmsg">"예약이 추가됐습니다"</span></td><td class="ok">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T05</td><td>M3 연락처 복사</td><td><span class="rmsg">"[이름] 복사됨"</span></td><td class="ok">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T06</td><td>M3 명단 전체 복사</td><td><span class="rmsg">"명단이 복사됐습니다"</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:#7A6000;">T07</td><td>M4 개별수정 저장</td><td><span class="rmsg">"개별 수정 완료"</span></td><td class="ok">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T08</td><td>M5 출조종류 등록</td><td><span class="rmsg">"출조종류 등록 완료"</span></td><td class="ok">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T09</td><td>M6 출조종류 수정</td><td><span class="rmsg">"출조종류 수정 완료"</span></td><td class="ok">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T10</td><td>M7 삭제 확인 후 (C15)</td><td><span class="rmsg">"출조종류 삭제됨"</span></td><td class="ok">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T11</td><td>M3 예약 취소 처리</td><td><span class="rmsg">"예약이 취소됐습니다"</span></td><td class="no">⬜</td></tr></table></div><div class="ref-block">
-<div class="ref-head" style="background:var(--red);">⚠️ Confirm / Alert / 인라인 — C02~C16</div>
-<div style="font-size:9px;color:var(--red);padding:4px 14px;background:var(--rlt);border-bottom:1px solid #FCA5A5;">Confirm=2지선다(취소/확인) · Alert=단순고지(확인1개) · 인라인=필드 하단 에러</div>
-<table class="ref-table">
-<tr><th style="width:40px;">코드</th><th style="width:60px;">유형</th><th>트리거</th><th>본문</th><th style="width:50px;">구현</th></tr><tr><td class="rc" style="color:var(--red);">C02</td><td style="color:var(--red);font-weight:700;">Confirm</td><td>카드 즉시마감 클릭</td><td style="font-size:10px;">잔여 N석을 폐기하고 마감합니다. 되돌릴 수 없습니다.<br><span style="font-size:9px;color:var(--dim);">버튼: 취소/마감</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C03</td><td style="color:var(--red);font-weight:700;">Confirm</td><td>노출 OFF + 예약 있음</td><td style="font-size:10px;">기존 예약 N건은 유지됩니다. 노출을 끄면 신규 예약 불가. 계속?<br><span style="font-size:9px;color:var(--dim);">버튼: 취소/끄기</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C04</td><td style="color:var(--orange);font-weight:700;">Alert</td><td>qty < 결제완료 인원 (M1/M4 공유)</td><td style="font-size:10px;">결제가 완료된 예약 N명이 있어 N석 이하로 줄일 수 없습니다.<br><span style="font-size:9px;color:var(--dim);">버튼: 확인</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C05</td><td style="color:var(--red);font-weight:700;">Confirm</td><td>M1 마감버튼 (잔여>0)</td><td style="font-size:10px;">잔여 N석을 폐기하고 즉시 마감합니다. 되돌릴 수 없습니다.<br><span style="font-size:9px;color:var(--dim);">버튼: 취소/마감</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C06</td><td style="color:var(--orange);font-weight:700;">Alert</td><td>M1 마감버튼 (이미 마감)</td><td style="font-size:10px;">이미 마감 상태입니다.<br><span style="font-size:9px;color:var(--dim);">버튼: 확인</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C07</td><td style="color:var(--orange);font-weight:700;">Alert</td><td>M1 0 이하 직접 입력</td><td style="font-size:10px;">0석 이하는 설정할 수 없습니다.<br><span style="font-size:9px;color:var(--dim);">버튼: 확인</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C08</td><td style="color:var(--orange);font-weight:700;">Alert</td><td>M2 매진 상품 선택 시도</td><td style="font-size:10px;">판매가 마감된 상품입니다. 인원조정으로 좌석을 늘린 후 예약하세요.<br><span style="font-size:9px;color:var(--dim);">버튼: 확인</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C09</td><td style="color:var(--orange);font-weight:700;">Alert</td><td>M2 추가 인원 > 잔여석</td><td style="font-size:10px;">잔여석(N석)보다 많은 인원입니다.<br><span style="font-size:9px;color:var(--dim);">버튼: 확인</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C10</td><td style="color:var(--red);font-weight:700;">Confirm</td><td>M2 출조 당일 추가</td><td style="font-size:10px;">출항 당일 예약입니다. 계속 추가하시겠습니까?<br><span style="font-size:9px;color:var(--dim);">버튼: 취소/추가</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C11</td><td style="color:var(--red);font-weight:700;">Confirm</td><td>M4 요금 변경 + 예약 있음</td><td style="font-size:10px;">기존 N건 예약 금액은 변경되지 않습니다. 새 예약부터 적용. 계속?<br><span style="font-size:9px;color:var(--dim);">버튼: 취소/저장</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C12</td><td style="color:var(--red);font-weight:700;">Confirm</td><td>M6 운영기간/요일 축소 변경</td><td style="font-size:10px;">변경된 기간 외 기존 날짜별 출조는 자동 삭제되지 않습니다.<br><span style="font-size:9px;color:var(--dim);">버튼: 취소/확인</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C13</td><td style="color:var(--red);font-weight:700;">Confirm</td><td>M3 예약 취소 버튼</td><td style="font-size:10px;">[이름]님의 예약을 취소합니다. 직접입금은 환불 직접 처리하세요.<br><span style="font-size:9px;color:var(--dim);">버튼: 취소/확인</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C14</td><td style="color:var(--orange);font-weight:700;">Alert</td><td>S4 삭제 — 유효 예약 있음</td><td style="font-size:10px;">예약이 있는 상품은 삭제할 수 없습니다. (N건) 예약을 먼저 취소하세요.<br><span style="font-size:9px;color:var(--dim);">버튼: 확인</span></td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C15</td><td style="color:var(--red);font-weight:700;">Confirm</td><td>S4 삭제 — 예약 없음</td><td style="font-size:10px;">상품명과 연결된 날짜별 출조 N건을 모두 삭제합니다. 되돌릴 수 없습니다.<br><span style="font-size:9px;color:var(--dim);">버튼: 취소/삭제</span></td><td class="ok">✅</td></tr><tr><td class="rc" style="color:var(--red);">C16</td><td style="color:var(--orange);font-weight:700;">인라인</td><td>M5/M6 필수항목 미입력</td><td style="font-size:10px;">해당 필드 빨간 테두리 + 에러 메시지 (팝업 없음)<br><span style="font-size:9px;color:var(--dim);">버튼: —</span></td><td class="ok">✅</td></tr></table></div></div><div class="ref-block" style="margin-top:16px;">
-<div class="ref-head" style="background:var(--purple);">📨 알림톡 / 앱 푸시 — P01~P06</div>
-<div style="font-size:9px;color:var(--purple);padding:4px 14px;background:var(--plt);border-bottom:1px solid #A5B4FC;">카카오 알림톡 (예약자) · FlareLane 앱 푸시 (선주)</div>
-<table class="ref-table">
-<tr><th style="width:40px;">코드</th><th style="width:70px;">채널</th><th style="width:80px;">수신자</th><th>트리거</th><th>내용</th><th style="width:50px;">구현</th></tr><tr><td class="rc" style="color:var(--purple);">P01</td><td><span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:#F3EEFF;color:#6D28D9;">카카오 알림톡</span></td><td style="font-size:10px;font-weight:600;">예약자</td><td>M2 예약추가 완료 (status=예약완료)</td><td style="font-size:10px;">예약번호 / 상품명 / 출항일시 / 금액 / 선박 연락처. 직접입금: 계좌 안내 별도 템플릿.</td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--purple);">P02</td><td><span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:#F3EEFF;color:#6D28D9;">카카오 알림톡</span></td><td style="font-size:10px;font-weight:600;">예약자</td><td>M3 예약 취소 처리</td><td style="font-size:10px;">취소 확인 + 환불 금액/방법/처리 기간</td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--purple);">P03</td><td><span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:#F3EEFF;color:#6D28D9;">카카오 알림톡</span></td><td style="font-size:10px;font-weight:600;">예약자 전체</td><td>M7 삭제 — 예약 있는 bpi 처리 시</td><td style="font-size:10px;">출조 취소 고지 + 환불 안내 (현재 C14로 삭제 차단, 비상 처리용)</td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--purple);">P04</td><td><span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:#F3EEFF;color:#4F46E5;">FlareLane 푸시</span></td><td style="font-size:10px;font-weight:600;">선주(자신)</td><td>플랫폼 예약 신규 접수</td><td style="font-size:10px;">[상품명]에 새 예약 — [이름] N명. 탭 시 예약명단 딥링크.</td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--purple);">P05</td><td><span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:#F3EEFF;color:#4F46E5;">FlareLane 푸시</span></td><td style="font-size:10px;font-weight:600;">선주(자신)</td><td>예약 취소 요청 접수</td><td style="font-size:10px;">[이름]님이 [상품명] 예약 취소 요청. 탭 시 예약명단.</td><td class="no">⬜</td></tr><tr><td class="rc" style="color:var(--purple);">P06</td><td><span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:#F3EEFF;color:#6D28D9;">카카오 알림톡</span></td><td style="font-size:10px;font-weight:600;">예약자</td><td>출조 D-1 자동 발송 (서버 스케줄)</td><td style="font-size:10px;">출항 일시 / 집결지 / 선박 연락처 / 유의사항. 선주 설정값 기반.</td><td class="no">⬜</td></tr></table></div><div style="margin-top:20px;background:#fff;border:1.5px solid var(--red);border-radius:10px;padding:16px 20px;">
-<div style="font-size:12px;font-weight:800;color:var(--red);margin-bottom:12px;">🚨 미구현 우선순위</div>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
-<div style="background:var(--rlt);border-radius:7px;padding:12px;">
-<div style="font-size:10px;font-weight:800;color:var(--red);margin-bottom:6px;">🔴 즉시 수정 (API 연동 전 필수)</div>
-<div style="font-size:10px;color:var(--body);line-height:2;">
-<b>[DB]</b> 시간 HHMM 변환 유틸<br>
-<b>[DB]</b> fish_species 코드 매핑<br>
-<b>[DB]</b> products_fee string 변환<br>
-<b>[DB]</b> sold 하드코딩 → 동적 계산<br>
-<b>[UX]</b> C04 결제인원 미만 차단<br>
-<b>[UX]</b> C02 즉시마감 Confirm<br>
-<b>[UX]</b> C14 예약있는 삭제 차단
-</div></div>
-<div style="background:var(--olt);border-radius:7px;padding:12px;">
-<div style="font-size:10px;font-weight:800;color:var(--orange);margin-bottom:6px;">🟠 API 연동 전 구현</div>
-<div style="font-size:10px;color:var(--body);line-height:2;">
-<b>[DB]</b> reserve_sell_state 예약 상태 분기<br>
-<b>[DB]</b> release_date UI (T/N)<br>
-<b>[DB]</b> seat_type D/R UI<br>
-<b>[DB]</b> bpi_is_exception UI<br>
-<b>[UX]</b> C05/C06/C07 인원조정 얼럿<br>
-<b>[UX]</b> C08/C09/C10 예약추가 얼럿<br>
-<b>[UX]</b> C03 노출OFF+예약 경고
-</div></div>
-<div style="background:var(--ylt);border-radius:7px;padding:12px;">
-<div style="font-size:10px;font-weight:800;color:var(--yellow);margin-bottom:6px;">🟡 운영 전 구현</div>
-<div style="font-size:10px;color:var(--body);line-height:2;">
-<b>[알림]</b> P01~P06 알림톡/푸시 전체<br>
-<b>[UX]</b> M3 예약 취소 기능 (C13)<br>
-<b>[UX]</b> C11 요금변경 기존예약 안내<br>
-<b>[UX]</b> C12 기간축소 안내<br>
-<b>[UX]</b> T06 명단 복사<br>
-<b>[DB]</b> RESERVATIONS 구조 정비
-</div></div>
-</div></div></div><div style="padding:14px 36px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10px;color:var(--dim);">
-<div>어바웃피싱 플랫폼개발팀 · 기획파트 내부문서 · 무단배포금지</div>
-<div>PHASE 1~2 · S1~S4 · M1~M7 · T01~T11 · C02~C16 · P01~P06 · 2026.03</div>
+<table style="width:100%;border-collapse:collapse;font-size:11px;"><tr style="background:var(--bg2);"><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">코드</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">트리거</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">메시지</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">구현</th></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:#7A6000;padding:7px 10px;border-bottom:1px solid var(--line);">T01</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">노출 토글 ON↔OFF</td><td style="padding:7px 10px;border-bottom:1px solid var(--line);"><span style="font-family:monospace;font-size:10px;background:var(--bg);padding:1px 5px;border-radius:3px;">"노출 상태 변경됨"</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--green);font-weight:700;">✅</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:#7A6000;padding:7px 10px;border-bottom:1px solid var(--line);">T02</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">즉시마감 처리 (C02 후)</td><td style="padding:7px 10px;border-bottom:1px solid var(--line);"><span style="font-family:monospace;font-size:10px;background:var(--bg);padding:1px 5px;border-radius:3px;">"즉시 마감 처리됨"</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜ C02미</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:#7A6000;padding:7px 10px;border-bottom:1px solid var(--line);">T03</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M1 인원조정 저장</td><td style="padding:7px 10px;border-bottom:1px solid var(--line);"><span style="font-family:monospace;font-size:10px;background:var(--bg);padding:1px 5px;border-radius:3px;">"판매 좌석 수 조정 완료"</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--green);font-weight:700;">✅</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:#7A6000;padding:7px 10px;border-bottom:1px solid var(--line);">T04</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M2 예약추가 완료</td><td style="padding:7px 10px;border-bottom:1px solid var(--line);"><span style="font-family:monospace;font-size:10px;background:var(--bg);padding:1px 5px;border-radius:3px;">"예약이 추가됐습니다"</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--green);font-weight:700;">✅</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:#7A6000;padding:7px 10px;border-bottom:1px solid var(--line);">T05</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M3 연락처 복사</td><td style="padding:7px 10px;border-bottom:1px solid var(--line);"><span style="font-family:monospace;font-size:10px;background:var(--bg);padding:1px 5px;border-radius:3px;">"[이름] 복사됨"</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--green);font-weight:700;">✅</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:#7A6000;padding:7px 10px;border-bottom:1px solid var(--line);">T06</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M3 명단 전체 복사</td><td style="padding:7px 10px;border-bottom:1px solid var(--line);"><span style="font-family:monospace;font-size:10px;background:var(--bg);padding:1px 5px;border-radius:3px;">"명단이 복사됐습니다"</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:#7A6000;padding:7px 10px;border-bottom:1px solid var(--line);">T07</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M4 개별수정 저장</td><td style="padding:7px 10px;border-bottom:1px solid var(--line);"><span style="font-family:monospace;font-size:10px;background:var(--bg);padding:1px 5px;border-radius:3px;">"개별 수정 완료"</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--green);font-weight:700;">✅</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:#7A6000;padding:7px 10px;border-bottom:1px solid var(--line);">T08</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M5 출조종류 등록</td><td style="padding:7px 10px;border-bottom:1px solid var(--line);"><span style="font-family:monospace;font-size:10px;background:var(--bg);padding:1px 5px;border-radius:3px;">"출조종류 등록 완료"</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--green);font-weight:700;">✅</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:#7A6000;padding:7px 10px;border-bottom:1px solid var(--line);">T09</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M6 출조종류 수정</td><td style="padding:7px 10px;border-bottom:1px solid var(--line);"><span style="font-family:monospace;font-size:10px;background:var(--bg);padding:1px 5px;border-radius:3px;">"출조종류 수정 완료"</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--green);font-weight:700;">✅</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:#7A6000;padding:7px 10px;border-bottom:1px solid var(--line);">T10</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">C15 삭제 확인 후</td><td style="padding:7px 10px;border-bottom:1px solid var(--line);"><span style="font-family:monospace;font-size:10px;background:var(--bg);padding:1px 5px;border-radius:3px;">"출조종류 삭제됨"</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--green);font-weight:700;">✅</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:#7A6000;padding:7px 10px;border-bottom:1px solid var(--line);">T11</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M3 예약 취소 완료</td><td style="padding:7px 10px;border-bottom:1px solid var(--line);"><span style="font-family:monospace;font-size:10px;background:var(--bg);padding:1px 5px;border-radius:3px;">"예약이 취소됐습니다"</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr></table></div>
+    <div style="border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;">
+<div style="background:var(--red);padding:10px 16px;font-size:12px;font-weight:800;color:#fff;">⚠️ Confirm / Alert — C02~C16</div>
+<div style="font-size:9px;color:var(--red);padding:4px 14px;background:var(--rlt);border-bottom:1px solid #FCA5A5;">Confirm=2지선다(취소/확인) · Alert=단순고지(확인1개) · 인라인=필드 하단</div>
+<table style="width:100%;border-collapse:collapse;font-size:11px;"><tr style="background:var(--bg2);"><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">코드</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">유형</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">트리거</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">본문</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">구현</th></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C02</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);">Confirm</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">카드 즉시마감</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">잔여 N석 폐기하고 마감. 되돌릴 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">취소/마감</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C03</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);">Confirm</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">노출OFF + 예약있음</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">기존 예약 N건 유지됩니다. 노출 끄면 신규 예약 불가. 계속?<br><span style="color:var(--dim);font-size:9px;">취소/끄기</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C04</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--orange);">Alert</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">qty < 결제완료인원 (M1·M4)</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C05</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);">Confirm</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M1 마감버튼 (잔여>0)</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">잔여 N석 폐기하고 즉시 마감. 되돌릴 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">취소/마감</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C06</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--orange);">Alert</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M1 마감버튼 (이미마감)</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">이미 마감 상태입니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C07</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--orange);">Alert</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M1 0 이하 입력</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">0석 이하는 설정할 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C08</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--orange);">Alert</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M2 매진상품 선택시도</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">판매가 마감된 상품. 인원조정으로 좌석을 늘린 후 예약하세요.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C09</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--orange);">Alert</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M2 인원>잔여석</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">잔여석(N석)보다 많은 인원입니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C10</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);">Confirm</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M2 출조당일 추가</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">출항 당일 예약입니다. 계속 추가하시겠습니까?<br><span style="color:var(--dim);font-size:9px;">취소/추가</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C11</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);">Confirm</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M4 요금변경+예약있음</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">기존 N건 예약 금액 변경 안 됨. 새 예약부터 적용. 계속?<br><span style="color:var(--dim);font-size:9px;">취소/저장</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C12</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);">Confirm</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M6 기간·요일 축소</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">변경된 기간 외 기존 날짜별 출조 자동삭제 안 됩니다.<br><span style="color:var(--dim);font-size:9px;">취소/확인</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C13</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);">Confirm</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M3 예약취소 버튼</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">[이름]님 예약 취소. 직접입금은 환불 직접 처리하세요.<br><span style="color:var(--dim);font-size:9px;">취소/확인</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C14</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--orange);">Alert</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">S4 삭제 — 예약있음</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">예약이 있는 상품은 삭제할 수 없습니다. (N건) 취소 후 삭제.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);font-weight:700;">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C15</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--red);">Confirm</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">S4 삭제 — 예약없음</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">상품명과 연결된 날짜별 출조 N건 모두 삭제. 되돌릴 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">취소/삭제</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--green);font-weight:700;">✅</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">C16</td><td style="font-size:10px;font-weight:700;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--desc);">인라인</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M5/M6 필수항목 미입력</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">해당 필드 빨간테두리 + 에러 메시지.<br><span style="color:var(--dim);font-size:9px;">—</span></td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);color:var(--green);font-weight:700;">✅</td></tr></table></div>
+  </div>
+  <div style="border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;margin-top:14px;">
+<div style="background:var(--purple);padding:10px 16px;font-size:12px;font-weight:800;color:#fff;">📨 알림톡 / 앱 푸시 — P01~P06</div>
+<div style="font-size:9px;color:var(--purple);padding:4px 14px;background:var(--plt);border-bottom:1px solid #A5B4FC;">카카오 알림톡(예약자) · FlareLane 앱 푸시(선주) · 전체 미구현</div>
+<table style="width:100%;border-collapse:collapse;font-size:11px;"><tr style="background:var(--bg2);"><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">코드</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">채널</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">수신</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">트리거</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">내용</th><th style="padding:6px 10px;font-size:9px;font-weight:700;color:var(--desc);border-bottom:1px solid var(--line);text-align:left;">구현</th></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--purple);padding:7px 10px;border-bottom:1px solid var(--line);">P01</td><td style="font-size:10px;font-weight:700;color:#6D28D9;padding:7px 10px;border-bottom:1px solid var(--line);">알림톡</td><td style="font-size:11px;font-weight:600;padding:7px 10px;border-bottom:1px solid var(--line);">예약자</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M2 예약추가 완료</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">예약번호/상품명/출항일시/금액/선박연락처. 직접입금: 계좌안내 별도.</td><td style="font-size:10px;font-weight:700;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--purple);padding:7px 10px;border-bottom:1px solid var(--line);">P02</td><td style="font-size:10px;font-weight:700;color:#6D28D9;padding:7px 10px;border-bottom:1px solid var(--line);">알림톡</td><td style="font-size:11px;font-weight:600;padding:7px 10px;border-bottom:1px solid var(--line);">예약자</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M3 예약취소 처리</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">취소 확인 + 환불금액/방법/기간</td><td style="font-size:10px;font-weight:700;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--purple);padding:7px 10px;border-bottom:1px solid var(--line);">P03</td><td style="font-size:10px;font-weight:700;color:#6D28D9;padding:7px 10px;border-bottom:1px solid var(--line);">알림톡</td><td style="font-size:11px;font-weight:600;padding:7px 10px;border-bottom:1px solid var(--line);">예약자 전체</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">M7 삭제 (예약있는 bpi)</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">출조 취소 고지 + 환불 안내</td><td style="font-size:10px;font-weight:700;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--purple);padding:7px 10px;border-bottom:1px solid var(--line);">P04</td><td style="font-size:10px;font-weight:700;color:#4F46E5;padding:7px 10px;border-bottom:1px solid var(--line);">앱 푸시</td><td style="font-size:11px;font-weight:600;padding:7px 10px;border-bottom:1px solid var(--line);">선주</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">플랫폼 예약 신규 접수</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">'[상품명]에 새 예약 — [이름] N명' 탭 시 예약명단 딥링크</td><td style="font-size:10px;font-weight:700;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--purple);padding:7px 10px;border-bottom:1px solid var(--line);">P05</td><td style="font-size:10px;font-weight:700;color:#4F46E5;padding:7px 10px;border-bottom:1px solid var(--line);">앱 푸시</td><td style="font-size:11px;font-weight:600;padding:7px 10px;border-bottom:1px solid var(--line);">선주</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">예약 취소 요청 접수</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">'[이름]님이 [상품명] 예약 취소 요청'</td><td style="font-size:10px;font-weight:700;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">⬜</td></tr><tr><td style="font-family:monospace;font-size:10px;font-weight:800;color:var(--purple);padding:7px 10px;border-bottom:1px solid var(--line);">P06</td><td style="font-size:10px;font-weight:700;color:#6D28D9;padding:7px 10px;border-bottom:1px solid var(--line);">알림톡</td><td style="font-size:11px;font-weight:600;padding:7px 10px;border-bottom:1px solid var(--line);">예약자</td><td style="font-size:11px;padding:7px 10px;border-bottom:1px solid var(--line);">출조 D-1 자동 발송</td><td style="font-size:10px;padding:7px 10px;border-bottom:1px solid var(--line);">출항일시/집결지/연락처/유의사항</td><td style="font-size:10px;font-weight:700;color:var(--red);padding:7px 10px;border-bottom:1px solid var(--line);">⬜</td></tr></table></div>
+</div>
+    
+<div style="padding:0 48px 40px;">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+    <div style="background:var(--rlt);border:1.5px solid var(--red);border-radius:8px;padding:14px 16px;">
+      <div style="font-size:11px;font-weight:800;color:var(--red);margin-bottom:8px;">🔴 즉시 (API 연동 전 필수)</div>
+      <div style="font-size:11px;line-height:2.1;">· 시간 HHMM 변환 유틸<br>· fish_species 코드 매핑<br>· products_fee string 변환<br>· sold 동적 계산<br>· C04 결제인원 미만 차단<br>· C02 즉시마감 Confirm<br>· C14 예약있는 삭제 차단</div>
+    </div>
+    <div style="background:var(--olt);border:1.5px solid var(--orange);border-radius:8px;padding:14px 16px;">
+      <div style="font-size:11px;font-weight:800;color:var(--orange);margin-bottom:8px;">🟠 API 연동 전</div>
+      <div style="font-size:11px;line-height:2.1;">· reserve_sell_state 상태 분기<br>· release_date T/N UI<br>· seat_type D/R UI<br>· bpi_is_exception UI<br>· C05/C06/C07 인원조정 얼럿<br>· C08/C09/C10 예약추가 얼럿<br>· C03 노출OFF+예약 경고</div>
+    </div>
+    <div style="background:var(--ylt);border:1.5px solid #FCD34D;border-radius:8px;padding:14px 16px;">
+      <div style="font-size:11px;font-weight:800;color:var(--yellow);margin-bottom:8px;">🟡 운영 전</div>
+      <div style="font-size:11px;line-height:2.1;">· P01~P06 알림톡/푸시 전체<br>· M3 예약 취소 기능 (C13)<br>· C11 요금변경 기존예약 안내<br>· C12 기간축소 안내<br>· T06 명단 복사<br>· RESERVATIONS 구조 정비</div>
+    </div>
+  </div>
 </div>
 
-
+    <div style="padding:14px 48px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10px;color:var(--dim);">
+      <div>어바웃피싱 플랫폼개발팀 · 기획파트 내부문서 · 무단배포금지</div>
+      <div>S1~S4 · M1~M7 · T01~T11 · C02~C16 · P01~P06 · 2026.03</div>
+    </div>
   </div>
 </div>
 </body>
