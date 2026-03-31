@@ -6249,7 +6249,7 @@ function toggleAdmin() {
     renderAllComments();
     updateFigmaUI();
     // 관리자 모드 OFF → 편집 모드도 OFF
-    if (_editMode) toggleEditMode();
+    if (_editMode) toggleEditMode(true);
     return;
   }
   document.getElementById('admin-modal-bg').classList.add('open');
@@ -6266,8 +6266,8 @@ function checkAdminPw() {
     document.getElementById('admin-btn').textContent = '🔓 관리자 모드 ON';
     renderAllComments();
     updateFigmaUI();
-    // 관리자 모드 ON → 편집 모드 자동 활성화
-    if (!_editMode) toggleEditMode();
+    // 관리자 모드 ON → 편집 모드 자동 활성화 (비밀번호 이미 확인됨)
+    if (!_editMode) toggleEditMode(true);
   } else {
     document.getElementById('admin-err').textContent = '비밀번호가 올바르지 않습니다.';
     document.getElementById('admin-pw').value = '';
@@ -6959,7 +6959,15 @@ function saveEditContent() {
 }
 
 // 편집 모드 토글
-function toggleEditMode() {
+function toggleEditMode(skipPw) {
+  // 편집 모드 진입 시 비밀번호 확인 (관리자 모드 연동 시 skipPw=true로 우회)
+  if (!_editMode && !skipPw && !_adminMode) {
+    var pw = prompt('편집 모드 비밀번호를 입력하세요.');
+    if (pw !== '0104') {
+      if (pw !== null) alert('비밀번호가 올바르지 않습니다.');
+      return;
+    }
+  }
   _editMode = !_editMode;
   var btn = document.getElementById('edit-mode-toggle-btn');
   if (_editMode) {
