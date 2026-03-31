@@ -50,15 +50,21 @@ html,body{height:100vh;overflow:hidden;background:#0d0d0d;
 .walk-dots{display:flex;gap:5px;margin-top:10px;}
 .walk-dot{width:6px;height:6px;border-radius:50%;background:#e0e0e0;}
 .walk-dot.on{background:var(--blue);width:16px;border-radius:3px;}
-.walk-touch{position:absolute;width:48px;height:48px;border-radius:50%;
-  border:3px solid #fff;background:rgba(255,255,255,.25);
-  transform:translate(-50%,-50%);pointer-events:none;
-  animation:touchPulse 1s infinite;}
-@keyframes touchPulse{
-  0%{box-shadow:0 0 0 0 rgba(255,255,255,.6);}
-  70%{box-shadow:0 0 0 16px rgba(255,255,255,0);}
-  100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
+.walk-touch{position:absolute;border-radius:8px;
+  border:2.5px solid #4D8AFF;background:rgba(0,65,255,.10);
+  pointer-events:none;
+  animation:areaGlow 1.2s ease-in-out infinite;
+  box-sizing:border-box;}
+@keyframes areaGlow{
+  0%,100%{box-shadow:0 0 0 0 rgba(0,65,255,.35),inset 0 0 8px rgba(0,65,255,.08);}
+  50%{box-shadow:0 0 0 6px rgba(0,65,255,0),inset 0 0 16px rgba(0,65,255,.15);}
 }
+.walk-touch::before{content:'';position:absolute;inset:-6px;border-radius:12px;
+  border:1.5px dashed rgba(0,65,255,.30);pointer-events:none;}
+.walk-touch-label{position:absolute;top:-22px;left:50%;transform:translateX(-50%);
+  background:#0041FF;color:#fff;font-size:9px;font-weight:800;
+  padding:2px 8px;border-radius:4px;white-space:nowrap;letter-spacing:-.2px;
+  pointer-events:none;}
 .walk-close-btn{position:absolute;top:12px;right:12px;width:28px;height:28px;
   border-radius:50%;background:#eee;border:none;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
@@ -95,19 +101,19 @@ html,body{height:100vh;overflow:hidden;background:#0d0d0d;
 .screen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:28px 36px;}
 .screen-card{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;}
 .screen-card:hover .ph-frame{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.2);}
-.sc-badge{font-size:9px;font-weight:800;padding:3px 10px;border-radius:4px;color:#fff;margin-bottom:2px;display:inline-block;}
-.sc-name{font-size:12px;font-weight:700;color:var(--blk);text-align:center;margin-top:2px;}
-.sc-desc{font-size:10px;color:var(--desc);text-align:center;}
+.sc-badge{font-size:13px;font-weight:800;padding:5px 14px;border-radius:4px;color:#fff;margin-bottom:2px;display:inline-block;}
+.sc-name{font-size:16px;font-weight:700;color:var(--blk);text-align:center;margin-top:2px;}
+.sc-desc{font-size:13px;color:var(--desc);text-align:center;}
 
 /* ── 화면 플로우 ── */
 .flow-section{padding:24px 36px 32px;overflow-x:auto;}
 .flow-row{display:flex;align-items:flex-start;gap:0;margin-bottom:24px;flex-wrap:nowrap;}
 .flow-screen-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
-.flow-badge{font-size:9px;font-weight:800;padding:3px 10px;border-radius:4px;color:#fff;margin-bottom:6px;display:inline-block;}
-.flow-lbl{font-size:11px;font-weight:700;color:var(--blk);margin-top:6px;text-align:center;}
-.flow-sub{font-size:10px;color:var(--desc);text-align:center;}
+.flow-badge{font-size:13px;font-weight:800;padding:5px 14px;border-radius:4px;color:#fff;margin-bottom:6px;display:inline-block;}
+.flow-lbl{font-size:15px;font-weight:700;color:var(--blk);margin-top:6px;text-align:center;}
+.flow-sub{font-size:13px;color:var(--desc);text-align:center;}
 .farr{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;padding:0 8px;margin-top:70px;}
-.farr-lbl{font-size:9px;font-weight:700;background:var(--blt);color:var(--blue);padding:2px 8px;border-radius:3px;white-space:nowrap;}
+.farr-lbl{font-size:13px;font-weight:700;background:var(--blt);color:var(--blue);padding:2px 8px;border-radius:3px;white-space:nowrap;}
 .farr-lbl.red{background:var(--rlt);color:var(--red);}
 .farr-lbl.gray{background:var(--bg);color:var(--desc);}
 .branch-wrap{display:flex;flex-direction:column;gap:10px;}
@@ -582,6 +588,17 @@ body{min-width:1400px;}
 .comment-item.flash{animation:commentFlash 2.5s ease;}
 @keyframes commentFlash{0%,100%{box-shadow:0 1px 4px rgba(0,0,0,.06);}20%,60%{box-shadow:0 0 0 4px rgba(0,65,255,.3);border-left-color:var(--blue)!important;}}
 
+
+/* ── 알림 칩 호버 툴팁 ── */
+.chip{cursor:pointer;position:relative;transition:transform .1s;}
+.chip:hover{transform:scale(1.08);z-index:50;}
+.chip-tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:#1A1A1A;color:#fff;font-size:11px;font-weight:500;padding:8px 12px;border-radius:8px;
+  white-space:nowrap;z-index:1000;box-shadow:0 4px 16px rgba(0,0,0,.25);line-height:1.5;
+  max-width:320px;white-space:normal;pointer-events:none;}
+.chip-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:#1A1A1A;}
+.chip:hover .chip-tooltip{display:block;}
 /* ── 알림 칩 (spec 테이블 내 T01, C12 등) ── */
 .chip{display:inline-flex;align-items:center;font-size:9px;font-weight:700;
   padding:2px 7px;border-radius:12px;margin:1px 2px;white-space:nowrap;letter-spacing:.2px;}
@@ -628,6 +645,14 @@ body{min-width:1400px;}
   padding:1px 5px;border-radius:3px;white-space:nowrap;}
 .ok-g{color:var(--green);font-weight:700;}
 .ok-r{color:var(--red);font-weight:700;}
+
+/* ── 섹션 접기/펼치기 ── */
+.spec-hd{cursor:pointer;transition:background .15s;user-select:none;}
+.spec-hd:hover{background:var(--bg2);}
+.spec-hd .spec-collapse-icon{transition:transform .25s;flex-shrink:0;margin-left:8px;}
+.spec-hd .spec-collapse-icon.collapsed{transform:rotate(-90deg);}
+.spec-body.collapsed{display:none;}
+.comment-section.collapsed-cs{display:none;}
 </style>
 </head>
 <body>
@@ -666,7 +691,7 @@ body{min-width:1400px;}
         <div class="walk-step-num" id="walk-num">STEP 1 / 3</div>
         <div class="walk-step-label" id="walk-label"></div>
         <div class="walk-step-desc" id="walk-desc"></div>
-        <div class="walk-dots"><div class="walk-dot" id="wd-0"></div><div class="walk-dot" id="wd-1"></div><div class="walk-dot" id="wd-2"></div></div>
+        <div class="walk-dots" id="walk-dots"></div>
         <div style="margin-top:8px;">
           <button onclick="endWalkthrough()" style="font-size:11px;font-weight:700;color:var(--blue);background:none;border:none;cursor:pointer;padding:4px 0;">바로 이동 →</button>
         </div>
@@ -840,6 +865,14 @@ body{ background:radial-gradient(ellipse at 40% 30%,#2a2a2a 0%,#111 100%); }
   background:rgba(0,0,0,.18);
   border-radius:3px; z-index:200; pointer-events:none;
 }
+
+/* ── 섹션 접기/펼치기 ── */
+.spec-hd{cursor:pointer;transition:background .15s;user-select:none;}
+.spec-hd:hover{background:var(--bg2);}
+.spec-hd .spec-collapse-icon{transition:transform .25s;flex-shrink:0;margin-left:8px;}
+.spec-hd .spec-collapse-icon.collapsed{transform:rotate(-90deg);}
+.spec-body.collapsed{display:none;}
+.comment-section.collapsed-cs{display:none;}
 </style>
 </head>
 <body>
@@ -2340,6 +2373,22 @@ function DailyProductTab({dailyProducts,setDailyProducts,masterProducts,addManua
   const [modal,setModal]=useState(null);
   const [toast,setToast]=useState(&quot;&quot;);
 
+  // proto-navigate → daily modal (m1~m4)
+  React.useEffect(()=>{
+    const h=e=>{
+      const t=e.detail;
+      const dp=dailyProducts[0];
+      if(!dp)return;
+      if(t===&#39;m1&#39;)setModal({type:&#39;cap&#39;,product:{...dp,id:dp.id,capacity:dp.bpiQty,sold:dp.sold}});
+      else if(t===&#39;m2&#39;)setModal({type:&#39;addRsv&#39;,product:{...dp,id:dp.id,name:dp.bpiName,price:dp.bpiAdultRate,capacity:dp.bpiQty}});
+      else if(t===&#39;m3&#39;)setModal({type:&#39;rsv&#39;,product:{...dp,id:dp.id,name:dp.bpiName,price:dp.bpiAdultRate,capacity:dp.bpiQty,sold:dp.sold,fish:dp.fishSpecies,depart:dp.bpiSReleaseTime,arrive:dp.bpiEReleaseTime,type:dp.bpiReleaseDay===&#39;T&#39;?&#39;당일&#39;:&#39;야간&#39;}});
+      else if(t===&#39;m4&#39;)setModal({type:&#39;editDaily&#39;,product:dp});
+      else setModal(null);
+    };
+    window.addEventListener(&#39;__proto_daily_modal__&#39;,h);
+    return()=>window.removeEventListener(&#39;__proto_daily_modal__&#39;,h);
+  },[dailyProducts]);
+
   const t2=m=>{setToast(m);setTimeout(()=>setToast(&quot;&quot;),2200);};
   const handleMonth=d=>{
     if(d===&quot;reset&quot;){setCalYear(2026);setCalMonth(2);setSelDate(null);return;}
@@ -2524,11 +2573,11 @@ function ProductListScreen({onRegister,products,setProducts,addManualRsv,allRsvs
     setModal(null);
   };
 
-  // proto-navigate → master modal
+  // proto-navigate → master/daily modal (m1~m7, c15 포함)
   React.useEffect(()=>{
     const h=e=>{
       const t=e.detail;
-      if(t===&#39;s4&#39;||t===&#39;m5&#39;||t===&#39;m6&#39;||t===&#39;m7&#39;){
+      if(t===&#39;s4&#39;||t===&#39;m5&#39;||t===&#39;m6&#39;||t===&#39;m7&#39;||t===&#39;c15&#39;){
         setTab(&#39;master&#39;);
       } else {
         setTab(&#39;daily&#39;);
@@ -2537,6 +2586,11 @@ function ProductListScreen({onRegister,products,setProducts,addManualRsv,allRsvs
         if(t===&#39;m5&#39;)setModal({type:&#39;addMaster&#39;});
         else if(t===&#39;m6&#39;&amp;&amp;masterProducts.length>0)setModal({type:&#39;editMaster&#39;,master:masterProducts[0]});
         else if(t===&#39;m7&#39;&amp;&amp;masterProducts.length>0)handleDeleteMaster(masterProducts[0]);
+        else if(t===&#39;c15&#39;&amp;&amp;masterProducts.length>0)handleDeleteMaster(masterProducts[0]);
+        else if(t===&#39;m1&#39;||t===&#39;m2&#39;||t===&#39;m3&#39;||t===&#39;m4&#39;){
+          setModal(null);
+          window.dispatchEvent(new CustomEvent(&#39;__proto_daily_modal__&#39;,{detail:t}));
+        }
         else setModal(null);
       },50);
     };
@@ -2957,14 +3011,15 @@ function App(){
     };
   },[]);
 
-  // proto-navigate 이벤트: 상품관리 탭으로 이동
+  // proto-navigate 이벤트: 화면 전환
   useEffect(()=>{
     const h=e=>{
       const t=e.detail;
+      if(t===&#39;s1&#39;||t===&#39;home&#39;){goNav(&#39;home&#39;);return;}
       goNav(&#39;product&#39;);
       setTimeout(()=>{
         window.dispatchEvent(new CustomEvent(&#39;__proto_modal__&#39;,{detail:t}));
-      },400);
+      },100);
     };
     window.addEventListener(&#39;__proto_nav__&#39;,h);
     return()=>window.removeEventListener(&#39;__proto_nav__&#39;,h);
@@ -3089,6 +3144,95 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   window.addEventListener(&#39;load&#39;, scalePhone);
   window.addEventListener(&#39;resize&#39;, scalePhone);
 })();
+
+// ── 섹션 접기/펼치기 ──
+function toggleSpecSection(secId, event) {
+  // nav-to-btn 클릭 시에는 접기 동작 안 함
+  if (event && event.target.closest && event.target.closest('.nav-to-btn')) return;
+  var spec = document.getElementById('spec-' + secId);
+  if (!spec) return;
+  var body = spec.querySelector('.spec-body');
+  var cs   = spec.querySelector('.comment-section');
+  var icon = spec.querySelector('.spec-collapse-icon');
+  if (!body) return;
+  var isCollapsed = body.classList.contains('collapsed');
+  if (isCollapsed) {
+    body.classList.remove('collapsed');
+    if (cs) cs.classList.remove('collapsed-cs');
+    if (icon) icon.classList.remove('collapsed');
+  } else {
+    body.classList.add('collapsed');
+    if (cs) cs.classList.add('collapsed-cs');
+    if (icon) icon.classList.add('collapsed');
+  }
+}
+
+
+// ── 알림 칩 (T/C/A/P) 호버 툴팁 + 클릭 이동 ──
+var CHIP_INFO = {
+  'T 01': {desc:'노출 토글 변경 시 토스트 알림', section:'toast'},
+  'T 02': {desc:'즉시마감 완료 토스트 알림', section:'toast'},
+  'T 03': {desc:'인원조정 저장 완료 토스트', section:'toast'},
+  'T 04': {desc:'예약 직접추가 완료 토스트', section:'toast'},
+  'T 05': {desc:'연락처 복사 완료 토스트', section:'toast'},
+  'T 06': {desc:'명단 복사 완료 토스트', section:'toast'},
+  'T 07': {desc:'일자별 수정 저장 완료 토스트', section:'toast'},
+  'T 08': {desc:'출조종류 등록 완료 토스트', section:'toast'},
+  'T 09': {desc:'출조종류 수정 완료 토스트', section:'toast'},
+  'T 10': {desc:'출조종류 삭제 완료 토스트', section:'toast'},
+  'T 11': {desc:'일자별 삭제 완료 토스트', section:'toast'},
+  'C 02': {desc:'Confirm: 잔여 N석 폐기하고 마감. 되돌릴 수 없습니다.', section:'confirm'},
+  'C 03': {desc:'Confirm: 기존 예약 N건 유지. 노출 끄면 신규 예약 불가.', section:'confirm'},
+  'C 04': {desc:'Alert: 결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다.', section:'confirm'},
+  'C 05': {desc:'Confirm: 잔여 N석 폐기하고 즉시 마감. 되돌릴 수 없습니다.', section:'confirm'},
+  'C 08': {desc:'Alert: 판매가 마감된 상품. 인원조정으로 좌석을 늘린 후 예약하세요.', section:'confirm'},
+  'C 09': {desc:'Alert: 잔여석(N석)보다 많은 인원입니다.', section:'confirm'},
+  'C 10': {desc:'Confirm: 출항 당일 예약입니다. 계속 추가하시겠습니까?', section:'confirm'},
+  'C 13': {desc:'Confirm: [이름]님 예약 취소. 직접입금은 환불 직접 처리.', section:'confirm'},
+  'C 14': {desc:'Alert: 예약이 있는 상품은 삭제할 수 없습니다.', section:'confirm'},
+  'C 15': {desc:'Confirm: 연결된 날짜별 출조 N건 모두 삭제. 되돌릴 수 없습니다.', section:'confirm'},
+  'A 06': {desc:'마감 처리 후 알림', section:'confirm'},
+  'A 08': {desc:'매진상품 선택 시 Alert', section:'confirm'},
+  'A 14': {desc:'삭제 차단 Alert (예약 있음)', section:'confirm'},
+  'A 16': {desc:'출조종류 등록 완료 알림', section:'confirm'},
+  'P 01': {desc:'알림톡: 예약번호/상품명/출항일시/금액/선박연락처', section:'push'},
+  'P 02': {desc:'알림톡: 취소 확인 + 환불금액/방법/기간', section:'push'},
+  'P 03': {desc:'알림톡: 출조 취소 고지 + 환불 안내', section:'push'},
+};
+
+function initChipTooltips() {
+  document.querySelectorAll('.chip').forEach(function(chip) {
+    var code = chip.textContent.trim();
+    var info = CHIP_INFO[code];
+    if (!info) return;
+    // 툴팁 추가
+    var tip = document.createElement('div');
+    tip.className = 'chip-tooltip';
+    tip.innerHTML = '<b>' + code + '</b> — ' + info.desc;
+    chip.appendChild(tip);
+    // 클릭 시 해당 레퍼런스 섹션으로 스크롤
+    chip.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var refSection = document.querySelector('.ref-section');
+      if (refSection) {
+        refSection.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+}
+
+// ── 페이지 로드 시 칩 툴팁 초기화 ──
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(initChipTooltips, 500);
+});
+
+// ── 이벤트 위임: 코멘트 수정/삭제 버튼 ──
+document.addEventListener('click', function(e) {
+  var editBtn = e.target.closest('.cbtn-edit');
+  if (editBtn) { editComment(editBtn.dataset.secid, Number(editBtn.dataset.cid)); return; }
+  var delBtn = e.target.closest('.cbtn-del');
+  if (delBtn) { deleteComment(delBtn.dataset.secid, Number(delBtn.dataset.cid)); return; }
+});
 </script>
 </body>
 </html>
@@ -3105,14 +3249,18 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
     <!-- 헤더 -->
     <div class="sb-hd">
       <div class="sb-hd-title">어바웃피싱 <s>·</s> 상품관리 스토리보드</div>
-      <div class="figma-wrap">
-        <span class="figma-label">Figma</span>
-        <input class="figma-input" id="figma-input" type="url" placeholder="https://figma.com/file/..."
-          oninput="saveFigmaLink(this.value)" onfocus="this.select()">
-        <a class="figma-link" id="figma-link" href="#" target="_blank" rel="noopener" style="display:none;">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          열기
-        </a>
+      <div class="figma-wrap" id="figma-wrap">
+        <div id="figma-display" style="display:none;">
+          <a id="figma-display-link" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#A259FF;text-decoration:none;padding:5px 12px;border:1.5px solid #A259FF;border-radius:6px;background:#F9F5FF;white-space:nowrap;">
+            <svg width="14" height="14" viewBox="0 0 38 57" fill="none"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/></svg>
+            Figma 디자인 열기
+          </a>
+        </div>
+        <div id="figma-edit" style="display:none;">
+          <span class="figma-label">Figma URL</span>
+          <input class="figma-input" id="figma-input" type="url" placeholder="https://figma.com/file/..."
+            oninput="saveFigmaLink(this.value)" onfocus="this.select()">
+        </div>
       </div>
       <button class="admin-btn" id="admin-btn" onclick="toggleAdmin()">🔒 관리자 모드</button>
     </div>
@@ -4232,7 +4380,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
 
     <!-- ④ 상세 기능 명세 -->
     <div class="sdiv"><div class="sdiv-t">② 화면별 상세 기능 명세</div><div class="sdiv-s">각 섹션 [▶ 프로토타입에서 보기] 클릭 시 실제 터치 경로 애니메이션 후 해당 화면 이동</div></div><div class="spec-sec" id="spec-s1">
-  <div class="spec-hd">
+  <div class="spec-hd" onclick="toggleSpecSection('s1',event)">
     <div class="spec-hd-num" style="background:var(--blk);">S1</div>
     <div style="flex:1;">
       <div class="spec-hd-title">상품관리 메인 화면 — 진입 & 선박 선택</div>
@@ -4242,6 +4390,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       프로토타입에서 보기
     </button>
+    <svg class="spec-collapse-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="spec-body">
     <div class="spec-mock-wrap">
@@ -4333,6 +4482,8 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
           <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
           <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -4348,7 +4499,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   </div>
 </div>
 <div class="spec-sec" id="spec-s2a">
-  <div class="spec-hd">
+  <div class="spec-hd" onclick="toggleSpecSection('s2a',event)">
     <div class="spec-hd-num" style="background:var(--blue);">S2-A</div>
     <div style="flex:1;">
       <div class="spec-hd-title">날짜 필터 & 현황 요약 패널</div>
@@ -4358,6 +4509,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       프로토타입에서 보기
     </button>
+    <svg class="spec-collapse-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="spec-body">
     <div class="spec-mock-wrap">
@@ -4452,6 +4604,8 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
           <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
           <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -4467,7 +4621,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   </div>
 </div>
 <div class="spec-sec" id="spec-s2b">
-  <div class="spec-hd">
+  <div class="spec-hd" onclick="toggleSpecSection('s2b',event)">
     <div class="spec-hd-num" style="background:var(--blue);">S2-B</div>
     <div style="flex:1;">
       <div class="spec-hd-title">날짜 그룹 & 상품 카드</div>
@@ -4477,6 +4631,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       프로토타입에서 보기
     </button>
+    <svg class="spec-collapse-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="spec-body">
     <div class="spec-mock-wrap">
@@ -4591,6 +4746,8 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
           <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
           <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -4606,7 +4763,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   </div>
 </div>
 <div class="spec-sec" id="spec-m1">
-  <div class="spec-hd">
+  <div class="spec-hd" onclick="toggleSpecSection('m1',event)">
     <div class="spec-hd-num" style="background:#7C3AED;">M1</div>
     <div style="flex:1;">
       <div class="spec-hd-title">인원조정 모달 — CapacityModal</div>
@@ -4616,6 +4773,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       프로토타입에서 보기
     </button>
+    <svg class="spec-collapse-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="spec-body">
     <div class="spec-mock-wrap">
@@ -4723,6 +4881,8 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
           <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
           <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -4738,7 +4898,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   </div>
 </div>
 <div class="spec-sec" id="spec-m2">
-  <div class="spec-hd">
+  <div class="spec-hd" onclick="toggleSpecSection('m2',event)">
     <div class="spec-hd-num" style="background:var(--green);">M2</div>
     <div style="flex:1;">
       <div class="spec-hd-title">예약 직접 추가 — DirectReservationModal</div>
@@ -4748,6 +4908,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       프로토타입에서 보기
     </button>
+    <svg class="spec-collapse-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="spec-body">
     <div class="spec-mock-wrap">
@@ -4847,6 +5008,8 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
           <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
           <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -4862,7 +5025,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   </div>
 </div>
 <div class="spec-sec" id="spec-m3">
-  <div class="spec-hd">
+  <div class="spec-hd" onclick="toggleSpecSection('m3',event)">
     <div class="spec-hd-num" style="background:#555;">M3</div>
     <div style="flex:1;">
       <div class="spec-hd-title">예약자 명단 — ReservationListModal</div>
@@ -4872,6 +5035,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       프로토타입에서 보기
     </button>
+    <svg class="spec-collapse-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="spec-body">
     <div class="spec-mock-wrap">
@@ -4993,6 +5157,8 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
           <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
           <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5008,7 +5174,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   </div>
 </div>
 <div class="spec-sec" id="spec-m4">
-  <div class="spec-hd">
+  <div class="spec-hd" onclick="toggleSpecSection('m4',event)">
     <div class="spec-hd-num" style="background:#7C3AED;">M4</div>
     <div style="flex:1;">
       <div class="spec-hd-title">일자별 개별수정 — DailyProductEditModal</div>
@@ -5018,6 +5184,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       프로토타입에서 보기
     </button>
+    <svg class="spec-collapse-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="spec-body">
     <div class="spec-mock-wrap">
@@ -5118,6 +5285,8 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
           <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
           <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5133,7 +5302,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   </div>
 </div>
 <div class="spec-sec" id="spec-s4">
-  <div class="spec-hd">
+  <div class="spec-hd" onclick="toggleSpecSection('s4',event)">
     <div class="spec-hd-num" style="background:var(--blk);">S4</div>
     <div style="flex:1;">
       <div class="spec-hd-title">출조종류 관리 탭 — 마스터상품 목록</div>
@@ -5143,6 +5312,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       프로토타입에서 보기
     </button>
+    <svg class="spec-collapse-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="spec-body">
     <div class="spec-mock-wrap">
@@ -5239,6 +5409,8 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
           <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
           <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5254,7 +5426,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   </div>
 </div>
 <div class="spec-sec" id="spec-m5">
-  <div class="spec-hd">
+  <div class="spec-hd" onclick="toggleSpecSection('m5',event)">
     <div class="spec-hd-num" style="background:var(--blue);">M5</div>
     <div style="flex:1;">
       <div class="spec-hd-title">출조종류 등록 — MasterProductModal (신규)</div>
@@ -5264,6 +5436,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       프로토타입에서 보기
     </button>
+    <svg class="spec-collapse-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="spec-body">
     <div class="spec-mock-wrap">
@@ -5354,6 +5527,8 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
           <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
           <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5369,7 +5544,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   </div>
 </div>
 <div class="spec-sec" id="spec-m6">
-  <div class="spec-hd">
+  <div class="spec-hd" onclick="toggleSpecSection('m6',event)">
     <div class="spec-hd-num" style="background:var(--orange);">M6</div>
     <div style="flex:1;">
       <div class="spec-hd-title">출조종류 수정 — MasterProductModal (수정)</div>
@@ -5379,6 +5554,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       프로토타입에서 보기
     </button>
+    <svg class="spec-collapse-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="spec-body">
     <div class="spec-mock-wrap">
@@ -5463,6 +5639,8 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
           <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
           <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5478,7 +5656,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   </div>
 </div>
 <div class="spec-sec" id="spec-m7">
-  <div class="spec-hd">
+  <div class="spec-hd" onclick="toggleSpecSection('m7',event)">
     <div class="spec-hd-num" style="background:var(--red);">M7</div>
     <div style="flex:1;">
       <div class="spec-hd-title">출조종류 삭제 — 2단계 처리</div>
@@ -5488,6 +5666,7 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       프로토타입에서 보기
     </button>
+    <svg class="spec-collapse-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
   <div class="spec-body">
     <div class="spec-mock-wrap">
@@ -5572,6 +5751,8 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
           <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
           <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5609,9 +5790,42 @@ ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(<App/>);
   </div>
 </div>
 
+
+<!-- ── DB 정합성 검사 결과 ── -->
+<div class="sdiv" style="margin-top:8px;"><div class="sdiv-t">⚠ DB/API 정합성 검사 — 스토리보드 vs 실제 테이블 구조</div><div class="sdiv-s">업체 상품 테이블 정보.xlsx 기준 · 2026.03.31 검사</div></div>
+<div style="padding:20px 36px 32px;">
+  <div style="display:grid;grid-template-columns:auto 1fr;gap:12px;margin-bottom:20px;">
+    <div style="display:flex;gap:8px;">
+      <span style="background:#FDECEA;color:#D93025;font-size:11px;font-weight:800;padding:4px 12px;border-radius:6px;">🔴 심각 3건</span>
+      <span style="background:#FFF4E5;color:#C96A00;font-size:11px;font-weight:800;padding:4px 12px;border-radius:6px;">🟡 주의 5건</span>
+      <span style="background:#E8F8F1;color:#00A86B;font-size:11px;font-weight:800;padding:4px 12px;border-radius:6px;">🟢 참고 2건</span>
+    </div>
+  </div>
+  <table class="sp-table" style="margin-bottom:0;">
+    <tr><th style="width:140px;">영역</th><th style="width:200px;">스토리보드 기술</th><th style="width:220px;">DB 테이블/컬럼</th><th>불일치 내용</th><th style="width:60px;">심각도</th></tr>
+    <tr><td class="td-elem">선박 기본정보</td><td style="font-size:11px;">assemblyAddr, fishingAddr<br><span class="td-cond">(단일 문자열)</span></td><td style="font-size:11px;">assembly_addr1, assembly_addr2, assembly_sido<br>fishing_addr1, fishing_addr2, fishing_sido</td><td><span class="sp-pt">주소 필드 분리 방식 불일치 — DB는 3단계(시도/상세/우편번호) 분리, 스토리보드는 하나의 문자열로 통합 처리</span><span class="sp-pt"><span class="hl-r">API 응답/요청 구조 불일치</span>, 데이터 파싱 로직 구현 필요</span></td><td style="text-align:center;font-size:16px;">🔴</td></tr>
+    <tr><td class="td-elem">마스터상품 / 일자별상품</td><td style="font-size:11px;">fishSpecies: string[]<br><span class="td-cond">("갑오징어", "주꾸미")</span></td><td style="font-size:11px;">fish_species: number[]<br><span class="td-cond">(어종 코드 배열)</span></td><td><span class="sp-pt"><span class="hl-r">데이터 형식 불일치</span> — 스토리보드는 어종명 문자열, DB는 코드 숫자 배열</span><span class="sp-pt">모든 상품(마스터/일자별)에 영향. FISH_CODE_MAP 매핑 테이블 구현 필수</span></td><td style="text-align:center;font-size:16px;">🔴</td></tr>
+    <tr><td class="td-elem">마스터상품 / 선박정보</td><td style="font-size:11px;">productsFee: number<br><span class="td-cond">(예: 3)</span></td><td style="font-size:11px;">products_fee: string<br><span class="td-cond">(필수: Y)</span></td><td><span class="sp-pt"><span class="hl-r">타입 불일치</span> — DB는 문자열 수수료율, 스토리보드는 숫자</span><span class="sp-pt">의미 불명확 (수수료율 vs 등급). DB 명세 재확인 필요</span></td><td style="text-align:center;font-size:16px;">🔴</td></tr>
+    <tr><td class="td-elem">선박 기본정보</td><td style="font-size:11px;">reserveSellState: number<br><span class="td-cond">(1:수기확정, 2:자동확정)</span></td><td style="font-size:11px;">reserve_sell_state: string<br><span class="td-cond">(필수: N)</span></td><td><span class="sp-pt"><span class="hl-o">타입 불일치</span> — 스토리보드는 number, DB는 string</span><span class="sp-pt">Spec에서 [미구현] 태그. 예약확정 분기 로직에 영향</span></td><td style="text-align:center;font-size:16px;">🟡</td></tr>
+    <tr><td class="td-elem">일자별상품</td><td style="font-size:11px;">sold: number<br><span class="td-cond">(판매 수량)</span></td><td style="font-size:11px;color:var(--red);font-weight:700;">NOT IN DB</td><td><span class="sp-pt"><span class="hl-o">DB에 sold 필드 없음</span> — 예약 데이터에서 실시간 집계 필요</span><span class="sp-pt">잔여석 계산, 매진 판단, 현황 요약 등 전체 화면에 영향</span></td><td style="text-align:center;font-size:16px;">🟡</td></tr>
+    <tr><td class="td-elem">좌석 관리</td><td style="font-size:11px;">seatType: string<br><span class="td-cond">(D:추첨 / R:지정)</span></td><td style="font-size:11px;">seat_type + seat_cnt,<br>capacity_cnt, min/max_seat_no<br><span class="td-cond">(낚시터 전용 상세관리)</span></td><td><span class="sp-pt">좌석 관리 수준 차이 — 낚시터는 상세(좌석수/번호 범위), 선박은 간단 구분</span></td><td style="text-align:center;font-size:16px;">🟡</td></tr>
+    <tr><td class="td-elem">선박 기본정보</td><td style="font-size:11px;color:var(--red);font-weight:700;">NOT IN HTML</td><td style="font-size:11px;">equipment, amenity, service<br><span class="td-cond">(string[] 장비/편의/서비스)</span></td><td><span class="sp-pt">선박 장비/편의시설/서비스 정보가 스토리보드 Mock 데이터에 미포함</span></td><td style="text-align:center;font-size:16px;">🟡</td></tr>
+    <tr><td class="td-elem">마스터상품</td><td style="font-size:11px;">releaseWeek:<br><span class="td-cond">["Mon","Tue","Wed"...]</span></td><td style="font-size:11px;">release_week: string[]<br><span class="td-cond">(형식 미명시)</span></td><td><span class="sp-pt">요일 형식 미명시 — 스토리보드 가정: 영문 3자. DB 실제 형식 확인 필요</span></td><td style="text-align:center;font-size:16px;">🟡</td></tr>
+    <tr><td class="td-elem">일자별상품</td><td style="font-size:11px;">date: string<br><span class="td-cond">("2026-02-27" ISO)</span></td><td style="font-size:11px;color:var(--dim);">파생 필드<br><span class="td-cond">bpi_s_release_dt에서 파생</span></td><td><span class="sp-pt">스토리보드 추가 필드: 날짜 렌더링/필터링용 헬퍼 필드. DB 영속화 불필요</span></td><td style="text-align:center;font-size:16px;">🟢</td></tr>
+    <tr><td class="td-elem">마스터상품 (낚시터)</td><td style="font-size:11px;">할인/추가요금 필드 미반영</td><td style="font-size:11px;">is_add_rate, add_rate,<br>add_weekend_rate, add_person</td><td><span class="sp-pt">낚시터만 추가요금 개념 있음. 선박상품에는 미적용 (설계 의도)</span></td><td style="text-align:center;font-size:16px;">🟢</td></tr>
+  </table>
+  <div style="margin-top:16px;padding:12px 16px;background:#F7F8FE;border-radius:8px;border-left:4px solid var(--blue);">
+    <div style="font-size:12px;font-weight:800;color:var(--blk);margin-bottom:6px;">📋 우선순위별 개선 로드맵</div>
+    <div style="font-size:11px;color:var(--body);line-height:1.8;">
+      <b style="color:var(--red);">P0 (긴급)</b> — fishSpecies 형식 변환 (FISH_CODE_MAP), 주소 필드 파싱 로직, products_fee 의미 명확화<br>
+      <b style="color:var(--orange);">P1 (중요)</b> — sold 필드 계산 로직 구현, reserve_sell_state 타입 통일 및 분기 구현<br>
+      <b style="color:var(--desc);">P2 (개선)</b> — equipment 정보 UI 추가, releaseWeek 형식 통일 문서화
+    </div>
+  </div>
+</div>
     <div style="padding:14px 36px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10px;color:var(--dim);">
       <div>어바웃피싱 플랫폼개발팀 · 기획파트 내부문서 · 무단배포금지</div>
-      <div>v5.0 · 2026.03 · S1~S4 · M1~M7 · T01~T11 · C02~C16 · P01~P06</div>
+      <div>v5.1 · 2026.03.31 · S1~S4 · M1~M7 · T01~T11 · C02~C16 · P01~P06 · DB검증 포함</div>
     </div>
   </div>
 </div>
@@ -5622,30 +5836,93 @@ var _walkSteps  = [];
 var _walkIdx    = 0;
 var _walkTarget = '';
 var WALK_STEPS = {
-  // steps: [{l, d, x, y, after}]  after=이 터치 후 navigate할 target
-  s2:        [{l:'일자별상품 탭 기본 화면', d:'상품관리 탭 진입 시 기본 활성 화면', x:57, y:90}],
-  s2_filter: [{l:'날짜 칩 클릭', d:'월 네비 아래의 날짜 칩을 선택합니다', x:40, y:29, after:null}],
-  s2_card:   [{l:'날짜 그룹 헤더 확인', d:'날짜별 카드가 그룹화되어 표시됩니다', x:50, y:46, after:null}],
-  m1:        [{l:'인원조정 버튼 클릭', d:'카드 하단 좌측 버튼을 누릅니다', x:22, y:69, after:'m1'}],
-  m2:        [{l:'예약추가 버튼 클릭', d:'카드 하단 가운데 버튼을 누릅니다', x:50, y:69, after:'m2'}],
-  m3:        [{l:'예약명단 버튼 클릭', d:'카드 하단 우측 버튼을 누릅니다', x:78, y:69, after:'m3'}],
-  m4:        [{l:'개별수정 텍스트 클릭', d:'카드 최하단 좌측 텍스트 버튼을 누릅니다', x:27, y:77, after:'m4'}],
-  s4:        [{l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다', x:70, y:16, after:'s4'}],
-  m5:        [{l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다', x:70, y:16, after:'s4'},
-               {l:'+ 출조종류 등록 버튼 클릭', d:'목록 상단 우측 파란 버튼을 누릅니다', x:78, y:27, after:'m5'}],
-  m6:        [{l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다', x:70, y:16, after:'s4'},
-               {l:'카드의 수정 버튼 클릭', d:'마스터상품 카드 내 수정 버튼을 누릅니다', x:53, y:42, after:'m6'}],
-  m7:        [{l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다', x:70, y:16, after:'s4'},
-               {l:'카드의 삭제 버튼 클릭', d:'마스터상품 카드 내 빨간 삭제 버튼을 누릅니다', x:67, y:42, after:'c15'}],
-  c15:       [{l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다', x:70, y:16, after:'s4'},
-               {l:'카드의 삭제 버튼 클릭', d:'예약 없는 상품의 삭제 버튼을 누릅니다', x:67, y:42, after:'c15'}],
+  // steps: [{l, d, x, y, w, h, after}]
+  //   x,y = 영역 좌상단 (% of phone-screen 386×878)
+  //   w,h = 영역 크기 (%)
+  //   after = 터치 후 이동할 화면 (navigateProto target)
+  //
+  // phone-screen 레이아웃 (878px 기준):
+  //   상태바        0~6%    (0~56px)
+  //   앱헤더+선박    6~16%   (56~140px)
+  //   탭바           16~20%  (140~176px)
+  //   날짜필터       20~30%  (176~263px)
+  //   현황요약       30~38%  (263~334px)
+  //   카드 영역      38~93%  (334~816px)
+  //     카드 액션버튼  첫 카드 기준 ~60~65%
+  //     개별수정/마감  ~65~69%
+  //   하단 탭바      93~100% (816~878px)
+
+  s1:        [{l:'하단 탭바 상품관리 클릭', d:'하단 네비게이션에서 상품관리 탭을 선택합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'}],
+
+  s2:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭 진입 시 기본 활성 화면',
+               x:33, y:93, w:34, h:7, after:'s2_card'}],
+
+  s2_filter: [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'},
+              {l:'날짜 칩 클릭', d:'상단의 날짜 칩을 선택해 해당 날짜 필터링',
+               x:3, y:23, w:94, h:6}],
+
+  s2_card:   [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'},
+              {l:'날짜 선택 후 카드 확인', d:'날짜별 카드가 그룹화되어 표시됩니다',
+               x:3, y:38, w:94, h:28}],
+
+  m1:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'},
+              {l:'인원조정 버튼 클릭', d:'카드 하단 좌측 버튼을 누릅니다',
+               x:3, y:60, w:31, h:5, after:'m1'}],
+
+  m2:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'},
+              {l:'예약추가 버튼 클릭', d:'카드 하단 가운데 버튼을 누릅니다',
+               x:34, y:60, w:32, h:5, after:'m2'}],
+
+  m3:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'},
+              {l:'예약명단 버튼 클릭', d:'카드 하단 우측 버튼을 누릅니다',
+               x:66, y:60, w:31, h:5, after:'m3'}],
+
+  m4:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'},
+              {l:'개별수정 텍스트 클릭', d:'카드 최하단 좌측 텍스트 버튼을 누릅니다',
+               x:5, y:65, w:42, h:4.5, after:'m4'}],
+
+  s4:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'},
+              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다',
+               x:50, y:16, w:48, h:4.5, after:'s4'}],
+
+  m5:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'},
+              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다',
+               x:50, y:16, w:48, h:4.5, after:'s4'},
+              {l:'+ 출조종류 등록 버튼', d:'목록 상단 우측 파란 버튼을 누릅니다',
+               x:55, y:26, w:40, h:5, after:'m5'}],
+
+  m6:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'},
+              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다',
+               x:50, y:16, w:48, h:4.5, after:'s4'},
+              {l:'수정 버튼 클릭', d:'마스터상품 카드 내 수정 버튼을 누릅니다',
+               x:5, y:52, w:30, h:5, after:'m6'}],
+
+  m7:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'},
+              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다',
+               x:50, y:16, w:48, h:4.5, after:'s4'},
+              {l:'삭제 버튼 클릭', d:'마스터상품 카드 내 빨간 삭제 버튼',
+               x:36, y:52, w:30, h:5, after:'c15'}],
+
+  c15:       [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
+               x:33, y:93, w:34, h:7, after:'s2_card'},
+              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다',
+               x:50, y:16, w:48, h:4.5, after:'s4'},
+              {l:'삭제 버튼 클릭', d:'예약 없는 상품의 삭제 버튼',
+               x:36, y:52, w:30, h:5, after:'c15'}],
 };
 
-// ── 원본 proto srcdoc 저장 (페이지 로드 후) ──
-var __PROTO_SRC = null;
 document.addEventListener('DOMContentLoaded', function() {
-  var f = document.getElementById('proto-iframe');
-  if (f) __PROTO_SRC = f.srcdoc;
   loadAllCommentCounts();
   loadFigmaLink();
   handleCommentHash();
@@ -5655,14 +5932,35 @@ document.addEventListener('DOMContentLoaded', function() {
 function loadFigmaLink() {
   var url = localStorage.getItem('sb_figma_url') || '';
   var inp = document.getElementById('figma-input');
-  var link = document.getElementById('figma-link');
+  var display = document.getElementById('figma-display');
+  var edit = document.getElementById('figma-edit');
+  var displayLink = document.getElementById('figma-display-link');
   if (inp) inp.value = url;
-  if (link) { link.href = url || '#'; link.style.display = url ? 'flex' : 'none'; }
+  updateFigmaUI();
 }
 function saveFigmaLink(v) {
   localStorage.setItem('sb_figma_url', v);
-  var link = document.getElementById('figma-link');
-  if (link) { link.href = v; link.style.display = v ? 'flex' : 'none'; }
+  updateFigmaUI();
+}
+function updateFigmaUI() {
+  var url = localStorage.getItem('sb_figma_url') || '';
+  var display = document.getElementById('figma-display');
+  var edit = document.getElementById('figma-edit');
+  var displayLink = document.getElementById('figma-display-link');
+  if (_adminMode) {
+    // 관리자: 입력 필드 표시
+    if (display) display.style.display = 'none';
+    if (edit) edit.style.display = 'flex';
+  } else {
+    // 일반: 링크만 표시 (있을 때)
+    if (edit) edit.style.display = 'none';
+    if (url) {
+      if (display) display.style.display = 'flex';
+      if (displayLink) displayLink.href = url;
+    } else {
+      if (display) display.style.display = 'none';
+    }
+  }
 }
 
 // ── 관리자 모드 ──
@@ -5673,6 +5971,7 @@ function toggleAdmin() {
     document.getElementById('admin-btn').classList.remove('active');
     document.getElementById('admin-btn').textContent = '🔒 관리자 모드';
     renderAllComments();
+    updateFigmaUI();
     return;
   }
   document.getElementById('admin-modal-bg').classList.add('open');
@@ -5688,6 +5987,7 @@ function checkAdminPw() {
     document.getElementById('admin-btn').classList.add('active');
     document.getElementById('admin-btn').textContent = '🔓 관리자 모드 ON';
     renderAllComments();
+    updateFigmaUI();
   } else {
     document.getElementById('admin-err').textContent = '비밀번호가 올바르지 않습니다.';
     document.getElementById('admin-pw').value = '';
@@ -5708,10 +6008,13 @@ var ROLE_META = {
   '인프라/백엔드':{color:'#6D28D9', bg:'#F3EEFF', init:'강'},
   'UIUX디자인':  {color:'#C96A00', bg:'#FFF4E5', init:'현'},
   '백엔드':      {color:'#6D28D9', bg:'#F3EEFF', init:'최'},
+  'PM':          {color:'#D93025', bg:'#FDECEA', init:'구'},
+  'CPO':         {color:'#0041FF', bg:'#EBF0FF', init:'서'},
 };
 var ROLE_LABELS = {
   '김채린 QA':'QA','신진섭 앱개발':'앱/웹개발','정지섭 웹개발':'웹개발',
-  '강상배 인프라':'인프라/백엔드','김현철 디자인':'UIUX디자인','최상수 백엔드':'백엔드'
+  '강상배 인프라':'인프라/백엔드','김현철 디자인':'UIUX디자인','최상수 백엔드':'백엔드',
+  '구범모 PM':'PM','서현일 CPO':'CPO'
 };
 
 function getComments(secId) {
@@ -5965,9 +6268,26 @@ function handleCommentHash() {
     if (sum) sum.style.display = 'none';
     renderComments(secId);
   }
-  // 스크롤 + 하이라이트
+  // 스크롤 + 하이라이트 (sticky 헤더 오프셋 보정)
   setTimeout(function() {
-    section.scrollIntoView({behavior:'smooth', block:'start'});
+    var sbPanel = document.querySelector('.sb-panel');
+    if (!sbPanel) return;
+    // spec-sec의 body/comment 영역이 접혀있으면 펼치기
+    var specBody = specSec ? specSec.querySelector('.spec-body') : null;
+    if (specBody && specBody.classList.contains('collapsed')) {
+      specBody.classList.remove('collapsed');
+      var csSec = specSec.querySelector('.comment-section');
+      if (csSec) csSec.classList.remove('collapsed-cs');
+      var icon = specSec.querySelector('.spec-collapse-icon');
+      if (icon) icon.classList.remove('collapsed');
+    }
+    // 코멘트 섹션까지의 정확한 위치 계산
+    var stickyOffset = 120; // sb-hd(56px) + sdiv(45px) + margin
+    var targetRect = section.getBoundingClientRect();
+    var panelRect  = sbPanel.getBoundingClientRect();
+    var scrollTop  = sbPanel.scrollTop + (targetRect.top - panelRect.top) - stickyOffset;
+    sbPanel.scrollTo({top: scrollTop, behavior:'smooth'});
+
     if (specSec) {
       specSec.classList.add('linked-highlight');
       setTimeout(function() { specSec.classList.remove('linked-highlight'); }, 3000);
@@ -5980,10 +6300,11 @@ function handleCommentHash() {
       if (items.length > 0) {
         var last = items[items.length - 1];
         last.classList.add('flash');
+        last.scrollIntoView({behavior:'smooth', block:'center'});
         setTimeout(function() { last.classList.remove('flash'); }, 3000);
       }
-    }, 600);
-  }, 300);
+    }, 800);
+  }, 400);
 }
 
 
@@ -5995,17 +6316,17 @@ function startWalkthrough(target) {
   _walkSteps  = steps;
   _walkIdx    = 0;
 
-  // 초기 화면: 마스터 타겟이면 s4 배경, 아니면 s2_card
-  var isMaster = (target==='s4'||target==='m5'||target==='m6'||target==='m7'||target==='c15');
-  var initState = isMaster ? 's4' : 's2_card';
-  navigateProto(initState);
-
   var overlay = document.getElementById('walk-overlay');
   overlay.style.display = 'flex';
   overlay.classList.add('active');
 
-  // 화면 로드 대기 후 첫 터치 표시
-  setTimeout(function() { showWalkStep(0); }, 600);
+  // postMessage로 기본 화면 이동 후 첫 스텝
+  var f = document.getElementById('proto-iframe');
+  if (f) f._lastTarget = null;
+  // s1은 홈 화면에서 시작, 나머지는 상품관리 화면에서 시작
+  var initScreen = (target === 's1') ? 'home' : 's2_card';
+  navigateProto(initScreen);
+  setTimeout(function() { showWalkStep(0); }, 400);
 }
 
 function showWalkStep(idx) {
@@ -6017,14 +6338,32 @@ function showWalkStep(idx) {
   var frame   = document.querySelector('.proto-frame');
   var fw = frame ? frame.offsetWidth  : 420;
   var fh = frame ? frame.offsetHeight : 700;
+  var frameTop = frame ? frame.offsetTop : 0;
 
-  // 이전 터치 제거, 새 터치 표시
+  // ★ 폰 쉘 스케일 + 위치 정밀 계산 (phone-shell 414×910, padding 14/16, phone-screen 386×878)
+  var scale = Math.min(fh / 910, fw / 414, 1);
+  var shellLeft = (fw - 414 * scale) / 2;  // 중앙정렬
+  var screenLeft = shellLeft + 14 * scale;  // padding-left
+  var screenTop  = 16 * scale;              // padding-top
+  var screenW = 386 * scale;                // phone-screen width
+  var screenH = 878 * scale;                // phone-screen height
+
+  // 이전 터치 제거, 새 하이라이트 영역 표시
   var old = overlay.querySelector('.walk-touch');
   if (old) old.remove();
   var touch = document.createElement('div');
   touch.className = 'walk-touch';
-  touch.style.left = (step.x / 100 * fw) + 'px';
-  touch.style.top  = (step.y / 100 * fh) + 'px';
+  var tw = (step.w || 30) / 100 * screenW;
+  var th = (step.h || 6)  / 100 * screenH;
+  touch.style.left   = (screenLeft + step.x / 100 * screenW) + 'px';
+  touch.style.top    = (frameTop + screenTop + step.y / 100 * screenH) + 'px';
+  touch.style.width  = tw + 'px';
+  touch.style.height = th + 'px';
+  // 라벨
+  var lbl = document.createElement('div');
+  lbl.className = 'walk-touch-label';
+  lbl.textContent = 'STEP ' + (idx+1);
+  touch.appendChild(lbl);
   overlay.appendChild(touch);
 
   // 스텝 카드 업데이트
@@ -6032,81 +6371,154 @@ function showWalkStep(idx) {
   document.getElementById('walk-label').textContent = step.l;
   document.getElementById('walk-desc').textContent  = step.d;
 
-  // 닷 인디케이터
-  var dots = document.querySelectorAll('.walk-dot');
-  dots.forEach(function(d,i){ d.classList.toggle('on', i===idx); });
+  // 닷 인디케이터 (동적)
+  var dotsContainer = document.getElementById('walk-dots');
+  if (dotsContainer) {
+    var dotsHtml = '';
+    for (var di = 0; di < steps.length; di++) {
+      dotsHtml += '<div class="walk-dot' + (di===idx?' on':'') + '"></div>';
+    }
+    dotsContainer.innerHTML = dotsHtml;
+  }
 
   if (_walkTimer) clearTimeout(_walkTimer);
   _walkTimer = setTimeout(function() {
-    // 터치 후: after 상태로 navigate
     if (step.after) {
+      var f = document.getElementById('proto-iframe');
+      if (f) f._lastTarget = null; // 다음 화면 전환 허용
       navigateProto(step.after);
-      // 화면 렌더 대기 후 다음 스텝
-      setTimeout(function() { showWalkStep(idx + 1); }, 900);
+      // postMessage는 즉시 → React 렌더 대기 후 다음 스텝
+      setTimeout(function() { showWalkStep(idx + 1); }, 600);
     } else {
-      // after 없으면 바로 다음 스텝
       showWalkStep(idx + 1);
     }
-  }, 1600); // 터치 표시 1.6초
+  }, 1800); // 터치 표시 1.8초
 }
 
 function endWalkthrough() {
   var overlay = document.getElementById('walk-overlay');
   overlay.style.display = 'none';
   overlay.classList.remove('active');
+  var old = overlay.querySelector('.walk-touch');
+  if (old) old.remove();
   if (_walkTimer) clearTimeout(_walkTimer);
+  var f = document.getElementById('proto-iframe');
+  if (f) f._lastTarget = null;
   navigateProto(_walkTarget);
 }
 
 function closeWalkthrough() {
   if (_walkTimer) clearTimeout(_walkTimer);
-  document.getElementById('walk-overlay').style.display = 'none';
+  var overlay = document.getElementById('walk-overlay');
+  overlay.style.display = 'none';
+  overlay.classList.remove('active');
+  var old = overlay.querySelector('.walk-touch');
+  if (old) old.remove();
 }
 
-// ── 프로토타입 화면 이동 (srcdoc 교체) ──
+// ── 프로토타입 화면 이동 (postMessage — 깜빡임 없음) ──
 function navigateProto(target) {
   var f = document.getElementById('proto-iframe');
-  if (!f || !__PROTO_SRC) return;
-  var src = __PROTO_SRC;
-
-  // replaceFirst / replaceSecond 헬퍼
-  function replaceFirst(s, a, b) {
-    var i = s.indexOf(a); if (i<0) return s;
-    return s.slice(0,i)+b+s.slice(i+a.length);
+  if (!f) return;
+  if (f._lastTarget === target) return;
+  f._lastTarget = target;
+  try {
+    f.contentWindow.postMessage({type:'proto-navigate', target: target}, '*');
+  } catch(e) {
+    setTimeout(function() {
+      try { f.contentWindow.postMessage({type:'proto-navigate', target: target}, '*'); } catch(e2) {}
+    }, 500);
   }
-  function replaceSecond(s, a, b) {
-    var i = s.indexOf(a); if (i<0) return s;
-    var j = s.indexOf(a, i+1); if (j<0) return s;
-    return s.slice(0,j)+b+s.slice(j+a.length);
-  }
-
-  // 1. 탭 초기값 교체
-  var isMaster = (target==='s4'||target==='m5'||target==='m6'||target==='m7'||target==='c15');
-  var tab = isMaster ? 'master' : 'daily';
-  src = src.split('const [tab,setTab]=useState("daily"); // "master" | "daily"').join('const [tab,setTab]=useState("' + tab + '"); // "master" | "daily"');
-
-  // 2. DailyProductTab modal (첫 번째 출현 = DailyProductTab)
-  var dailyModalMap = {
-    m1: '{type:"cap",product:{id:1,name:"갑오징어/주꾸미",capacity:11,sold:5}}',
-    m2: '{type:"addRsv",product:{id:1,name:"갑오징어/주꾸미",price:94000,capacity:11}}',
-    m3: '{type:"rsv",product:{id:1,name:"갑오징어/주꾸미",capacity:11,sold:5,depart:"0500",arrive:"1530",fish:[],type:"당일"}}',
-    m4: '{type:"editDaily",product:null}'
-  };
-  if (dailyModalMap[target]) {
-    src = replaceFirst(src, 'const [modal,setModal]=useState(null);', 'const [modal,setModal]=useState(' + dailyModalMap[target] + ')');
-  }
-
-  // 3. ProductListScreen modal (두 번째 출현 = ProductListScreen)
-  var masterModalMap = {
-    m5: '{type:"addMaster"}',
-    m6: '{type:"editMaster",master:{}}'
-  };
-  if (masterModalMap[target]) {
-    src = replaceSecond(src, 'const [modal,setModal]=useState(null);', 'const [modal,setModal]=useState(' + masterModalMap[target] + ')');
-  }
-
-  f.srcdoc = src;
 }
+
+// ── 섹션 접기/펼치기 ──
+function toggleSpecSection(secId, event) {
+  // nav-to-btn 클릭 시에는 접기 동작 안 함
+  if (event && event.target.closest && event.target.closest('.nav-to-btn')) return;
+  var spec = document.getElementById('spec-' + secId);
+  if (!spec) return;
+  var body = spec.querySelector('.spec-body');
+  var cs   = spec.querySelector('.comment-section');
+  var icon = spec.querySelector('.spec-collapse-icon');
+  if (!body) return;
+  var isCollapsed = body.classList.contains('collapsed');
+  if (isCollapsed) {
+    body.classList.remove('collapsed');
+    if (cs) cs.classList.remove('collapsed-cs');
+    if (icon) icon.classList.remove('collapsed');
+  } else {
+    body.classList.add('collapsed');
+    if (cs) cs.classList.add('collapsed-cs');
+    if (icon) icon.classList.add('collapsed');
+  }
+}
+
+
+// ── 알림 칩 (T/C/A/P) 호버 툴팁 + 클릭 이동 ──
+var CHIP_INFO = {
+  'T 01': {desc:'노출 토글 변경 시 토스트 알림', section:'toast'},
+  'T 02': {desc:'즉시마감 완료 토스트 알림', section:'toast'},
+  'T 03': {desc:'인원조정 저장 완료 토스트', section:'toast'},
+  'T 04': {desc:'예약 직접추가 완료 토스트', section:'toast'},
+  'T 05': {desc:'연락처 복사 완료 토스트', section:'toast'},
+  'T 06': {desc:'명단 복사 완료 토스트', section:'toast'},
+  'T 07': {desc:'일자별 수정 저장 완료 토스트', section:'toast'},
+  'T 08': {desc:'출조종류 등록 완료 토스트', section:'toast'},
+  'T 09': {desc:'출조종류 수정 완료 토스트', section:'toast'},
+  'T 10': {desc:'출조종류 삭제 완료 토스트', section:'toast'},
+  'T 11': {desc:'일자별 삭제 완료 토스트', section:'toast'},
+  'C 02': {desc:'Confirm: 잔여 N석 폐기하고 마감. 되돌릴 수 없습니다.', section:'confirm'},
+  'C 03': {desc:'Confirm: 기존 예약 N건 유지. 노출 끄면 신규 예약 불가.', section:'confirm'},
+  'C 04': {desc:'Alert: 결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다.', section:'confirm'},
+  'C 05': {desc:'Confirm: 잔여 N석 폐기하고 즉시 마감. 되돌릴 수 없습니다.', section:'confirm'},
+  'C 08': {desc:'Alert: 판매가 마감된 상품. 인원조정으로 좌석을 늘린 후 예약하세요.', section:'confirm'},
+  'C 09': {desc:'Alert: 잔여석(N석)보다 많은 인원입니다.', section:'confirm'},
+  'C 10': {desc:'Confirm: 출항 당일 예약입니다. 계속 추가하시겠습니까?', section:'confirm'},
+  'C 13': {desc:'Confirm: [이름]님 예약 취소. 직접입금은 환불 직접 처리.', section:'confirm'},
+  'C 14': {desc:'Alert: 예약이 있는 상품은 삭제할 수 없습니다.', section:'confirm'},
+  'C 15': {desc:'Confirm: 연결된 날짜별 출조 N건 모두 삭제. 되돌릴 수 없습니다.', section:'confirm'},
+  'A 06': {desc:'마감 처리 후 알림', section:'confirm'},
+  'A 08': {desc:'매진상품 선택 시 Alert', section:'confirm'},
+  'A 14': {desc:'삭제 차단 Alert (예약 있음)', section:'confirm'},
+  'A 16': {desc:'출조종류 등록 완료 알림', section:'confirm'},
+  'P 01': {desc:'알림톡: 예약번호/상품명/출항일시/금액/선박연락처', section:'push'},
+  'P 02': {desc:'알림톡: 취소 확인 + 환불금액/방법/기간', section:'push'},
+  'P 03': {desc:'알림톡: 출조 취소 고지 + 환불 안내', section:'push'},
+};
+
+function initChipTooltips() {
+  document.querySelectorAll('.chip').forEach(function(chip) {
+    var code = chip.textContent.trim();
+    var info = CHIP_INFO[code];
+    if (!info) return;
+    // 툴팁 추가
+    var tip = document.createElement('div');
+    tip.className = 'chip-tooltip';
+    tip.innerHTML = '<b>' + code + '</b> — ' + info.desc;
+    chip.appendChild(tip);
+    // 클릭 시 해당 레퍼런스 섹션으로 스크롤
+    chip.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var refSection = document.querySelector('.ref-section');
+      if (refSection) {
+        refSection.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+}
+
+// ── 페이지 로드 시 칩 툴팁 초기화 ──
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(initChipTooltips, 500);
+});
+
+// ── 이벤트 위임: 코멘트 수정/삭제 버튼 ──
+document.addEventListener('click', function(e) {
+  var editBtn = e.target.closest('.cbtn-edit');
+  if (editBtn) { editComment(editBtn.dataset.secid, Number(editBtn.dataset.cid)); return; }
+  var delBtn = e.target.closest('.cbtn-del');
+  if (delBtn) { deleteComment(delBtn.dataset.secid, Number(delBtn.dataset.cid)); return; }
+});
 </script>
 </body>
 </html>
