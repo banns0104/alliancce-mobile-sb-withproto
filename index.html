@@ -80,7 +80,7 @@ html,body{height:100vh;overflow:hidden;background:#0d0d0d;
 .sb-hd-title{font-size:16px;font-weight:900;color:var(--blk);letter-spacing:-.5px;flex:1;}
 .sb-hd-title s{color:var(--blue);text-decoration:none;}
 .figma-wrap{display:flex;align-items:center;gap:6px;}
-.figma-label{font-size:10px;font-weight:700;color:var(--desc);white-space:nowrap;}
+.figma-label{font-size:13px;font-weight:800;color:var(--desc);white-space:nowrap;}
 .figma-input{font-size:11px;border:1px solid var(--line2);border-radius:5px;
   padding:4px 8px;width:180px;color:var(--blue);outline:none;}
 .figma-link{font-size:11px;font-weight:700;color:var(--blue);text-decoration:none;
@@ -101,17 +101,17 @@ html,body{height:100vh;overflow:hidden;background:#0d0d0d;
 .screen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:28px 36px;}
 .screen-card{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;}
 .screen-card:hover .ph-frame{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.2);}
-.sc-badge{font-size:13px;font-weight:800;padding:5px 14px;border-radius:4px;color:#fff;margin-bottom:2px;display:inline-block;}
-.sc-name{font-size:16px;font-weight:700;color:var(--blk);text-align:center;margin-top:2px;}
-.sc-desc{font-size:13px;color:var(--desc);text-align:center;}
+.sc-badge{font-size:15px;font-weight:900;padding:6px 16px;border-radius:5px;color:#fff;margin-bottom:4px;display:inline-block;letter-spacing:-.2px;}
+.sc-name{font-size:18px;font-weight:800;color:var(--blk);text-align:center;margin-top:4px;letter-spacing:-.3px;}
+.sc-desc{font-size:14px;color:var(--desc);text-align:center;}
 
 /* ── 화면 플로우 ── */
-.flow-section{padding:24px 36px 32px;overflow-x:auto;}
+.flow-section{padding:24px 16px 32px;overflow-x:auto;width:100%;}
 .flow-row{display:flex;align-items:flex-start;gap:0;margin-bottom:24px;flex-wrap:nowrap;}
 .flow-screen-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
-.flow-badge{font-size:13px;font-weight:800;padding:5px 14px;border-radius:4px;color:#fff;margin-bottom:6px;display:inline-block;}
-.flow-lbl{font-size:15px;font-weight:700;color:var(--blk);margin-top:6px;text-align:center;}
-.flow-sub{font-size:13px;color:var(--desc);text-align:center;}
+.flow-badge{font-size:15px;font-weight:800;padding:6px 16px;border-radius:5px;color:#fff;margin-bottom:8px;display:inline-block;}
+.flow-lbl{font-size:17px;font-weight:800;color:var(--blk);margin-top:8px;text-align:center;}
+.flow-sub{font-size:14px;color:var(--desc);text-align:center;}
 .farr{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;padding:0 8px;margin-top:70px;}
 .farr-lbl{font-size:13px;font-weight:700;background:var(--blt);color:var(--blue);padding:2px 8px;border-radius:3px;white-space:nowrap;}
 .farr-lbl.red{background:var(--rlt);color:var(--red);}
@@ -127,7 +127,7 @@ html,body{height:100vh;overflow:hidden;background:#0d0d0d;
   overflow:hidden;transition:transform .2s,box-shadow .2s;flex-shrink:0;
 }
 /* 크기 변형 */
-.ph-sm{width:155px;height:336px;border-radius:22px;padding:7px 6px 6px;}
+.ph-sm{width:185px;height:400px;border-radius:26px;padding:8px 7px 7px;}
 .ph-md{width:190px;height:412px;border-radius:26px;padding:8px 7px 7px;}
 .ph-lg{width:264px;height:572px;border-radius:34px;padding:10px 9px 9px;}
 
@@ -265,7 +265,7 @@ html,body{height:100vh;overflow:hidden;background:#0d0d0d;
 .spec-body{padding:20px 36px;display:flex;gap:24px;align-items:flex-start;}
 .spec-mock-wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:8px;}
 .spec-mock-badge{font-size:10px;font-weight:800;padding:4px 12px;border-radius:4px;color:#fff;display:inline-block;}
-.spec-mock-label{font-size:10px;font-weight:700;color:var(--desc);text-align:center;margin-top:4px;}
+.spec-mock-label{font-size:13px;font-weight:800;color:var(--desc);text-align:center;margin-top:4px;}
 .spec-table-wrap{flex:1;min-width:0;}
 
 /* 하이라이트 오버레이 */
@@ -297,7 +297,7 @@ html,body{height:100vh;overflow:hidden;background:#0d0d0d;
 .comment-section{background:#F7F8FE;border-top:1.5px solid #E4E8F4;padding:20px 24px 24px;}
 .comment-sec-title{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
 .comment-sec-title h4{font-size:13px;font-weight:800;color:var(--blk);letter-spacing:-.3px;}
-.cc-badge{background:#EEF2FF;color:#4F46E5;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;}
+.cc-badge{background:#EEF2FF;color:#4F46E5;font-size:13px;font-weight:800;padding:2px 9px;border-radius:20px;}
 .comment-list{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
 .comment-item{background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,.06);border-left:3.5px solid #ccc;transition:box-shadow .15s;}
 .comment-item:hover{box-shadow:0 3px 10px rgba(0,0,0,.1);}
@@ -369,7 +369,7 @@ body{min-width:1400px;}
   padding:6px 4px 4px;box-shadow:0 3px 12px rgba(0,0,0,.08);}
 .phone-di{width:32px;height:9px;background:var(--blk);border-radius:5px;margin:0 auto 3px;}
 .phone-sc{background:var(--bg);border-radius:11px;overflow:hidden;}
-.sc-lbl{font-size:9px;font-weight:700;color:var(--desc);margin-top:4px;text-align:center;}
+.sc-lbl{font-size:12px;font-weight:700;color:var(--desc);margin-top:6px;text-align:center;}
 
 /* ── MODAL CARD ── */
 .modal-card{
@@ -379,8 +379,8 @@ body{min-width:1400px;}
 }
 .mc-header{padding:6px 10px 5px;border-bottom:1px solid var(--line);}
 .mc-badge{font-size:7px;font-weight:800;padding:2px 6px;border-radius:3px;color:#fff;margin-bottom:3px;display:inline-block;}
-.mc-title{font-size:11px;font-weight:800;color:var(--blk);}
-.mc-desc{font-size:9px;color:var(--desc);margin-top:2px;line-height:1.4;}
+.mc-title{font-size:13px;font-weight:800;color:var(--blk);}
+.mc-desc{font-size:11px;color:var(--desc);margin-top:3px;line-height:1.5;}
 .mc-body{padding:7px 10px;}
 .mc-spec{font-size:9px;color:var(--desc);line-height:1.6;}
 .mc-spec b{color:var(--blk);font-weight:700;}
@@ -395,7 +395,7 @@ body{min-width:1400px;}
 .tt{background:#f0f0f0;color:#999;text-decoration:line-through;}
 
 /* ── FLOW CANVAS ── */
-.flow-canvas{padding:0 36px 24px;overflow-x:auto;}
+.flow-canvas{padding:0 16px 24px;overflow-x:auto;width:100%;}
 .flow-row{display:flex;align-items:center;gap:0;margin-bottom:0;}
 .flow-col{display:flex;flex-direction:column;align-items:center;}
 
@@ -575,7 +575,7 @@ body{min-width:1400px;}
 .comment-submit{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:7px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px;transition:background .15s;}
 .comment-submit:hover{background:#0030CC;}
 
-.comment-hd{cursor:default;}
+.comment-hd{cursor:pointer;}
 .comment-hd-left{cursor:pointer;}
 .comment-hd-left:hover .comment-hd-title,.comment-hd-left:hover .comment-icon{color:var(--blue);}
 .comment-share-btn{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--desc);background:#fff;border:1px solid var(--line2);border-radius:6px;padding:4px 9px;cursor:pointer;font-family:inherit;transition:all .15s;}
@@ -591,14 +591,30 @@ body{min-width:1400px;}
 
 /* ── 알림 칩 호버 툴팁 ── */
 .chip{cursor:pointer;position:relative;transition:transform .1s;}
-.chip:hover{transform:scale(1.08);z-index:50;}
-.chip-tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
-  background:#1A1A1A;color:#fff;font-size:11px;font-weight:500;padding:8px 12px;border-radius:8px;
-  white-space:nowrap;z-index:1000;box-shadow:0 4px 16px rgba(0,0,0,.25);line-height:1.5;
-  max-width:320px;white-space:normal;pointer-events:none;}
-.chip-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
-  border:6px solid transparent;border-top-color:#1A1A1A;}
-.chip:hover .chip-tooltip{display:block;}
+.chip:hover{transform:scale(1.05);}
+/* 칩 툴팁 — position:fixed로 오버플로 클리핑 완전 회피 */
+#chip-float-tip{
+  position:fixed;z-index:99999;pointer-events:none;
+  background:#1A1A1A;color:#fff;border-radius:10px;
+  padding:10px 13px;font-size:11px;line-height:1.65;
+  box-shadow:0 6px 24px rgba(0,0,0,.35);
+  min-width:240px;max-width:320px;white-space:normal;
+  word-break:keep-all;
+  display:none;
+}
+#chip-float-tip.show{display:block;}
+#chip-float-tip .cft-code{font-size:12px;font-weight:800;color:#7DD3FC;margin-bottom:5px;}
+#chip-float-tip .cft-row{display:flex;gap:6px;margin-top:3px;font-size:11px;}
+#chip-float-tip .cft-lbl{color:#93C5FD;font-weight:700;flex-shrink:0;min-width:28px;}
+#chip-float-tip .cft-val{color:#F1F5F9;flex:1;}
+#chip-float-tip .cft-arrow{
+  position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
+  width:12px;height:6px;overflow:hidden;
+}
+#chip-float-tip .cft-arrow::after{
+  content:'';display:block;width:10px;height:10px;background:#1A1A1A;
+  transform:rotate(45deg);margin:-5px auto 0;
+}
 /* ── 알림 칩 (spec 테이블 내 T01, C12 등) ── */
 .chip{display:inline-flex;align-items:center;font-size:9px;font-weight:700;
   padding:2px 7px;border-radius:12px;margin:1px 2px;white-space:nowrap;letter-spacing:.2px;}
@@ -653,9 +669,107 @@ body{min-width:1400px;}
 .spec-hd .spec-collapse-icon.collapsed{transform:rotate(-90deg);}
 .spec-body.collapsed{display:none;}
 .comment-section.collapsed-cs{display:none;}
+
+/* ── 칩 클릭시 레퍼런스 행 하이라이트 ── */
+.ref-flash{animation:refRowFlash 2.5s ease-out !important;}
+@keyframes refRowFlash{
+  0%{background:#BFDBFE !important;}
+  30%{background:#93C5FD !important;}
+/* 스펙 테이블 알림 셀 — 칩 + 내용 */
+.chip-cell{display:flex;flex-direction:column;gap:3px;}
+.chip-cell .chip-msg{font-size:10px;color:#4B5563;line-height:1.4;margin-top:2px;font-style:italic;}
+.chip-cell .chip-type-tag{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-right:3px;}
+.chip-type-confirm{background:#FEE2E2;color:#991B1B;}
+.chip-type-alert{background:#FFF4E5;color:#92400E;}
+.chip-type-toast{background:#FFFDE8;color:#7A6000;}
+.chip-type-push{background:#F3EEFF;color:#6D28D9;}
+
+  100%{background:transparent !important;}
+}
+.ref-flash td{background:inherit !important;}
+/* ── 칩 툴팁 확장 ── */
+
+
+/* ══ 인라인 편집 모드 ══════════════════════════════════ */
+.edit-mode-btn{
+  font-size:11px;font-weight:700;padding:5px 12px;border-radius:5px;
+  border:1px solid var(--line2);background:#fff;cursor:pointer;
+  display:flex;align-items:center;gap:5px;color:var(--desc);
+  transition:all .15s;
+}
+.edit-mode-btn:hover{border-color:#0041FF;color:#0041FF;}
+.edit-mode-btn.active{background:#EBF0FF;color:#0041FF;border-color:#0041FF;}
+.edit-mode-btn svg{flex-shrink:0;}
+
+/* 편집 모드 활성: 편집 가능 요소 표시 */
+body.edit-mode [data-editable]{
+  cursor:text;
+  outline:1.5px dashed rgba(0,65,255,.35);
+  border-radius:3px;
+  min-width:20px;min-height:12px;
+}
+body.edit-mode [data-editable]:hover{
+  outline:2px solid #0041FF;
+  background:rgba(0,65,255,.04);
+}
+body.edit-mode [data-editable]:focus{
+  outline:2px solid #0041FF;
+  background:rgba(0,65,255,.07);
+}
+/* 편집 모드: 테이블 행에 삭제 버튼 열 */
+body.edit-mode .sp-table tr td:last-child .row-del-btn,
+body.edit-mode .ref-table tr td:last-child .row-del-btn{display:inline-flex;}
+.row-del-btn{
+  display:none;
+  align-items:center;justify-content:center;
+  width:18px;height:18px;border-radius:4px;
+  border:none;background:#fee2e2;color:#dc2626;
+  cursor:pointer;font-size:11px;font-weight:700;
+  margin-left:4px;vertical-align:middle;flex-shrink:0;
+}
+.row-del-btn:hover{background:#dc2626;color:#fff;}
+/* 행 추가 버튼 */
+.add-row-btn{
+  display:none;
+  width:100%;margin-top:4px;padding:6px 0;
+  border:1.5px dashed #0041FF;border-radius:6px;
+  background:rgba(0,65,255,.04);color:#0041FF;
+  font-size:11px;font-weight:700;cursor:pointer;
+  letter-spacing:-0.2px;
+}
+.add-row-btn:hover{background:rgba(0,65,255,.1);}
+body.edit-mode .add-row-btn{display:block;}
+/* 편집 모드 저장 알림 토스트 */
+#edit-save-toast{
+  position:fixed;bottom:24px;right:24px;z-index:9999;
+  background:#0041FF;color:#fff;font-size:12px;font-weight:700;
+  padding:10px 20px;border-radius:8px;pointer-events:none;
+  opacity:0;transform:translateY(8px);transition:all .25s;
+}
+#edit-save-toast.show{opacity:1;transform:translateY(0);}
+/* 편집 내용 리셋 버튼 */
+.edit-reset-btn{
+  font-size:10px;color:#999;background:none;border:none;cursor:pointer;
+  padding:0 6px;text-decoration:underline;
+}
+.edit-reset-btn:hover{color:#dc2626;}
 </style>
 </head>
 <body>
+
+<!-- 편집 저장 알림 토스트 -->
+<div id="edit-save-toast">편집 내용 저장됨 ✓</div>
+
+<!-- 칩 플로팅 툴팁 -->
+<div id="chip-float-tip">
+  <div class="cft-code" id="cft-code"></div>
+  <div class="cft-row"><span class="cft-lbl">설명</span><span class="cft-val" id="cft-desc"></span></div>
+  <div class="cft-row" id="cft-type-row"><span class="cft-lbl">유형</span><span class="cft-val" id="cft-type"></span></div>
+  <div class="cft-row" id="cft-body-row"><span class="cft-lbl">본문</span><span class="cft-val" id="cft-body"></span></div>
+  <div class="cft-row" id="cft-btn-row"><span class="cft-lbl">버튼</span><span class="cft-val" id="cft-btn"></span></div>
+  <div class="cft-row" id="cft-act-row"><span class="cft-lbl">액션</span><span class="cft-val" id="cft-act"></span></div>
+  <div class="cft-arrow"></div>
+</div>
 
 <!-- 관리자 모달 -->
 <div class="admin-modal-bg" id="admin-modal-bg" onclick="if(event.target===this)this.classList.remove('open')">
@@ -873,6 +987,17 @@ body{ background:radial-gradient(ellipse at 40% 30%,#2a2a2a 0%,#111 100%); }
 .spec-hd .spec-collapse-icon.collapsed{transform:rotate(-90deg);}
 .spec-body.collapsed{display:none;}
 .comment-section.collapsed-cs{display:none;}
+
+/* ── 칩 클릭시 레퍼런스 행 하이라이트 ── */
+.ref-flash{animation:refRowFlash 2.5s ease-out !important;}
+@keyframes refRowFlash{
+  0%{background:#BFDBFE !important;}
+  30%{background:#93C5FD !important;}
+  100%{background:transparent !important;}
+}
+.ref-flash td{background:inherit !important;}
+/* ── 칩 툴팁 확장 ── */
+
 </style>
 </head>
 <body>
@@ -3170,52 +3295,124 @@ function toggleSpecSection(secId, event) {
 
 // ── 알림 칩 (T/C/A/P) 호버 툴팁 + 클릭 이동 ──
 var CHIP_INFO = {
-  'T 01': {desc:'노출 토글 변경 시 토스트 알림', section:'toast'},
-  'T 02': {desc:'즉시마감 완료 토스트 알림', section:'toast'},
-  'T 03': {desc:'인원조정 저장 완료 토스트', section:'toast'},
-  'T 04': {desc:'예약 직접추가 완료 토스트', section:'toast'},
-  'T 05': {desc:'연락처 복사 완료 토스트', section:'toast'},
-  'T 06': {desc:'명단 복사 완료 토스트', section:'toast'},
-  'T 07': {desc:'일자별 수정 저장 완료 토스트', section:'toast'},
-  'T 08': {desc:'출조종류 등록 완료 토스트', section:'toast'},
-  'T 09': {desc:'출조종류 수정 완료 토스트', section:'toast'},
-  'T 10': {desc:'출조종류 삭제 완료 토스트', section:'toast'},
-  'T 11': {desc:'일자별 삭제 완료 토스트', section:'toast'},
-  'C 02': {desc:'Confirm: 잔여 N석 폐기하고 마감. 되돌릴 수 없습니다.', section:'confirm'},
-  'C 03': {desc:'Confirm: 기존 예약 N건 유지. 노출 끄면 신규 예약 불가.', section:'confirm'},
-  'C 04': {desc:'Alert: 결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다.', section:'confirm'},
-  'C 05': {desc:'Confirm: 잔여 N석 폐기하고 즉시 마감. 되돌릴 수 없습니다.', section:'confirm'},
-  'C 08': {desc:'Alert: 판매가 마감된 상품. 인원조정으로 좌석을 늘린 후 예약하세요.', section:'confirm'},
-  'C 09': {desc:'Alert: 잔여석(N석)보다 많은 인원입니다.', section:'confirm'},
-  'C 10': {desc:'Confirm: 출항 당일 예약입니다. 계속 추가하시겠습니까?', section:'confirm'},
-  'C 13': {desc:'Confirm: [이름]님 예약 취소. 직접입금은 환불 직접 처리.', section:'confirm'},
-  'C 14': {desc:'Alert: 예약이 있는 상품은 삭제할 수 없습니다.', section:'confirm'},
-  'C 15': {desc:'Confirm: 연결된 날짜별 출조 N건 모두 삭제. 되돌릴 수 없습니다.', section:'confirm'},
-  'A 06': {desc:'마감 처리 후 알림', section:'confirm'},
-  'A 08': {desc:'매진상품 선택 시 Alert', section:'confirm'},
-  'A 14': {desc:'삭제 차단 Alert (예약 있음)', section:'confirm'},
-  'A 16': {desc:'출조종류 등록 완료 알림', section:'confirm'},
-  'P 01': {desc:'알림톡: 예약번호/상품명/출항일시/금액/선박연락처', section:'push'},
-  'P 02': {desc:'알림톡: 취소 확인 + 환불금액/방법/기간', section:'push'},
-  'P 03': {desc:'알림톡: 출조 취소 고지 + 환불 안내', section:'push'},
+  'T 01': {desc:'노출 토글 변경 시 토스트 알림', section:'toast', title:'Toast', body:'"노출 상태 변경됨"', btn:'—', action:'2.2초 자동소멸'},
+  'T 02': {desc:'즉시마감 완료 토스트 알림', section:'toast', title:'Toast', body:'"즉시 마감 처리됨"', btn:'—', action:'2.2초 자동소멸'},
+  'T 03': {desc:'인원조정 저장 완료 토스트', section:'toast', title:'Toast', body:'"판매 좌석 수 조정 완료"', btn:'—', action:'2.2초 자동소멸'},
+  'T 04': {desc:'예약 직접추가 완료 토스트', section:'toast', title:'Toast', body:'"예약이 추가됐습니다"', btn:'—', action:'2.2초 자동소멸'},
+  'T 05': {desc:'연락처 복사 완료 토스트', section:'toast', title:'Toast', body:'"[이름] 복사됨"', btn:'—', action:'2.2초 자동소멸'},
+  'T 06': {desc:'명단 복사 완료 토스트', section:'toast', title:'Toast', body:'"명단이 복사됐습니다"', btn:'—', action:'2.2초 자동소멸'},
+  'T 07': {desc:'일자별 수정 저장 완료 토스트', section:'toast', title:'Toast', body:'"개별 수정 완료"', btn:'—', action:'2.2초 자동소멸'},
+  'T 08': {desc:'출조종류 등록 완료 토스트', section:'toast', title:'Toast', body:'"출조종류 등록 완료"', btn:'—', action:'2.2초 자동소멸'},
+  'T 09': {desc:'출조종류 수정 완료 토스트', section:'toast', title:'Toast', body:'"출조종류 수정 완료"', btn:'—', action:'2.2초 자동소멸'},
+  'T 10': {desc:'출조종류 삭제 완료 토스트', section:'toast', title:'Toast', body:'"출조종류 삭제됨"', btn:'—', action:'2.2초 자동소멸'},
+  'T 11': {desc:'일자별 삭제 완료 토스트', section:'toast', title:'Toast', body:'"예약이 취소됐습니다"', btn:'—', action:'2.2초 자동소멸'},
+  'C 02': {desc:'Confirm: 잔여 N석 폐기하고 마감', section:'confirm', title:'Confirm', body:'잔여 N석 폐기하고 마감. 되돌릴 수 없습니다.', btn:'취소 / 마감', action:'마감 → T02 토스트'},
+  'C 03': {desc:'Confirm: 노출OFF + 예약있음', section:'confirm', title:'Confirm', body:'기존 예약 N건 유지. 노출 끄면 신규 예약 불가.', btn:'취소 / 끄기', action:'끄기 → 토글 OFF 전환'},
+  'C 04': {desc:'Alert: 좌석 축소 제한', section:'confirm', title:'Alert', body:'결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다.', btn:'확인', action:'모달 닫기'},
+  'C 05': {desc:'Confirm: M1 즉시마감', section:'confirm', title:'Confirm', body:'잔여 N석 폐기하고 즉시 마감. 되돌릴 수 없습니다.', btn:'취소 / 마감', action:'마감 → T02 토스트 → 모달 닫기'},
+  'C 06': {desc:'Alert: 이미 마감 상태', section:'confirm', title:'Alert', body:'이미 마감 상태입니다.', btn:'확인', action:'모달 닫기'},
+  'C 07': {desc:'Alert: 0석 이하 입력', section:'confirm', title:'Alert', body:'0석 이하는 설정할 수 없습니다.', btn:'확인', action:'입력값 복원'},
+  'C 08': {desc:'Alert: 매진상품 선택 시', section:'confirm', title:'Alert', body:'판매가 마감된 상품. 인원조정으로 좌석을 늘린 후 예약하세요.', btn:'확인', action:'모달 닫기'},
+  'C 09': {desc:'Alert: 잔여석 초과 인원', section:'confirm', title:'Alert', body:'잔여석(N석)보다 많은 인원입니다.', btn:'확인', action:'인원 필드 포커스'},
+  'C 10': {desc:'Confirm: 출항 당일 예약', section:'confirm', title:'Confirm', body:'출항 당일 예약입니다. 계속 추가하시겠습니까?', btn:'취소 / 추가', action:'추가 → 예약저장 → T04 토스트'},
+  'C 11': {desc:'Confirm: 요금변경 + 기존예약', section:'confirm', title:'Confirm', body:'기존 N건 예약 금액 변경 안 됨. 새 예약부터 적용. 계속?', btn:'취소 / 저장', action:'저장 → T07 토스트'},
+  'C 12': {desc:'Confirm: 기간·요일 축소', section:'confirm', title:'Confirm', body:'변경된 기간 외 기존 날짜별 출조 자동삭제 안 됩니다.', btn:'취소 / 확인', action:'저장 진행'},
+  'C 13': {desc:'Confirm: 예약취소', section:'confirm', title:'Confirm', body:'[이름]님 예약 취소. 직접입금은 환불 직접 처리하세요.', btn:'취소 / 확인', action:'취소 → T11 토스트 → P02 알림톡'},
+  'C 14': {desc:'Alert: 예약있는 상품 삭제 차단', section:'confirm', title:'Alert', body:'예약이 있는 상품은 삭제할 수 없습니다. (N건) 취소 후 삭제.', btn:'확인', action:'모달 닫기'},
+  'C 15': {desc:'Confirm: 출조종류 삭제', section:'confirm', title:'Confirm', body:'상품명과 연결된 날짜별 출조 N건 모두 삭제. 되돌릴 수 없습니다.', btn:'취소 / 삭제', action:'삭제 → T10 토스트 → S4 갱신'},
+  'C 16': {desc:'인라인: 필수항목 미입력', section:'confirm', title:'인라인 에러', body:'해당 필드 빨간테두리 + 에러 메시지', btn:'—', action:'필드 포커스'},
+  'A 06': {desc:'마감 처리 후 알림', section:'confirm', title:'Alert', body:'마감 처리가 완료되었습니다.', btn:'확인', action:'모달 닫기'},
+  'A 08': {desc:'매진상품 선택 시 Alert', section:'confirm', title:'Alert', body:'판매가 마감된 상품입니다.', btn:'확인', action:'모달 닫기'},
+  'A 14': {desc:'삭제 차단 Alert (예약 있음)', section:'confirm', title:'Alert', body:'예약이 있는 상품은 삭제할 수 없습니다.', btn:'확인', action:'모달 닫기'},
+  'A 16': {desc:'출조종류 등록 완료 알림', section:'confirm', title:'Alert', body:'출조종류가 등록되었습니다.', btn:'확인', action:'S4 목록으로 이동'},
+  'P 01': {desc:'알림톡: 예약 확인', section:'push', title:'알림톡 (예약자)', body:'예약번호/상품명/출항일시/금액/선박연락처', btn:'—', action:'M2 예약추가 완료 시 자동발송'},
+  'P 02': {desc:'알림톡: 취소 확인 + 환불', section:'push', title:'알림톡 (예약자)', body:'취소 확인 + 환불금액/방법/기간', btn:'—', action:'M3 예약취소 처리 시 자동발송'},
+  'P 03': {desc:'알림톡: 출조 취소 고지', section:'push', title:'알림톡 (예약자 전체)', body:'출조 취소 고지 + 환불 안내', btn:'—', action:'M7 삭제 (예약있는 bpi) 시 자동발송'},
+  'P 04': {desc:'앱 푸시: 새 예약 알림', section:'push', title:'앱 푸시 (선주)', body:'[상품명]에 새 예약 — [이름] N명', btn:'—', action:'플랫폼 예약 신규 접수 시'},
+  'P 05': {desc:'앱 푸시: 예약 취소 요청', section:'push', title:'앱 푸시 (선주)', body:'[이름]님이 [상품명] 예약 취소 요청', btn:'—', action:'예약 취소 요청 시'},
+  'P 06': {desc:'알림톡: D-1 안내', section:'push', title:'알림톡 (예약자)', body:'출항일시/집결지/연락처/유의사항', btn:'—', action:'출조 D-1 자동 발송'},
 };
 
+// ── 칩 플로팅 툴팁 (position:fixed) ──
+var _chipTipEl = null;
+var _chipTipHideTimer = null;
+
+function showChipTip(chip, code, info) {
+  if (!_chipTipEl) _chipTipEl = document.getElementById('chip-float-tip');
+  if (!_chipTipEl) return;
+  if (_chipTipHideTimer) { clearTimeout(_chipTipHideTimer); _chipTipHideTimer = null; }
+
+  document.getElementById('cft-code').textContent = code;
+  document.getElementById('cft-desc').textContent = info.desc || '';
+  var setRow = function(rowId, valId, val) {
+    var row = document.getElementById(rowId);
+    var el  = document.getElementById(valId);
+    if (!val || val === '—') { if(row) row.style.display='none'; return; }
+    if(row) row.style.display='flex';
+    if(el) el.textContent = val;
+  };
+  setRow('cft-type-row','cft-type', info.title);
+  setRow('cft-body-row','cft-body', info.body);
+  setRow('cft-btn-row', 'cft-btn',  info.btn);
+  setRow('cft-act-row', 'cft-act',  info.action);
+
+  _chipTipEl.classList.add('show');
+
+  // 위치 계산: 칩 위 중앙
+  var r = chip.getBoundingClientRect();
+  var tw = _chipTipEl.offsetWidth || 260;
+  var th = _chipTipEl.offsetHeight || 120;
+  var left = r.left + r.width/2 - tw/2;
+  var top  = r.top - th - 10;
+  // 화면 왼쪽 밖으로 나가면 보정
+  if (left < 8) left = 8;
+  if (left + tw > window.innerWidth - 8) left = window.innerWidth - tw - 8;
+  // 위쪽에 공간 없으면 아래에 표시
+  if (top < 8) {
+    top = r.bottom + 10;
+    var arrow = _chipTipEl.querySelector('.cft-arrow');
+    if (arrow) { arrow.style.bottom='auto'; arrow.style.top='-6px'; arrow.style.transform='rotate(180deg)'; }
+  } else {
+    var arrow = _chipTipEl.querySelector('.cft-arrow');
+    if (arrow) { arrow.style.bottom=''; arrow.style.top=''; arrow.style.transform=''; }
+  }
+  _chipTipEl.style.left = left + 'px';
+  _chipTipEl.style.top  = top  + 'px';
+}
+
+function hideChipTip() {
+  if (!_chipTipEl) _chipTipEl = document.getElementById('chip-float-tip');
+  _chipTipHideTimer = setTimeout(function() {
+    if (_chipTipEl) _chipTipEl.classList.remove('show');
+  }, 80);
+}
+
 function initChipTooltips() {
+  _chipTipEl = document.getElementById('chip-float-tip');
+
   document.querySelectorAll('.chip').forEach(function(chip) {
     var code = chip.textContent.trim();
     var info = CHIP_INFO[code];
     if (!info) return;
-    // 툴팁 추가
-    var tip = document.createElement('div');
-    tip.className = 'chip-tooltip';
-    tip.innerHTML = '<b>' + code + '</b> — ' + info.desc;
-    chip.appendChild(tip);
-    // 클릭 시 해당 레퍼런스 섹션으로 스크롤
+
+    chip.addEventListener('mouseenter', function() { showChipTip(chip, code, info); });
+    chip.addEventListener('mouseleave', hideChipTip);
+
+    // 클릭 시 해당 행으로 스크롤 + 하이라이트
     chip.addEventListener('click', function(e) {
       e.stopPropagation();
-      var refSection = document.querySelector('.ref-section');
-      if (refSection) {
-        refSection.scrollIntoView({behavior:'smooth', block:'start'});
+      hideChipTip();
+      var codeNorm = code.replace(/\s/g, '');
+      var rowId = 'ref-' + codeNorm;
+      var row = document.getElementById(rowId);
+      if (row) {
+        row.scrollIntoView({behavior:'smooth', block:'center'});
+        row.classList.add('ref-flash');
+        setTimeout(function(){ row.classList.remove('ref-flash'); }, 2500);
+      } else {
+        // fallback: 레퍼런스 섹션으로 스크롤
+        var refSection = document.querySelector('.ref-section');
+        if (refSection) refSection.scrollIntoView({behavior:'smooth', block:'start'});
       }
     });
   });
@@ -3263,6 +3460,11 @@ document.addEventListener('click', function(e) {
         </div>
       </div>
       <button class="admin-btn" id="admin-btn" onclick="toggleAdmin()">🔒 관리자 모드</button>
+      <button class="edit-mode-btn" id="edit-mode-toggle-btn" onclick="toggleEditMode()" title="텍스트·표 인라인 편집">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        편집 모드
+      </button>
+      <button class="admin-btn" onclick="downloadHTML()" style="background:#0041FF;color:#fff;border-color:#0041FF;">⬇ HTML 다운로드</button>
     </div>
 
     <!-- ① 전체 화면 목록 -->
@@ -3370,7 +3572,7 @@ document.addEventListener('click', function(e) {
     <div><div style="font-size:5px;color:#aaa;">잔여</div><b style="font-size:7px;color:var(--green);">23/33</b></div>
   </div>
 <div style="background:var(--blk);color:#fff;padding:4px 6px;margin:2px 4px 0;border-radius:4px 4px 0 0;font-size:6px;font-weight:700;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
-  <span>2026.02.27(금) · 3개 · 3개</span><span style="opacity:.5;font-size:8px;">▲</span>
+  <span>2026.02.27(금) · 3개</span><span style="font-size:5px;opacity:.7;">노출 3 · 예약 7/10명 <span style="opacity:.5;">▲</span></span>
 </div><div style="background:#fff;margin:0 4px 3px;border-radius:0 0 5px 5px;border:1px solid #eee;border-top:none;padding:5px;flex-shrink:0;">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;">
     <div style="display:flex;align-items:center;gap:2px;">
@@ -3378,10 +3580,13 @@ document.addEventListener('click', function(e) {
       <span class="ph-bdg bl" style="font-size:6px;padding:1px 4px;">노출중</span>
     </div>
   </div>
-  <div style="font-size:9px;font-weight:800;margin-bottom:1px;display:flex;justify-content:space-between;align-items:baseline;">
-    <span>갑오징어/주꾸미</span><span style="color:var(--blue);font-size:9px;font-weight:900;">94000</span>
+  <div style="font-size:5px;color:#aaa;margin-bottom:2px;"><span style="background:#f0f0f0;padding:1px 4px;border-radius:2px;font-weight:600;">출조종류: 갑오징어/주꾸미</span></div>
+  <div style="font-size:9px;font-weight:800;margin-bottom:1px;display:flex;justify-content:space-between;align-items:flex-start;">
+    <span>갑오징어/주꾸미</span>
+    <div style="text-align:right;flex-shrink:0;margin-left:4px;"><div style="color:var(--blue);font-size:8px;font-weight:900;">94,000원</div><div style="font-size:4px;color:#aaa;">대인 1인</div></div>
   </div>
-  <div style="font-size:5px;color:#aaa;margin-bottom:2px;">05:00~15:30 · 당일 · 잔여 6석/11석</div>
+  <div style="font-size:5px;color:#aaa;margin-bottom:2px;">갑오징어·주꾸미 · 05:00~15:30 · 당일</div>
+  <div style="font-size:5px;color:#555;margin-bottom:2px;display:flex;justify-content:space-between;align-items:center;"><span>예약 <b style="color:var(--blue);">5</b>명 / 판매 11석</span><span style="font-weight:700;">5/11석</span></div>
   <div class="ph-prog" style="margin-bottom:3px;"><div style="height:100%;width:45%;background:var(--blue);border-radius:1px;"></div></div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #eee;">
     <div style="padding:4px 0;text-align:center;font-size:6px;font-weight:700;color:var(--blk);">인원조정</div>
@@ -3425,11 +3630,11 @@ document.addEventListener('click', function(e) {
     <div style="background:#fff;border-radius:6px 6px 0 0;">
       <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-bottom:1px solid #eee;"><div><div style="font-size:9px;font-weight:800;color:var(--blk);">인원 조정</div></div><span style="font-size:10px;color:#aaa;cursor:pointer;">✕</span></div>
       <div style="padding:5px 8px;">
-        <div style="font-size:5px;color:#767676;margin-bottom:3px;">예약 <b style="color:var(--blue);">5명</b> (결제완료 3명)</div>
-        <div style="display:flex;align-items:center;border:1px solid #eee;border-radius:3px;overflow:hidden;margin:2px 0;">
-          <div style="width:20px;height:20px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#767676;">−</div>
-          <div style="flex:1;text-align:center;font-size:16px;font-weight:900;color:var(--blk);">11</div>
-          <div style="width:20px;height:20px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#767676;">+</div>
+        <div style="font-size:5px;color:#767676;margin-bottom:3px;">갑오징어/주꾸미 · 현재 예약 <b style="color:var(--blue);">5명</b></div>
+        <div style="display:flex;align-items:center;border:1.5px solid #ddd;border-radius:5px;overflow:hidden;margin:3px 0;">
+          <div style="width:32px;height:32px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#767676;flex-shrink:0;">−</div>
+          <div style="flex:1;text-align:center;font-size:20px;font-weight:900;color:var(--blk);">11</div>
+          <div style="width:32px;height:32px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#767676;flex-shrink:0;">+</div>
         </div>
         <div style="display:flex;gap:2px;margin-bottom:3px;">
           <div style="flex:1;text-align:center;border:1px solid #eee;border-radius:2px;padding:2px 0;font-size:5px;font-weight:700;color:#767676;">+1</div>
@@ -3529,28 +3734,28 @@ document.addEventListener('click', function(e) {
       <div style="padding:5px 8px;">
         <div style="padding-bottom:4px;border-bottom:1px solid #eee;margin-bottom:4px;">
           <div style="font-size:8px;font-weight:800;">갑오징어/주꾸미</div>
-          <div style="font-size:5px;color:#aaa;">2026.02.28(토) · 예약 5명 · 잔여 6석</div>
+          <div style="font-size:5px;color:#aaa;">2026.02.28(토) · 총 <b style="color:var(--blue);">3건</b></div>
         </div>
         <div style="padding-bottom:3px;border-bottom:1px solid #eee;margin-bottom:3px;">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <span style="font-size:7px;font-weight:800;">서현일</span>
             <span class="ph-bdg bl" style="font-size:6px;padding:1px 4px;">예약완료</span>
           </div>
-          <div style="font-size:5px;color:#aaa;">대인2 · 188,000원 · 신용카드</div>
+          <div style="font-size:5px;color:#aaa;display:flex;justify-content:space-between;"><span>대인 2명 · 010-1234-5678</span><span>신용카드</span></div>
         </div>
         <div style="padding-bottom:3px;border-bottom:1px solid #eee;margin-bottom:3px;">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <span style="font-size:7px;font-weight:800;">박지수</span>
             <span class="ph-bdg or" style="font-size:6px;padding:1px 4px;">입금대기</span>
           </div>
-          <div style="font-size:5px;color:#aaa;">대인1 · 94,000원 · 직접입금</div>
+          <div style="font-size:5px;color:#aaa;display:flex;justify-content:space-between;"><span>대인 1명 · 010-9876-5432</span><span>직접입금</span></div>
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <span style="font-size:7px;font-weight:800;">김철수</span>
             <span class="ph-bdg" style="font-size:6px;padding:1px 4px;background:var(--rlt);color:var(--red);">취소완료</span>
           </div>
-          <div style="font-size:5px;color:#aaa;">대인2 · 취소</div>
+          <div style="font-size:5px;color:#aaa;display:flex;justify-content:space-between;"><span>대인 2명 · 010-5555-1234</span><span>취소</span></div>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:4px 8px 6px;border-top:1px solid #eee;">
@@ -3589,15 +3794,20 @@ document.addEventListener('click', function(e) {
 </div>
   <div style="background:rgba(0,0,0,.40);flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-end;">
     <div style="background:#fff;border-radius:6px 6px 0 0;">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-bottom:1px solid #eee;"><div><div style="font-size:9px;font-weight:800;color:var(--blk);">일자별 개별수정</div><div style="font-size:5px;color:#aaa;margin-top:1px;">2026.02.28 · 이 날짜만 적용</div></div><span style="font-size:10px;color:#aaa;cursor:pointer;">✕</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-bottom:1px solid #eee;"><div><div style="font-size:9px;font-weight:800;color:var(--blk);">일자별 상품 개별수정</div><div style="font-size:5px;color:#aaa;margin-top:1px;">2026.02.28 · 갑오징어/주꾸미</div></div><span style="font-size:10px;color:#aaa;cursor:pointer;">✕</span></div>
       <div style="background:#FFFBEB;padding:3px 8px;font-size:5px;color:#7A6000;">⚠ 이 날짜만 수정. 출조종류 설정 변경 불가.</div>
-      <div style="padding:5px 8px;overflow-y:auto;max-height:100px;">
-        <div style="margin-bottom:3px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">노출 여부</div>
-          <div style="display:flex;align-items:center;gap:3px;"><div class="ph-toggle"></div><span style="font-size:5px;color:var(--blue);">노출중</span></div>
+      <div style="padding:5px 8px;overflow-y:auto;max-height:130px;">
+        <div style="margin-bottom:3px;display:flex;align-items:center;justify-content:space-between;background:#f9f9f9;border-radius:3px;padding:3px 5px;">
+          <div><div style="font-size:5px;font-weight:600;color:#555;">노출 여부</div><div style="font-size:4px;color:#aaa;">끄면 고객에게 보이지 않음</div></div>
+          <div class="ph-toggle"></div>
         </div>
-        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;color:var(--orange);">출조시간 (HH:MM)</div><div style="display:flex;gap:2px;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">05:00</div><span style="font-size:7px;color:#aaa;align-self:center;">~</span><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">15:30</div></div></div>
-        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;color:var(--orange);">대인 요금 (평일/주말)</div><div style="display:flex;gap:2px;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">94,000</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">110,000</div></div></div>
-        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">판매 좌석수</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">11</div></div>
+        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">상품명</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">갑오징어/주꾸미</div></div>
+        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;color:var(--orange);">출조/복귀 시간</div>
+          <div style="display:flex;gap:2px;margin-bottom:2px;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">05:00</div><span style="font-size:7px;color:#aaa;align-self:center;">~</span><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">15:30</div></div>
+          <div style="display:flex;gap:2px;"><span style="font-size:5px;font-weight:700;padding:1px 6px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">당일</span><span style="font-size:5px;font-weight:700;padding:1px 6px;border-radius:2px;border:1px solid #eee;color:#aaa;">익일</span></div>
+        </div>
+        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">판매 좌석수</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">11</div><div style="font-size:4px;color:#aaa;margin-top:1px;">현재 예약 5명 이하로 줄일 수 없음</div></div>
+        <div style="margin-bottom:3px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;color:var(--orange);">요금 (평일/주말)</div><div style="display:flex;gap:2px;"><div style="flex:1;"><div style="font-size:4px;color:#aaa;margin-bottom:1px;">대인 평일</div><div style="border:1px solid #eee;border-radius:3px;padding:2px 4px;font-size:6px;color:var(--blk);">94,000</div></div><div style="flex:1;"><div style="font-size:4px;color:#aaa;margin-bottom:1px;">대인 주말</div><div style="border:1px solid #eee;border-radius:3px;padding:2px 4px;font-size:6px;color:var(--blk);">110,000</div></div></div></div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:5px 8px 7px;border-top:1px solid #eee;"><div style="padding:6px;border-radius:4px;border:1px solid #eee;text-align:center;font-size:8px;font-weight:700;color:#767676;">취소</div><div style="padding:6px;border-radius:4px;background:var(--blue);text-align:center;font-size:8px;font-weight:700;color:#fff;">수정 저장</div></div>
     </div>
@@ -3627,28 +3837,67 @@ document.addEventListener('click', function(e) {
   <div style="text-align:right;padding:3px 6px;flex-shrink:0;">
     <span style="display:inline-block;background:var(--blue);color:#fff;font-size:6px;font-weight:700;padding:3px 7px;border-radius:3px;">+ 출조종류 등록</span>
   </div>
-  <div style="background:#fff;margin:0 4px 3px;border-radius:5px;border:1px solid #eee;padding:5px 6px;flex-shrink:0;">
-    <div style="font-size:9px;font-weight:800;color:var(--blk);margin-bottom:2px;">갑오징어/주꾸미</div>
-    <div style="font-size:5px;color:#aaa;line-height:1.5;margin-bottom:3px;">01/01~12/31 · 매일 · 05:00~15:30<br>대인 94,000 / 주말 110,000 · 연결 6건</div>
-    <div style="display:flex;gap:2px;">
-      <span style="font-size:6px;font-weight:700;padding:2px 8px;border-radius:3px;border:1px solid #eee;color:#767676;">수정</span>
-      <span style="font-size:6px;font-weight:700;padding:2px 8px;border-radius:3px;border:1px solid #FFCDD2;color:var(--red);background:var(--rlt);">삭제</span>
+  <div style="background:#fff;margin:0 4px 3px;border-radius:5px;border:1px solid #eee;overflow:hidden;flex-shrink:0;">
+    <div style="padding:5px 6px 4px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:3px;">
+        <div>
+          <div style="font-size:9px;font-weight:800;color:var(--blk);margin-bottom:2px;">갑오징어/주꾸미</div>
+          <div style="display:flex;gap:2px;flex-wrap:wrap;"><span style="font-size:4px;padding:1px 4px;border-radius:2px;background:#f0f0f0;color:#555;font-weight:600;">갑오징어</span><span style="font-size:4px;padding:1px 4px;border-radius:2px;background:#f0f0f0;color:#555;font-weight:600;">주꾸미</span></div>
+        </div>
+        <span style="font-size:5px;font-weight:700;color:var(--blue);background:#EBF0FF;padding:1px 5px;border-radius:2px;flex-shrink:0;margin-left:4px;">출조일정 6건</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#f9f9f9;border-radius:3px;padding:3px 4px;margin-bottom:3px;">
+        <div><div style="font-size:4px;color:#aaa;">운영 기간</div><div style="font-size:5px;font-weight:600;color:#333;">01/01~12/31</div></div>
+        <div><div style="font-size:4px;color:#aaa;">운영 요일</div><div style="font-size:5px;font-weight:600;color:#333;">매일</div></div>
+        <div><div style="font-size:4px;color:#aaa;">출조 시간</div><div style="font-size:5px;font-weight:600;color:#333;">05:00~15:30 (당일)</div></div>
+        <div><div style="font-size:4px;color:#aaa;">대인 요금</div><div style="font-size:5px;font-weight:600;color:#333;">94,000 / 110,000</div></div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-around;padding:3px 0;border-top:1px solid #eee;">
+      <span style="font-size:6px;font-weight:600;color:#555;">상품수정</span>
+      <span style="font-size:6px;font-weight:600;color:var(--red);">상품삭제</span>
     </div>
   </div>
-  <div style="background:#fff;margin:0 4px 3px;border-radius:5px;border:1px solid #eee;padding:5px 6px;flex-shrink:0;">
-    <div style="font-size:9px;font-weight:800;color:var(--blk);margin-bottom:2px;">영흥도 광어/우럭</div>
-    <div style="font-size:5px;color:#aaa;line-height:1.5;margin-bottom:3px;">01/01~12/31 · 매일 · 05:00~15:30<br>대인 120,000 / 주말 130,000 · 연결 6건</div>
-    <div style="display:flex;gap:2px;">
-      <span style="font-size:6px;font-weight:700;padding:2px 8px;border-radius:3px;border:1px solid #eee;color:#767676;">수정</span>
-      <span style="font-size:6px;font-weight:700;padding:2px 8px;border-radius:3px;border:1px solid #FFCDD2;color:var(--red);background:var(--rlt);">삭제</span>
+  <div style="background:#fff;margin:0 4px 3px;border-radius:5px;border:1px solid #eee;overflow:hidden;flex-shrink:0;">
+    <div style="padding:5px 6px 4px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:3px;">
+        <div>
+          <div style="font-size:9px;font-weight:800;color:var(--blk);margin-bottom:2px;">영흥도 광어/우럭</div>
+          <div style="display:flex;gap:2px;flex-wrap:wrap;"><span style="font-size:4px;padding:1px 4px;border-radius:2px;background:#f0f0f0;color:#555;font-weight:600;">광어</span><span style="font-size:4px;padding:1px 4px;border-radius:2px;background:#f0f0f0;color:#555;font-weight:600;">우럭</span></div>
+        </div>
+        <span style="font-size:5px;font-weight:700;color:var(--blue);background:#EBF0FF;padding:1px 5px;border-radius:2px;flex-shrink:0;margin-left:4px;">출조일정 6건</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#f9f9f9;border-radius:3px;padding:3px 4px;margin-bottom:3px;">
+        <div><div style="font-size:4px;color:#aaa;">운영 기간</div><div style="font-size:5px;font-weight:600;color:#333;">01/01~12/31</div></div>
+        <div><div style="font-size:4px;color:#aaa;">운영 요일</div><div style="font-size:5px;font-weight:600;color:#333;">매일</div></div>
+        <div><div style="font-size:4px;color:#aaa;">출조 시간</div><div style="font-size:5px;font-weight:600;color:#333;">05:00~15:30 (당일)</div></div>
+        <div><div style="font-size:4px;color:#aaa;">대인 요금</div><div style="font-size:5px;font-weight:600;color:#333;">120,000 / 130,000</div></div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-around;padding:3px 0;border-top:1px solid #eee;">
+      <span style="font-size:6px;font-weight:600;color:#555;">상품수정</span>
+      <span style="font-size:6px;font-weight:600;color:var(--red);">상품삭제</span>
     </div>
   </div>
-  <div style="background:#fff;margin:0 4px;border-radius:5px;border:1px solid #eee;padding:5px 6px;flex-shrink:0;">
-    <div style="font-size:9px;font-weight:800;color:var(--blk);margin-bottom:2px;">야간 쭈꾸미/낙지</div>
-    <div style="font-size:5px;color:#aaa;line-height:1.5;margin-bottom:3px;">03/01~10/31 · 금·토 · 20:00~05:00 익일<br>대인 78,000 / 주말 90,000 · 연결 2건</div>
-    <div style="display:flex;gap:2px;">
-      <span style="font-size:6px;font-weight:700;padding:2px 8px;border-radius:3px;border:1px solid #eee;color:#767676;">수정</span>
-      <span style="font-size:6px;font-weight:700;padding:2px 8px;border-radius:3px;border:1px solid #FFCDD2;color:var(--red);background:var(--rlt);">삭제</span>
+  <div style="background:#fff;margin:0 4px;border-radius:5px;border:1px solid #eee;overflow:hidden;flex-shrink:0;">
+    <div style="padding:5px 6px 4px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:3px;">
+        <div>
+          <div style="font-size:9px;font-weight:800;color:var(--blk);margin-bottom:2px;">야간 쭈꾸미/낙지</div>
+          <div style="display:flex;gap:2px;flex-wrap:wrap;"><span style="font-size:4px;padding:1px 4px;border-radius:2px;background:#f0f0f0;color:#555;font-weight:600;">쭈꾸미</span><span style="font-size:4px;padding:1px 4px;border-radius:2px;background:#f0f0f0;color:#555;font-weight:600;">낙지</span></div>
+        </div>
+        <span style="font-size:5px;font-weight:700;color:var(--blue);background:#EBF0FF;padding:1px 5px;border-radius:2px;flex-shrink:0;margin-left:4px;">출조일정 2건</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#f9f9f9;border-radius:3px;padding:3px 4px;margin-bottom:3px;">
+        <div><div style="font-size:4px;color:#aaa;">운영 기간</div><div style="font-size:5px;font-weight:600;color:#333;">03/01~10/31</div></div>
+        <div><div style="font-size:4px;color:#aaa;">운영 요일</div><div style="font-size:5px;font-weight:600;color:#333;">금·토</div></div>
+        <div><div style="font-size:4px;color:#aaa;">출조 시간</div><div style="font-size:5px;font-weight:600;color:#333;">20:00~05:00 (익일)</div></div>
+        <div><div style="font-size:4px;color:#aaa;">대인 요금</div><div style="font-size:5px;font-weight:600;color:#333;">78,000 / 90,000</div></div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-around;padding:3px 0;border-top:1px solid #eee;">
+      <span style="font-size:6px;font-weight:600;color:#555;">상품수정</span>
+      <span style="font-size:6px;font-weight:600;color:var(--red);">상품삭제</span>
     </div>
   </div>
 </div>
@@ -3678,7 +3927,11 @@ document.addEventListener('click', function(e) {
         <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">운영기간 (MMDD)</div><div style="display:flex;gap:2px;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">01/01</div><span style="font-size:6px;color:#aaa;align-self:center;">~</span><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">12/31</div></div></div>
         <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;color:var(--orange);">금년/내년 ⚠ UI 없음</div><div style="border:1px solid #FFCDD2;border-radius:3px;padding:2px 5px;font-size:5px;color:var(--red);">T(금년) 고정 · 미구현</div></div>
         <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">출조 요일 *</div><div style="display:flex;gap:2px;"><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">월</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">화</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">수</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">목</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">금</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">토</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">일</span></div></div>
-        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;color:var(--orange);">출조시간 (HH:MM)</div><div style="display:flex;gap:2px;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">05:00</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">15:30</div></div></div>
+        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;color:var(--orange);">출조/복귀 시간</div>
+          <div style="display:flex;gap:2px;margin-bottom:2px;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">05:00</div><span style="font-size:6px;color:#aaa;align-self:center;">~</span><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">15:30</div></div>
+          <div style="display:flex;gap:2px;"><span style="font-size:5px;font-weight:700;padding:1px 6px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">당일</span><span style="font-size:5px;font-weight:700;padding:1px 6px;border-radius:2px;border:1px solid #eee;color:#aaa;">익일</span></div>
+        </div>
+        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">탑승 인원</div><div style="display:flex;gap:2px;align-items:center;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">1</div><span style="font-size:5px;color:#aaa;">~</span><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">11</div><span style="font-size:5px;color:#aaa;">명</span></div></div>
         <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">대인 (평일/주말) *</div><div style="display:flex;gap:2px;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">94,000</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">110,000</div></div></div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:5px 8px 7px;border-top:1px solid #eee;"><div style="padding:6px;border-radius:4px;border:1px solid #eee;text-align:center;font-size:8px;font-weight:700;color:#767676;">취소</div><div style="padding:6px;border-radius:4px;background:var(--blue);text-align:center;font-size:8px;font-weight:700;color:#fff;">등록</div></div>
@@ -3711,6 +3964,11 @@ document.addEventListener('click', function(e) {
         <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;color:var(--orange);">어종 (코드변환 필요)</div><div style="display:flex;flex-wrap:wrap;gap:1px;"><span style="font-size:5px;padding:1px 5px;border-radius:50px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);font-weight:700;margin-right:2px;">갑오징어</span><span style="font-size:5px;padding:1px 5px;border-radius:50px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);font-weight:700;margin-right:2px;">주꾸미</span></div></div>
         <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">운영기간 (MMDD)</div><div style="display:flex;gap:2px;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">01/01</div><span style="font-size:6px;color:#aaa;align-self:center;">~</span><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">12/31</div></div></div>
         <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">출조 요일</div><div style="display:flex;gap:2px;"><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">월</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">화</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">수</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">목</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">금</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">토</span><span style="font-size:5px;font-weight:700;padding:1px 3px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">일</span></div></div>
+        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;color:var(--orange);">출조/복귀 시간</div>
+          <div style="display:flex;gap:2px;margin-bottom:2px;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">05:00</div><span style="font-size:6px;color:#aaa;align-self:center;">~</span><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">15:30</div></div>
+          <div style="display:flex;gap:2px;"><span style="font-size:5px;font-weight:700;padding:1px 6px;border-radius:2px;background:#EBF0FF;color:var(--blue);border:1px solid var(--blue);">당일</span><span style="font-size:5px;font-weight:700;padding:1px 6px;border-radius:2px;border:1px solid #eee;color:#aaa;">익일</span></div>
+        </div>
+        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">탑승 인원</div><div style="display:flex;gap:2px;align-items:center;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">1</div><span style="font-size:5px;color:#aaa;">~</span><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">11</div><span style="font-size:5px;color:#aaa;">명</span></div></div>
         <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">대인 (평일/주말)</div><div style="display:flex;gap:2px;"><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">94,000</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">110,000</div></div></div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:5px 8px 7px;border-top:1px solid #eee;"><div style="padding:6px;border-radius:4px;border:1px solid #eee;text-align:center;font-size:8px;font-weight:700;color:#767676;">취소</div><div style="padding:6px;border-radius:4px;background:var(--blue);text-align:center;font-size:8px;font-weight:700;color:#fff;">수정 저장</div></div>
@@ -3759,7 +4017,7 @@ document.addEventListener('click', function(e) {
 
     <!-- ② 화면 플로우 -->
     <div class="sdiv"><div class="sdiv-t">② 화면 플로우 — 화면 간 전환 경로 & 화살표 연결</div><div class="sdiv-s">카드 액션 → 모달 전환 · 탭 분기 · 삭제 분기</div></div>
-    <div class="flow-section"><div style="margin-bottom:28px;"><div style="font-size:12px;font-weight:700;color:var(--desc);margin-bottom:14px;letter-spacing:.3px;">진입 &amp; 탭 전환</div><div class="flow-row"><div class="flow-screen-wrap">
+    <div class="flow-section"><div style="margin-bottom:28px;"><div style="font-size:16px;font-weight:800;color:var(--blk);margin-bottom:18px;letter-spacing:-.2px;">진입 &amp; 탭 전환</div><div class="flow-row"><div class="flow-screen-wrap">
   <span class="flow-badge" style="background:var(--blk);">S1</span>
   <div class="ph-frame ph-md">
   <div class="ph-island"></div>
@@ -4432,7 +4690,7 @@ document.addEventListener('click', function(e) {
 </div>
       <div class="spec-mock-label">탭 & 드롭다운 영역</div>
     </div>
-    <div class="spec-table-wrap"><table class="sp-table">
+    <div class="spec-table-wrap"><table class="sp-table" data-tid="sptbl-0">
 <tr><th style="width:90px;">UI 요소</th><th style="width:110px;">조건·트리거</th><th>상세 동작</th><th style="width:120px;">알림</th></tr>
 <tr>
 <td class="td-elem">하단 탭바<br>상품관리</td>
@@ -4449,10 +4707,11 @@ document.addEventListener('click', function(e) {
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">선택된 <span class="hl">boat_idx</span> 기준으로 일자별상품·출조종류·예약 데이터 재필터링.</span><span class="sp-pt"><span class="hl-r">reserve_sell_state</span> 선박 정보와 함께 로드 필요 (1=수기/2=자동확정). <span class="tag-db">[DB] 현재 미구현</span></span></td>
 <td style="min-width:110px;"></td>
-</tr></table></div>
+</tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-0')">+ 행 추가</button></div>
   </div>
   <div class="comment-section" id="cs-s1">
-  <div class="comment-hd">
+  <div class="comment-hd" onclick="handleCommentHdClick(event,'s1')">
     <div class="comment-hd-left">
       <svg class="comment-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="comment-hd-title">코멘트</span>
@@ -4476,14 +4735,14 @@ document.addEventListener('click', function(e) {
         <div class="comment-avatar-inp" id="cav-s1">?</div>
         <select class="comment-name-sel" id="csel-s1" onchange="updateAvatar('s1')">
           <option value="">작성자를 선택하세요</option>
+          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
           <option value="김채린 QA" data-role="QA" data-init="채">김채린 QA</option>
+          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
           <option value="신진섭 앱개발" data-role="앱/웹개발" data-init="신">신진섭 앱개발</option>
           <option value="정지섭 웹개발" data-role="웹개발" data-init="정">정지섭 웹개발</option>
-          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
-          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
-          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
-          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -4549,7 +4808,7 @@ document.addEventListener('click', function(e) {
 </div>
       <div class="spec-mock-label">날짜 칩 & 현황 요약</div>
     </div>
-    <div class="spec-table-wrap"><table class="sp-table">
+    <div class="spec-table-wrap"><table class="sp-table" data-tid="sptbl-1">
 <tr><th style="width:90px;">UI 요소</th><th style="width:110px;">조건·트리거</th><th>상세 동작</th><th style="width:120px;">알림</th></tr>
 <tr>
 <td class="td-elem">‹ › 월 이동</td>
@@ -4571,10 +4830,11 @@ document.addEventListener('click', function(e) {
 <td class="td-cond">상태 변경 시</td>
 <td><span class="sp-pt">노출수/숨김수/총예약/잔여 실시간 반영.</span><span class="sp-pt"><span class="hl-r">sold 하드코딩</span>→ RESERVATIONS 동적 계산 필요. <span class="tag-db">[DB] 불일치</span></span></td>
 <td style="min-width:110px;"></td>
-</tr></table></div>
+</tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-1')">+ 행 추가</button></div>
   </div>
   <div class="comment-section" id="cs-s2a">
-  <div class="comment-hd">
+  <div class="comment-hd" onclick="handleCommentHdClick(event,'s2a')">
     <div class="comment-hd-left">
       <svg class="comment-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="comment-hd-title">코멘트</span>
@@ -4598,14 +4858,14 @@ document.addEventListener('click', function(e) {
         <div class="comment-avatar-inp" id="cav-s2a">?</div>
         <select class="comment-name-sel" id="csel-s2a" onchange="updateAvatar('s2a')">
           <option value="">작성자를 선택하세요</option>
+          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
           <option value="김채린 QA" data-role="QA" data-init="채">김채린 QA</option>
+          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
           <option value="신진섭 앱개발" data-role="앱/웹개발" data-init="신">신진섭 앱개발</option>
           <option value="정지섭 웹개발" data-role="웹개발" data-init="정">정지섭 웹개발</option>
-          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
-          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
-          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
-          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -4691,7 +4951,7 @@ document.addEventListener('click', function(e) {
 </div>
       <div class="spec-mock-label">카드 액션 버튼 (인원조정·예약추가·예약명단)</div>
     </div>
-    <div class="spec-table-wrap"><table class="sp-table">
+    <div class="spec-table-wrap"><table class="sp-table" data-tid="sptbl-2">
 <tr><th style="width:90px;">UI 요소</th><th style="width:110px;">조건·트리거</th><th>상세 동작</th><th style="width:120px;">알림</th></tr>
 <tr>
 <td class="td-elem">날짜 그룹 헤더</td>
@@ -4702,21 +4962,22 @@ document.addEventListener('click', function(e) {
 <td class="td-elem">노출 토글</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">ON→OFF: bpi_is_display=false. 고객 앱 미노출. 선주 화면에는 계속 표시.</span><span class="sp-pt">낙관적 업데이트 (API 실패 시 롤백). 현황 요약 즉시 재계산.</span><span class="sp-pt"><span class="hl-o">예약 있는 상품 OFF 시</span> C03 Confirm 필요. <span class="tag-t">미구현</span></span></td>
-<td style="min-width:110px;"><span class="chip chip-T">T 01</span><span class="chip chip-C">C 03</span></td>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-T">T 01</span><span class="chip-msg"><span class="chip-type-tag chip-type-toast">Toast</span>"노출 상태 변경됨"</span></div><div class="chip-cell"><span class="chip chip-C">C 03</span><span class="chip-msg"><span class="chip-type-tag chip-type-confirm">Confirm</span>기존 예약 N건 유지. 노출 끄면 신규 예약 불가. | 취소 / 끄기</span></div></td>
 </tr><tr>
 <td class="td-elem">즉시마감</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">비가역. <span class="hl-r">C02 Confirm 먼저 표시 필요</span>. <span class="tag-t">현재 바로 처리</span></span><span class="sp-pt">확인 시: bpi_qty = sold → 잔여 0 → 매진 배지 자동 노출.</span></td>
-<td style="min-width:110px;"><span class="chip chip-C">C 02</span><span class="chip chip-T">T 02</span></td>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-C">C 02</span><span class="chip-msg"><span class="chip-type-tag chip-type-confirm">Confirm</span>잔여 N석 폐기하고 마감. 되돌릴 수 없습니다. | 취소 / 마감</span></div><div class="chip-cell"><span class="chip chip-T">T 02</span><span class="chip-msg"><span class="chip-type-tag chip-type-toast">Toast</span>"즉시 마감 처리됨"</span></div></td>
 </tr><tr>
 <td class="td-elem">예약 현황 바</td>
 <td class="td-cond">자동</td>
 <td><span class="sp-pt">sold/bpi_qty 비율. 0~69%: 파랑 / 70~99%: 주황 / 100%: 빨강. CSS transition 0.3s.</span></td>
 <td style="min-width:110px;"></td>
-</tr></table></div>
+</tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-2')">+ 행 추가</button></div>
   </div>
   <div class="comment-section" id="cs-s2b">
-  <div class="comment-hd">
+  <div class="comment-hd" onclick="handleCommentHdClick(event,'s2b')">
     <div class="comment-hd-left">
       <svg class="comment-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="comment-hd-title">코멘트</span>
@@ -4740,14 +5001,14 @@ document.addEventListener('click', function(e) {
         <div class="comment-avatar-inp" id="cav-s2b">?</div>
         <select class="comment-name-sel" id="csel-s2b" onchange="updateAvatar('s2b')">
           <option value="">작성자를 선택하세요</option>
+          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
           <option value="김채린 QA" data-role="QA" data-init="채">김채린 QA</option>
+          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
           <option value="신진섭 앱개발" data-role="앱/웹개발" data-init="신">신진섭 앱개발</option>
           <option value="정지섭 웹개발" data-role="웹개발" data-init="정">정지섭 웹개발</option>
-          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
-          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
-          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
-          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -4831,27 +5092,28 @@ document.addEventListener('click', function(e) {
 </div>
       <div class="spec-mock-label">인원조정 바텀시트 모달</div>
     </div>
-    <div class="spec-table-wrap"><table class="sp-table">
+    <div class="spec-table-wrap"><table class="sp-table" data-tid="sptbl-3">
 <tr><th style="width:90px;">UI 요소</th><th style="width:110px;">조건·트리거</th><th>상세 동작</th><th style="width:120px;">알림</th></tr>
 <tr>
 <td class="td-elem">− 버튼</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">최솟값 = 결제완료 예약 인원(예약완료·이용완료·입금대기 합산. 취소완료 제외).</span><span class="sp-pt"><span class="hl-r">C04 Alert</span>: 결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다. <span class="tag-t">미구현</span></span></td>
-<td style="min-width:110px;"><span class="chip chip-C">C 04</span></td>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-C">C 04</span><span class="chip-msg"><span class="chip-type-tag chip-type-alert">Alert</span>결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다. | 확인</span></div></td>
 </tr><tr>
 <td class="td-elem">마감 버튼</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">qty = sold. 잔여>0이면 <span class="hl-r">C05 Confirm</span>. <span class="tag-t">미구현</span></span><span class="sp-pt">저장 전 취소 버튼으로 원복 가능.</span></td>
-<td style="min-width:110px;"><span class="chip chip-C">C 05</span><span class="chip chip-A">A 06</span></td>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-C">C 05</span><span class="chip-msg"><span class="chip-type-tag chip-type-confirm">Confirm</span>잔여 N석 폐기하고 즉시 마감. 되돌릴 수 없습니다. | 취소 / 마감</span></div><div class="chip-cell"><span class="chip chip-A">A 06</span><span class="chip-msg"><span class="chip-type-tag chip-type-alert">Alert</span>마감 처리가 완료되었습니다. | 확인</span></div></td>
 </tr><tr>
 <td class="td-elem">저장</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">bpi_qty 업데이트. 카드 현황 바·현황 요약 즉시 갱신.</span></td>
-<td style="min-width:110px;"><span class="chip chip-T">T 03</span></td>
-</tr></table></div>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-T">T 03</span><span class="chip-msg"><span class="chip-type-tag chip-type-toast">Toast</span>"판매 좌석 수 조정 완료"</span></div></td>
+</tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-3')">+ 행 추가</button></div>
   </div>
   <div class="comment-section" id="cs-m1">
-  <div class="comment-hd">
+  <div class="comment-hd" onclick="handleCommentHdClick(event,'m1')">
     <div class="comment-hd-left">
       <svg class="comment-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="comment-hd-title">코멘트</span>
@@ -4875,14 +5137,14 @@ document.addEventListener('click', function(e) {
         <div class="comment-avatar-inp" id="cav-m1">?</div>
         <select class="comment-name-sel" id="csel-m1" onchange="updateAvatar('m1')">
           <option value="">작성자를 선택하세요</option>
+          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
           <option value="김채린 QA" data-role="QA" data-init="채">김채린 QA</option>
+          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
           <option value="신진섭 앱개발" data-role="앱/웹개발" data-init="신">신진섭 앱개발</option>
           <option value="정지섭 웹개발" data-role="웹개발" data-init="정">정지섭 웹개발</option>
-          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
-          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
-          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
-          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -4937,12 +5199,16 @@ document.addEventListener('click', function(e) {
       <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-bottom:1px solid #eee;"><div><div style="font-size:9px;font-weight:800;color:var(--blk);">예약 직접 추가</div><div style="font-size:5px;color:#aaa;margin-top:1px;">전화·현장·타플랫폼</div></div><span style="font-size:10px;color:#aaa;cursor:pointer;">✕</span></div>
       <div style="padding:5px 8px;">
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:4px;">
-          <div style="padding:3px;text-align:center;background:var(--blk);color:#fff;border-radius:3px;font-size:6px;font-weight:700;">전화</div>
-          <div style="padding:3px;text-align:center;border:1px solid #eee;border-radius:3px;font-size:6px;font-weight:700;color:#767676;">카카오</div>
-          <div style="padding:3px;text-align:center;border:1px solid #eee;border-radius:3px;font-size:6px;font-weight:700;color:#767676;">현장</div>
+          <div style="padding:3px;text-align:center;background:var(--blk);color:#fff;border-radius:3px;font-size:5px;font-weight:700;">전화예약</div>
+          <div style="padding:3px;text-align:center;border:1px solid #eee;border-radius:3px;font-size:5px;font-weight:700;color:#767676;">네이버</div>
+          <div style="padding:3px;text-align:center;border:1px solid #eee;border-radius:3px;font-size:5px;font-weight:700;color:#767676;">카카오</div>
+          <div style="padding:3px;text-align:center;border:1px solid #eee;border-radius:3px;font-size:5px;font-weight:700;color:#767676;">갈치365</div>
+          <div style="padding:3px;text-align:center;border:1px solid #eee;border-radius:3px;font-size:5px;font-weight:700;color:#767676;">직접방문</div>
+          <div style="padding:3px;text-align:center;border:1px solid #eee;border-radius:3px;font-size:5px;font-weight:700;color:#767676;">기타</div>
         </div>
         <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">이름 *</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">홍길동</div></div><div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">연락처 *</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">010-1234-5678</div></div>
         <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">상품 (자동선택됨)</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:5px;font-weight:700;color:var(--blue);">갑오징어/주꾸미 94,000원</div></div>
+        <div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">결제수단</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:5px;color:var(--blk);">직접입금</div></div>
         <div style="display:flex;gap:2px;">
           <div style="flex:1;"><div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">대인</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">2</div></div></div>
           <div style="flex:1;"><div style="margin-bottom:4px;"><div style="font-size:5px;font-weight:700;color:#767676;margin-bottom:2px;">소인</div><div style="border:1px solid #eee;border-radius:3px;padding:3px 5px;font-size:6px;color:var(--blk);">0</div></div></div>
@@ -4958,7 +5224,7 @@ document.addEventListener('click', function(e) {
 </div>
       <div class="spec-mock-label">예약 직접 추가 모달</div>
     </div>
-    <div class="spec-table-wrap"><table class="sp-table">
+    <div class="spec-table-wrap"><table class="sp-table" data-tid="sptbl-4">
 <tr><th style="width:90px;">UI 요소</th><th style="width:110px;">조건·트리거</th><th>상세 동작</th><th style="width:120px;">알림</th></tr>
 <tr>
 <td class="td-elem">예약 경로</td>
@@ -4969,16 +5235,17 @@ document.addEventListener('click', function(e) {
 <td class="td-elem">상품 드롭다운</td>
 <td class="td-cond">진입/변경</td>
 <td><span class="sp-pt">카드 진입 시 <span class="hl">defaultProductId</span>로 자동 선택. 매진 상품 선택 시도 시 <span class="hl-r">C08 Alert</span>. <span class="tag-t">미구현</span></span></td>
-<td style="min-width:110px;"><span class="chip chip-A">A 08</span></td>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-A">A 08</span><span class="chip-msg"><span class="chip-type-tag chip-type-alert">Alert</span>판매가 마감된 상품입니다. | 확인</span></div></td>
 </tr><tr>
 <td class="td-elem">추가 버튼</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">인원>잔여석 시 <span class="hl-o">C09 Alert</span>. 출조 당일이면 <span class="hl-o">C10 Confirm</span>. <span class="tag-t">미구현</span></span><span class="sp-pt"><span class="hl-r">reserve_sell_state</span> 기반 상태 분기 필요. <span class="tag-db">[DB] 현재 항상 예약완료</span></span><span class="sp-pt">완료: sold += 인원 → 카드 갱신 → 잔여=0 시 매진 배지.</span></td>
-<td style="min-width:110px;"><span class="chip chip-C">C 10</span><span class="chip chip-T">T 04</span><span class="chip chip-P">P 01</span></td>
-</tr></table></div>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-C">C 10</span><span class="chip-msg"><span class="chip-type-tag chip-type-confirm">Confirm</span>출항 당일 예약입니다. 계속 추가하시겠습니까? | 취소 / 추가</span></div><div class="chip-cell"><span class="chip chip-T">T 04</span><span class="chip-msg"><span class="chip-type-tag chip-type-toast">Toast</span>"예약이 추가됐습니다"</span></div><div class="chip-cell"><span class="chip chip-P">P 01</span><span class="chip-msg"><span class="chip-type-tag chip-type-push">알림톡</span>예약번호/상품명/출항일시/금액/선박연락처</span></div></td>
+</tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-4')">+ 행 추가</button></div>
   </div>
   <div class="comment-section" id="cs-m2">
-  <div class="comment-hd">
+  <div class="comment-hd" onclick="handleCommentHdClick(event,'m2')">
     <div class="comment-hd-left">
       <svg class="comment-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="comment-hd-title">코멘트</span>
@@ -5002,14 +5269,14 @@ document.addEventListener('click', function(e) {
         <div class="comment-avatar-inp" id="cav-m2">?</div>
         <select class="comment-name-sel" id="csel-m2" onchange="updateAvatar('m2')">
           <option value="">작성자를 선택하세요</option>
+          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
           <option value="김채린 QA" data-role="QA" data-init="채">김채린 QA</option>
+          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
           <option value="신진섭 앱개발" data-role="앱/웹개발" data-init="신">신진섭 앱개발</option>
           <option value="정지섭 웹개발" data-role="웹개발" data-init="정">정지섭 웹개발</option>
-          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
-          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
-          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
-          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5102,7 +5369,7 @@ document.addEventListener('click', function(e) {
 </div>
       <div class="spec-mock-label">예약자 명단 모달</div>
     </div>
-    <div class="spec-table-wrap"><table class="sp-table">
+    <div class="spec-table-wrap"><table class="sp-table" data-tid="sptbl-5">
 <tr><th style="width:90px;">UI 요소</th><th style="width:110px;">조건·트리거</th><th>상세 동작</th><th style="width:120px;">알림</th></tr>
 <tr>
 <td class="td-elem">상태 배지</td>
@@ -5113,21 +5380,22 @@ document.addEventListener('click', function(e) {
 <td class="td-elem">연락처 복사</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">해당 예약자 연락처 클립보드 복사.</span></td>
-<td style="min-width:110px;"><span class="chip chip-T">T 05</span></td>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-T">T 05</span><span class="chip-msg"><span class="chip-type-tag chip-type-toast">Toast</span>"[이름] 복사됨"</span></div></td>
 </tr><tr>
 <td class="td-elem">명단 복사</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">전체 명단 텍스트 복사. <span class="tag-t">미구현</span></span></td>
-<td style="min-width:110px;"><span class="chip chip-T">T 06</span></td>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-T">T 06</span><span class="chip-msg"><span class="chip-type-tag chip-type-toast">Toast</span>"명단이 복사됐습니다"</span></div></td>
 </tr><tr>
 <td class="td-elem">예약 취소</td>
 <td class="td-cond">버튼</td>
 <td><span class="sp-pt"><span class="hl-r">C13 Confirm</span>: "[이름]님 예약 취소. 직접입금은 환불 직접 처리." <span class="tag-t">기능 미구현</span></span></td>
-<td style="min-width:110px;"><span class="chip chip-C">C 13</span><span class="chip chip-P">P 02</span></td>
-</tr></table></div>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-C">C 13</span><span class="chip-msg"><span class="chip-type-tag chip-type-confirm">Confirm</span>[이름]님 예약 취소. 직접입금은 환불 직접 처리하세요. | 취소 / 확인</span></div><div class="chip-cell"><span class="chip chip-P">P 02</span><span class="chip-msg"><span class="chip-type-tag chip-type-push">알림톡</span>취소 확인 + 환불금액/방법/기간</span></div></td>
+</tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-5')">+ 행 추가</button></div>
   </div>
   <div class="comment-section" id="cs-m3">
-  <div class="comment-hd">
+  <div class="comment-hd" onclick="handleCommentHdClick(event,'m3')">
     <div class="comment-hd-left">
       <svg class="comment-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="comment-hd-title">코멘트</span>
@@ -5151,14 +5419,14 @@ document.addEventListener('click', function(e) {
         <div class="comment-avatar-inp" id="cav-m3">?</div>
         <select class="comment-name-sel" id="csel-m3" onchange="updateAvatar('m3')">
           <option value="">작성자를 선택하세요</option>
+          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
           <option value="김채린 QA" data-role="QA" data-init="채">김채린 QA</option>
+          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
           <option value="신진섭 앱개발" data-role="앱/웹개발" data-init="신">신진섭 앱개발</option>
           <option value="정지섭 웹개발" data-role="웹개발" data-init="정">정지섭 웹개발</option>
-          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
-          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
-          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
-          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5230,7 +5498,7 @@ document.addEventListener('click', function(e) {
 </div>
       <div class="spec-mock-label">일자별 개별수정 모달</div>
     </div>
-    <div class="spec-table-wrap"><table class="sp-table">
+    <div class="spec-table-wrap"><table class="sp-table" data-tid="sptbl-6">
 <tr><th style="width:90px;">UI 요소</th><th style="width:110px;">조건·트리거</th><th>상세 동작</th><th style="width:120px;">알림</th></tr>
 <tr>
 <td class="td-elem">경고 배너</td>
@@ -5246,16 +5514,17 @@ document.addEventListener('click', function(e) {
 <td class="td-elem">판매 좌석수</td>
 <td class="td-cond">입력</td>
 <td><span class="sp-pt">최솟값 = 결제완료 예약 인원. 미만 저장 시 <span class="hl-r">C04 Alert</span>.</span></td>
-<td style="min-width:110px;"><span class="chip chip-C">C 04</span></td>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-C">C 04</span><span class="chip-msg"><span class="chip-type-tag chip-type-alert">Alert</span>결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다. | 확인</span></div></td>
 </tr><tr>
 <td class="td-elem">수정 저장</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">해당 bpi 업데이트. 카드 즉시 갱신.</span></td>
-<td style="min-width:110px;"><span class="chip chip-T">T 07</span></td>
-</tr></table></div>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-T">T 07</span><span class="chip-msg"><span class="chip-type-tag chip-type-toast">Toast</span>"개별 수정 완료"</span></div></td>
+</tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-6')">+ 행 추가</button></div>
   </div>
   <div class="comment-section" id="cs-m4">
-  <div class="comment-hd">
+  <div class="comment-hd" onclick="handleCommentHdClick(event,'m4')">
     <div class="comment-hd-left">
       <svg class="comment-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="comment-hd-title">코멘트</span>
@@ -5279,14 +5548,14 @@ document.addEventListener('click', function(e) {
         <div class="comment-avatar-inp" id="cav-m4">?</div>
         <select class="comment-name-sel" id="csel-m4" onchange="updateAvatar('m4')">
           <option value="">작성자를 선택하세요</option>
+          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
           <option value="김채린 QA" data-role="QA" data-init="채">김채린 QA</option>
+          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
           <option value="신진섭 앱개발" data-role="앱/웹개발" data-init="신">신진섭 앱개발</option>
           <option value="정지섭 웹개발" data-role="웹개발" data-init="정">정지섭 웹개발</option>
-          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
-          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
-          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
-          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5364,7 +5633,7 @@ document.addEventListener('click', function(e) {
 </div>
       <div class="spec-mock-label">마스터상품 카드 목록</div>
     </div>
-    <div class="spec-table-wrap"><table class="sp-table">
+    <div class="spec-table-wrap"><table class="sp-table" data-tid="sptbl-7">
 <tr><th style="width:90px;">UI 요소</th><th style="width:110px;">조건·트리거</th><th>상세 동작</th><th style="width:120px;">알림</th></tr>
 <tr>
 <td class="td-elem">안내 배너</td>
@@ -5375,11 +5644,12 @@ document.addEventListener('click', function(e) {
 <td class="td-elem">상품삭제</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">예약 있으면 <span class="hl-r">C14 Alert</span> 차단. <span class="tag-t">미구현</span></span><span class="sp-pt">예약 없으면 <span class="hl-r">C15 Confirm</span>: 연결된 날짜별 출조 N건 모두 삭제.</span></td>
-<td style="min-width:110px;"><span class="chip chip-A">A 14</span><span class="chip chip-C">C 15</span></td>
-</tr></table></div>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-A">A 14</span><span class="chip-msg"><span class="chip-type-tag chip-type-alert">Alert</span>예약이 있는 상품은 삭제할 수 없습니다. | 확인</span></div><div class="chip-cell"><span class="chip chip-C">C 15</span><span class="chip-msg"><span class="chip-type-tag chip-type-confirm">Confirm</span>상품명과 연결된 날짜별 출조 N건 모두 삭제. 되돌릴 수 없습니다. | 취소 / 삭제</span></div></td>
+</tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-7')">+ 행 추가</button></div>
   </div>
   <div class="comment-section" id="cs-s4">
-  <div class="comment-hd">
+  <div class="comment-hd" onclick="handleCommentHdClick(event,'s4')">
     <div class="comment-hd-left">
       <svg class="comment-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="comment-hd-title">코멘트</span>
@@ -5403,14 +5673,14 @@ document.addEventListener('click', function(e) {
         <div class="comment-avatar-inp" id="cav-s4">?</div>
         <select class="comment-name-sel" id="csel-s4" onchange="updateAvatar('s4')">
           <option value="">작성자를 선택하세요</option>
+          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
           <option value="김채린 QA" data-role="QA" data-init="채">김채린 QA</option>
+          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
           <option value="신진섭 앱개발" data-role="앱/웹개발" data-init="신">신진섭 앱개발</option>
           <option value="정지섭 웹개발" data-role="웹개발" data-init="정">정지섭 웹개발</option>
-          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
-          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
-          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
-          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5472,7 +5742,7 @@ document.addEventListener('click', function(e) {
 </div>
       <div class="spec-mock-label">출조종류 등록 모달</div>
     </div>
-    <div class="spec-table-wrap"><table class="sp-table">
+    <div class="spec-table-wrap"><table class="sp-table" data-tid="sptbl-8">
 <tr><th style="width:90px;">UI 요소</th><th style="width:110px;">조건·트리거</th><th>상세 동작</th><th style="width:120px;">알림</th></tr>
 <tr>
 <td class="td-elem">어종 칩</td>
@@ -5493,11 +5763,12 @@ document.addEventListener('click', function(e) {
 <td class="td-elem">등록 버튼</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">필수 항목 검사. 성공 시 운영기간×요일 매트릭스로 bpi 자동 생성.</span></td>
-<td style="min-width:110px;"><span class="chip chip-A">A 16</span><span class="chip chip-T">T 08</span></td>
-</tr></table></div>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-A">A 16</span><span class="chip-msg"><span class="chip-type-tag chip-type-alert">Alert</span>출조종류가 등록되었습니다. | 확인</span></div><div class="chip-cell"><span class="chip chip-T">T 08</span><span class="chip-msg"><span class="chip-type-tag chip-type-toast">Toast</span>"출조종류 등록 완료"</span></div></td>
+</tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-8')">+ 행 추가</button></div>
   </div>
   <div class="comment-section" id="cs-m5">
-  <div class="comment-hd">
+  <div class="comment-hd" onclick="handleCommentHdClick(event,'m5')">
     <div class="comment-hd-left">
       <svg class="comment-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="comment-hd-title">코멘트</span>
@@ -5521,14 +5792,14 @@ document.addEventListener('click', function(e) {
         <div class="comment-avatar-inp" id="cav-m5">?</div>
         <select class="comment-name-sel" id="csel-m5" onchange="updateAvatar('m5')">
           <option value="">작성자를 선택하세요</option>
+          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
           <option value="김채린 QA" data-role="QA" data-init="채">김채린 QA</option>
+          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
           <option value="신진섭 앱개발" data-role="앱/웹개발" data-init="신">신진섭 앱개발</option>
           <option value="정지섭 웹개발" data-role="웹개발" data-init="정">정지섭 웹개발</option>
-          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
-          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
-          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
-          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5589,7 +5860,7 @@ document.addEventListener('click', function(e) {
 </div>
       <div class="spec-mock-label">출조종류 수정 모달</div>
     </div>
-    <div class="spec-table-wrap"><table class="sp-table">
+    <div class="spec-table-wrap"><table class="sp-table" data-tid="sptbl-9">
 <tr><th style="width:90px;">UI 요소</th><th style="width:110px;">조건·트리거</th><th>상세 동작</th><th style="width:120px;">알림</th></tr>
 <tr>
 <td class="td-elem">경고 배너</td>
@@ -5600,16 +5871,17 @@ document.addEventListener('click', function(e) {
 <td class="td-elem">기간·요일 축소</td>
 <td class="td-cond">저장 시</td>
 <td><span class="sp-pt">기존 bpi 자동 삭제 안 됨. <span class="hl-o">C12 Confirm</span>: 기존 날짜별 출조 자동삭제 안 됩니다. <span class="tag-t">미구현</span></span></td>
-<td style="min-width:110px;"><span class="chip chip-C">C 12</span></td>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-C">C 12</span><span class="chip-msg"><span class="chip-type-tag chip-type-confirm">Confirm</span>변경된 기간 외 기존 날짜별 출조 자동삭제 안 됩니다. | 취소 / 확인</span></div></td>
 </tr><tr>
 <td class="td-elem">수정 저장</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">마스터 데이터 업데이트. S4 카드 즉시 갱신. M5와 동일 변환 규칙 적용.</span></td>
-<td style="min-width:110px;"><span class="chip chip-T">T 09</span></td>
-</tr></table></div>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-T">T 09</span><span class="chip-msg"><span class="chip-type-tag chip-type-toast">Toast</span>"출조종류 수정 완료"</span></div></td>
+</tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-9')">+ 행 추가</button></div>
   </div>
   <div class="comment-section" id="cs-m6">
-  <div class="comment-hd">
+  <div class="comment-hd" onclick="handleCommentHdClick(event,'m6')">
     <div class="comment-hd-left">
       <svg class="comment-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="comment-hd-title">코멘트</span>
@@ -5633,14 +5905,14 @@ document.addEventListener('click', function(e) {
         <div class="comment-avatar-inp" id="cav-m6">?</div>
         <select class="comment-name-sel" id="csel-m6" onchange="updateAvatar('m6')">
           <option value="">작성자를 선택하세요</option>
+          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
           <option value="김채린 QA" data-role="QA" data-init="채">김채린 QA</option>
+          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
           <option value="신진섭 앱개발" data-role="앱/웹개발" data-init="신">신진섭 앱개발</option>
           <option value="정지섭 웹개발" data-role="웹개발" data-init="정">정지섭 웹개발</option>
-          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
-          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
-          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
-          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5701,27 +5973,28 @@ document.addEventListener('click', function(e) {
 </div>
       <div class="spec-mock-label">삭제 확인 다이얼로그</div>
     </div>
-    <div class="spec-table-wrap"><table class="sp-table">
+    <div class="spec-table-wrap"><table class="sp-table" data-tid="sptbl-10">
 <tr><th style="width:90px;">UI 요소</th><th style="width:110px;">조건·트리거</th><th>상세 동작</th><th style="width:120px;">알림</th></tr>
 <tr>
 <td class="td-elem">삭제 클릭<br>(예약 있음)</td>
 <td class="td-cond">유효 예약 있음</td>
 <td><span class="sp-pt"><span class="hl-r">C14 Alert</span>: 예약이 있는 상품은 삭제할 수 없습니다. <span class="tag-t">미구현</span></span></td>
-<td style="min-width:110px;"><span class="chip chip-A">A 14</span></td>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-A">A 14</span><span class="chip-msg"><span class="chip-type-tag chip-type-alert">Alert</span>예약이 있는 상품은 삭제할 수 없습니다. | 확인</span></div></td>
 </tr><tr>
 <td class="td-elem">삭제 클릭<br>(예약 없음)</td>
 <td class="td-cond">유효 예약 없음</td>
 <td><span class="sp-pt"><span class="hl-r">C15 Confirm</span>: 상품명과 연결된 날짜별 출조 N건을 모두 삭제합니다. 되돌릴 수 없습니다.</span></td>
-<td style="min-width:110px;"><span class="chip chip-C">C 15</span></td>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-C">C 15</span><span class="chip-msg"><span class="chip-type-tag chip-type-confirm">Confirm</span>상품명과 연결된 날짜별 출조 N건 모두 삭제. 되돌릴 수 없습니다. | 취소 / 삭제</span></div></td>
 </tr><tr>
 <td class="td-elem">C15 삭제 확인</td>
 <td class="td-cond">클릭</td>
 <td><span class="sp-pt">masterProducts에서 삭제. <span class="hl">masterProductId</span> 일치 bpi 연쇄 삭제. DB: ON DELETE CASCADE.</span></td>
-<td style="min-width:110px;"><span class="chip chip-T">T 10</span></td>
-</tr></table></div>
+<td style="min-width:110px;"><div class="chip-cell"><span class="chip chip-T">T 10</span><span class="chip-msg"><span class="chip-type-tag chip-type-toast">Toast</span>"출조종류 삭제됨"</span></div></td>
+</tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-10')">+ 행 추가</button></div>
   </div>
   <div class="comment-section" id="cs-m7">
-  <div class="comment-hd">
+  <div class="comment-hd" onclick="handleCommentHdClick(event,'m7')">
     <div class="comment-hd-left">
       <svg class="comment-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="comment-hd-title">코멘트</span>
@@ -5745,14 +6018,14 @@ document.addEventListener('click', function(e) {
         <div class="comment-avatar-inp" id="cav-m7">?</div>
         <select class="comment-name-sel" id="csel-m7" onchange="updateAvatar('m7')">
           <option value="">작성자를 선택하세요</option>
+          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
+          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
           <option value="김채린 QA" data-role="QA" data-init="채">김채린 QA</option>
+          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
+          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
           <option value="신진섭 앱개발" data-role="앱/웹개발" data-init="신">신진섭 앱개발</option>
           <option value="정지섭 웹개발" data-role="웹개발" data-init="정">정지섭 웹개발</option>
-          <option value="강상배 인프라" data-role="인프라/백엔드" data-init="강">강상배 인프라</option>
-          <option value="김현철 디자인" data-role="UIUX디자인" data-init="현">김현철 디자인</option>
           <option value="최상수 백엔드" data-role="백엔드" data-init="최">최상수 백엔드</option>
-          <option value="구범모 PM" data-role="PM" data-init="구">구범모 PM</option>
-          <option value="서현일 CPO" data-role="CPO" data-init="서">서현일 CPO</option>
         </select>
       </div>
       <div class="comment-divider"></div>
@@ -5774,19 +6047,22 @@ document.addEventListener('click', function(e) {
     <div class="ref-block">
       <div class="ref-head" style="background:#7A6000;">🟡 Toast — T01~T11</div>
       <div style="font-size:9px;color:#7A6000;padding:4px 12px;background:#FFFDE8;border-bottom:1px solid #FCD34D;">하단 중앙 · 2.2초 자동 소멸 · 동시 1개만</div>
-      <table class="ref-table"><tr><th>코드</th><th>트리거</th><th>메시지</th><th>구현</th></tr><tr><td class="rc" style="color:#7A6000;">T01</td><td>노출 토글 ON↔OFF</td><td><span class="rmsg">"노출 상태 변경됨"</span></td><td class="ok-g">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T02</td><td>즉시마감 (C02 후)</td><td><span class="rmsg">"즉시 마감 처리됨"</span></td><td class="ok-r">⬜ C02미</td></tr><tr><td class="rc" style="color:#7A6000;">T03</td><td>M1 인원조정 저장</td><td><span class="rmsg">"판매 좌석 수 조정 완료"</span></td><td class="ok-g">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T04</td><td>M2 예약추가 완료</td><td><span class="rmsg">"예약이 추가됐습니다"</span></td><td class="ok-g">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T05</td><td>M3 연락처 복사</td><td><span class="rmsg">"[이름] 복사됨"</span></td><td class="ok-g">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T06</td><td>M3 명단 전체 복사</td><td><span class="rmsg">"명단이 복사됐습니다"</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:#7A6000;">T07</td><td>M4 개별수정 저장</td><td><span class="rmsg">"개별 수정 완료"</span></td><td class="ok-g">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T08</td><td>M5 출조종류 등록</td><td><span class="rmsg">"출조종류 등록 완료"</span></td><td class="ok-g">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T09</td><td>M6 출조종류 수정</td><td><span class="rmsg">"출조종류 수정 완료"</span></td><td class="ok-g">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T10</td><td>C15 삭제 확인 후</td><td><span class="rmsg">"출조종류 삭제됨"</span></td><td class="ok-g">✅</td></tr><tr><td class="rc" style="color:#7A6000;">T11</td><td>M3 예약취소 완료</td><td><span class="rmsg">"예약이 취소됐습니다"</span></td><td class="ok-r">⬜</td></tr></table>
+      <table class="ref-table" data-tid="sptbl-11"><tr><th>코드</th><th>트리거</th><th>메시지</th><th>구현</th></tr><tr id="ref-T01"><td class="rc" style="color:#7A6000;">T01</td><td>노출 토글 ON↔OFF</td><td><span class="rmsg">"노출 상태 변경됨"</span></td><td class="ok-g">✅</td></tr><tr id="ref-T02"><td class="rc" style="color:#7A6000;">T02</td><td>즉시마감 (C02 후)</td><td><span class="rmsg">"즉시 마감 처리됨"</span></td><td class="ok-r">⬜ C02미</td></tr><tr id="ref-T03"><td class="rc" style="color:#7A6000;">T03</td><td>M1 인원조정 저장</td><td><span class="rmsg">"판매 좌석 수 조정 완료"</span></td><td class="ok-g">✅</td></tr><tr id="ref-T04"><td class="rc" style="color:#7A6000;">T04</td><td>M2 예약추가 완료</td><td><span class="rmsg">"예약이 추가됐습니다"</span></td><td class="ok-g">✅</td></tr><tr id="ref-T05"><td class="rc" style="color:#7A6000;">T05</td><td>M3 연락처 복사</td><td><span class="rmsg">"[이름] 복사됨"</span></td><td class="ok-g">✅</td></tr><tr id="ref-T06"><td class="rc" style="color:#7A6000;">T06</td><td>M3 명단 전체 복사</td><td><span class="rmsg">"명단이 복사됐습니다"</span></td><td class="ok-r">⬜</td></tr><tr id="ref-T07"><td class="rc" style="color:#7A6000;">T07</td><td>M4 개별수정 저장</td><td><span class="rmsg">"개별 수정 완료"</span></td><td class="ok-g">✅</td></tr><tr id="ref-T08"><td class="rc" style="color:#7A6000;">T08</td><td>M5 출조종류 등록</td><td><span class="rmsg">"출조종류 등록 완료"</span></td><td class="ok-g">✅</td></tr><tr id="ref-T09"><td class="rc" style="color:#7A6000;">T09</td><td>M6 출조종류 수정</td><td><span class="rmsg">"출조종류 수정 완료"</span></td><td class="ok-g">✅</td></tr><tr id="ref-T10"><td class="rc" style="color:#7A6000;">T10</td><td>C15 삭제 확인 후</td><td><span class="rmsg">"출조종류 삭제됨"</span></td><td class="ok-g">✅</td></tr><tr id="ref-T11"><td class="rc" style="color:#7A6000;">T11</td><td>M3 예약취소 완료</td><td><span class="rmsg">"예약이 취소됐습니다"</span></td><td class="ok-r">⬜</td></tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-11')">+ 행 추가</button>
     </div>
     <div class="ref-block">
       <div class="ref-head" style="background:var(--red);">⚠️ Confirm / Alert — C02~C16</div>
       <div style="font-size:9px;color:var(--red);padding:4px 12px;background:var(--rlt);border-bottom:1px solid #FCA5A5;">Confirm=2지선다 · Alert=단순고지 · 인라인=필드 하단</div>
-      <table class="ref-table"><tr><th>코드</th><th>유형</th><th>트리거</th><th>본문</th><th>구현</th></tr><tr><td class="rc" style="color:var(--red);">C02</td><td style="color:var(--red);font-size:10px;font-weight:700;">Confirm</td><td style="font-size:10px;">카드 즉시마감</td><td style="font-size:10px;">잔여 N석 폐기하고 마감. 되돌릴 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">취소/마감</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C03</td><td style="color:var(--red);font-size:10px;font-weight:700;">Confirm</td><td style="font-size:10px;">노출OFF + 예약있음</td><td style="font-size:10px;">기존 예약 N건 유지. 노출 끄면 신규 예약 불가.<br><span style="color:var(--dim);font-size:9px;">취소/끄기</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C04</td><td style="color:var(--orange);font-size:10px;font-weight:700;">Alert</td><td style="font-size:10px;">qty < 결제완료인원</td><td style="font-size:10px;">결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C05</td><td style="color:var(--red);font-size:10px;font-weight:700;">Confirm</td><td style="font-size:10px;">M1 마감버튼 잔여>0</td><td style="font-size:10px;">잔여 N석 폐기하고 즉시 마감. 되돌릴 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">취소/마감</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C06</td><td style="color:var(--orange);font-size:10px;font-weight:700;">Alert</td><td style="font-size:10px;">M1 이미마감</td><td style="font-size:10px;">이미 마감 상태입니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C07</td><td style="color:var(--orange);font-size:10px;font-weight:700;">Alert</td><td style="font-size:10px;">M1 0이하 입력</td><td style="font-size:10px;">0석 이하는 설정할 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C08</td><td style="color:var(--orange);font-size:10px;font-weight:700;">Alert</td><td style="font-size:10px;">M2 매진상품 선택</td><td style="font-size:10px;">판매가 마감된 상품. 인원조정으로 좌석을 늘린 후 예약하세요.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C09</td><td style="color:var(--orange);font-size:10px;font-weight:700;">Alert</td><td style="font-size:10px;">M2 인원>잔여석</td><td style="font-size:10px;">잔여석(N석)보다 많은 인원입니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C10</td><td style="color:var(--red);font-size:10px;font-weight:700;">Confirm</td><td style="font-size:10px;">M2 출조당일 추가</td><td style="font-size:10px;">출항 당일 예약입니다. 계속 추가하시겠습니까?<br><span style="color:var(--dim);font-size:9px;">취소/추가</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C11</td><td style="color:var(--red);font-size:10px;font-weight:700;">Confirm</td><td style="font-size:10px;">M4 요금변경+예약</td><td style="font-size:10px;">기존 N건 예약 금액 변경 안 됨. 새 예약부터 적용. 계속?<br><span style="color:var(--dim);font-size:9px;">취소/저장</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C12</td><td style="color:var(--red);font-size:10px;font-weight:700;">Confirm</td><td style="font-size:10px;">M6 기간·요일 축소</td><td style="font-size:10px;">변경된 기간 외 기존 날짜별 출조 자동삭제 안 됩니다.<br><span style="color:var(--dim);font-size:9px;">취소/확인</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C13</td><td style="color:var(--red);font-size:10px;font-weight:700;">Confirm</td><td style="font-size:10px;">M3 예약취소 버튼</td><td style="font-size:10px;">[이름]님 예약 취소. 직접입금은 환불 직접 처리하세요.<br><span style="color:var(--dim);font-size:9px;">취소/확인</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C14</td><td style="color:var(--orange);font-size:10px;font-weight:700;">Alert</td><td style="font-size:10px;">S4 삭제 예약있음</td><td style="font-size:10px;">예약이 있는 상품은 삭제할 수 없습니다. (N건) 취소 후 삭제.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr><td class="rc" style="color:var(--red);">C15</td><td style="color:var(--red);font-size:10px;font-weight:700;">Confirm</td><td style="font-size:10px;">S4 삭제 예약없음</td><td style="font-size:10px;">상품명과 연결된 날짜별 출조 N건 모두 삭제. 되돌릴 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">취소/삭제</span></td><td class="ok-g">✅</td></tr><tr><td class="rc" style="color:var(--red);">C16</td><td style="font-size:10px;font-weight:700;">인라인</td><td style="font-size:10px;">M5/M6 필수항목 미입력</td><td style="font-size:10px;">해당 필드 빨간테두리 + 에러 메시지.<br><span style="color:var(--dim);font-size:9px;">—</span></td><td class="ok-g">✅</td></tr></table>
+      <table class="ref-table" data-tid="sptbl-12"><tr><th>코드</th><th>유형</th><th>트리거</th><th>본문</th><th>구현</th></tr><tr id="ref-C02"><td class="rc" style="color:var(--red);">C02</td><td style="color:var(--red);font-size:13px;font-weight:800;">Confirm</td><td style="font-size:10px;">카드 즉시마감</td><td style="font-size:10px;">잔여 N석 폐기하고 마감. 되돌릴 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">취소/마감</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C03"><td class="rc" style="color:var(--red);">C03</td><td style="color:var(--red);font-size:13px;font-weight:800;">Confirm</td><td style="font-size:10px;">노출OFF + 예약있음</td><td style="font-size:10px;">기존 예약 N건 유지. 노출 끄면 신규 예약 불가.<br><span style="color:var(--dim);font-size:9px;">취소/끄기</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C04"><td class="rc" style="color:var(--red);">C04</td><td style="color:var(--orange);font-size:13px;font-weight:800;">Alert</td><td style="font-size:10px;">qty < 결제완료인원</td><td style="font-size:10px;">결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C05"><td class="rc" style="color:var(--red);">C05</td><td style="color:var(--red);font-size:13px;font-weight:800;">Confirm</td><td style="font-size:10px;">M1 마감버튼 잔여>0</td><td style="font-size:10px;">잔여 N석 폐기하고 즉시 마감. 되돌릴 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">취소/마감</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C06"><td class="rc" style="color:var(--red);">C06</td><td style="color:var(--orange);font-size:13px;font-weight:800;">Alert</td><td style="font-size:10px;">M1 이미마감</td><td style="font-size:10px;">이미 마감 상태입니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C07"><td class="rc" style="color:var(--red);">C07</td><td style="color:var(--orange);font-size:13px;font-weight:800;">Alert</td><td style="font-size:10px;">M1 0이하 입력</td><td style="font-size:10px;">0석 이하는 설정할 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C08"><td class="rc" style="color:var(--red);">C08</td><td style="color:var(--orange);font-size:13px;font-weight:800;">Alert</td><td style="font-size:10px;">M2 매진상품 선택</td><td style="font-size:10px;">판매가 마감된 상품. 인원조정으로 좌석을 늘린 후 예약하세요.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C09"><td class="rc" style="color:var(--red);">C09</td><td style="color:var(--orange);font-size:13px;font-weight:800;">Alert</td><td style="font-size:10px;">M2 인원>잔여석</td><td style="font-size:10px;">잔여석(N석)보다 많은 인원입니다.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C10"><td class="rc" style="color:var(--red);">C10</td><td style="color:var(--red);font-size:13px;font-weight:800;">Confirm</td><td style="font-size:10px;">M2 출조당일 추가</td><td style="font-size:10px;">출항 당일 예약입니다. 계속 추가하시겠습니까?<br><span style="color:var(--dim);font-size:9px;">취소/추가</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C11"><td class="rc" style="color:var(--red);">C11</td><td style="color:var(--red);font-size:13px;font-weight:800;">Confirm</td><td style="font-size:10px;">M4 요금변경+예약</td><td style="font-size:10px;">기존 N건 예약 금액 변경 안 됨. 새 예약부터 적용. 계속?<br><span style="color:var(--dim);font-size:9px;">취소/저장</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C12"><td class="rc" style="color:var(--red);">C12</td><td style="color:var(--red);font-size:13px;font-weight:800;">Confirm</td><td style="font-size:10px;">M6 기간·요일 축소</td><td style="font-size:10px;">변경된 기간 외 기존 날짜별 출조 자동삭제 안 됩니다.<br><span style="color:var(--dim);font-size:9px;">취소/확인</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C13"><td class="rc" style="color:var(--red);">C13</td><td style="color:var(--red);font-size:13px;font-weight:800;">Confirm</td><td style="font-size:10px;">M3 예약취소 버튼</td><td style="font-size:10px;">[이름]님 예약 취소. 직접입금은 환불 직접 처리하세요.<br><span style="color:var(--dim);font-size:9px;">취소/확인</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C14"><td class="rc" style="color:var(--red);">C14</td><td style="color:var(--orange);font-size:13px;font-weight:800;">Alert</td><td style="font-size:10px;">S4 삭제 예약있음</td><td style="font-size:10px;">예약이 있는 상품은 삭제할 수 없습니다. (N건) 취소 후 삭제.<br><span style="color:var(--dim);font-size:9px;">확인</span></td><td class="ok-r">⬜</td></tr><tr id="ref-C15"><td class="rc" style="color:var(--red);">C15</td><td style="color:var(--red);font-size:13px;font-weight:800;">Confirm</td><td style="font-size:10px;">S4 삭제 예약없음</td><td style="font-size:10px;">상품명과 연결된 날짜별 출조 N건 모두 삭제. 되돌릴 수 없습니다.<br><span style="color:var(--dim);font-size:9px;">취소/삭제</span></td><td class="ok-g">✅</td></tr><tr id="ref-C16"><td class="rc" style="color:var(--red);">C16</td><td style="font-size:13px;font-weight:800;">인라인</td><td style="font-size:10px;">M5/M6 필수항목 미입력</td><td style="font-size:10px;">해당 필드 빨간테두리 + 에러 메시지.<br><span style="color:var(--dim);font-size:9px;">—</span></td><td class="ok-g">✅</td></tr></table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-12')">+ 행 추가</button>
     </div>
   </div>
   <div class="ref-block">
     <div class="ref-head" style="background:var(--purple);">📨 알림톡 / 앱 푸시 — P01~P06 (전체 미구현)</div>
-    <table class="ref-table"><tr><th>코드</th><th>채널</th><th>수신</th><th>트리거</th><th>내용</th></tr>
-    <tr><td class='rc' style='color:var(--purple);'>P01</td><td style='font-size:10px;font-weight:700;color:#6D28D9;'>알림톡</td><td style='font-size:10px;font-weight:600;'>예약자</td><td style='font-size:10px;'>M2 예약추가 완료</td><td style='font-size:10px;'>예약번호/상품명/출항일시/금액/선박연락처</td></tr><tr><td class='rc' style='color:var(--purple);'>P02</td><td style='font-size:10px;font-weight:700;color:#6D28D9;'>알림톡</td><td style='font-size:10px;font-weight:600;'>예약자</td><td style='font-size:10px;'>M3 예약취소 처리</td><td style='font-size:10px;'>취소 확인 + 환불금액/방법/기간</td></tr><tr><td class='rc' style='color:var(--purple);'>P03</td><td style='font-size:10px;font-weight:700;color:#6D28D9;'>알림톡</td><td style='font-size:10px;font-weight:600;'>예약자 전체</td><td style='font-size:10px;'>M7 삭제 (예약있는 bpi)</td><td style='font-size:10px;'>출조 취소 고지 + 환불 안내</td></tr><tr><td class='rc' style='color:var(--purple);'>P04</td><td style='font-size:10px;font-weight:700;color:#6D28D9;'>앱 푸시</td><td style='font-size:10px;font-weight:600;'>선주</td><td style='font-size:10px;'>플랫폼 예약 신규 접수</td><td style='font-size:10px;'>[상품명]에 새 예약 — [이름] N명</td></tr><tr><td class='rc' style='color:var(--purple);'>P05</td><td style='font-size:10px;font-weight:700;color:#6D28D9;'>앱 푸시</td><td style='font-size:10px;font-weight:600;'>선주</td><td style='font-size:10px;'>예약 취소 요청</td><td style='font-size:10px;'>[이름]님이 [상품명] 예약 취소 요청</td></tr><tr><td class='rc' style='color:var(--purple);'>P06</td><td style='font-size:10px;font-weight:700;color:#6D28D9;'>알림톡</td><td style='font-size:10px;font-weight:600;'>예약자</td><td style='font-size:10px;'>출조 D-1 자동 발송</td><td style='font-size:10px;'>출항일시/집결지/연락처/유의사항</td></tr>
+    <table class="ref-table" data-tid="sptbl-13"><tr><th>코드</th><th>채널</th><th>수신</th><th>트리거</th><th>내용</th></tr>
+    <tr id='ref-P01'><td class='rc' style='color:var(--purple);'>P01</td><td style='font-size:13px;font-weight:800;color:#6D28D9;'>알림톡</td><td style='font-size:10px;font-weight:600;'>예약자</td><td style='font-size:10px;'>M2 예약추가 완료</td><td style='font-size:10px;'>예약번호/상품명/출항일시/금액/선박연락처</td></tr><tr id='ref-P02'><td class='rc' style='color:var(--purple);'>P02</td><td style='font-size:13px;font-weight:800;color:#6D28D9;'>알림톡</td><td style='font-size:10px;font-weight:600;'>예약자</td><td style='font-size:10px;'>M3 예약취소 처리</td><td style='font-size:10px;'>취소 확인 + 환불금액/방법/기간</td></tr><tr id='ref-P03'><td class='rc' style='color:var(--purple);'>P03</td><td style='font-size:13px;font-weight:800;color:#6D28D9;'>알림톡</td><td style='font-size:10px;font-weight:600;'>예약자 전체</td><td style='font-size:10px;'>M7 삭제 (예약있는 bpi)</td><td style='font-size:10px;'>출조 취소 고지 + 환불 안내</td></tr><tr id='ref-P04'><td class='rc' style='color:var(--purple);'>P04</td><td style='font-size:13px;font-weight:800;color:#6D28D9;'>앱 푸시</td><td style='font-size:10px;font-weight:600;'>선주</td><td style='font-size:10px;'>플랫폼 예약 신규 접수</td><td style='font-size:10px;'>[상품명]에 새 예약 — [이름] N명</td></tr><tr id='ref-P05'><td class='rc' style='color:var(--purple);'>P05</td><td style='font-size:13px;font-weight:800;color:#6D28D9;'>앱 푸시</td><td style='font-size:10px;font-weight:600;'>선주</td><td style='font-size:10px;'>예약 취소 요청</td><td style='font-size:10px;'>[이름]님이 [상품명] 예약 취소 요청</td></tr><tr id='ref-P06'><td class='rc' style='color:var(--purple);'>P06</td><td style='font-size:13px;font-weight:800;color:#6D28D9;'>알림톡</td><td style='font-size:10px;font-weight:600;'>예약자</td><td style='font-size:10px;'>출조 D-1 자동 발송</td><td style='font-size:10px;'>출항일시/집결지/연락처/유의사항</td></tr>
     </table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-13')">+ 행 추가</button>
   </div>
 </div>
 
@@ -5801,7 +6077,7 @@ document.addEventListener('click', function(e) {
       <span style="background:#E8F8F1;color:#00A86B;font-size:11px;font-weight:800;padding:4px 12px;border-radius:6px;">🟢 참고 2건</span>
     </div>
   </div>
-  <table class="sp-table" style="margin-bottom:0;">
+  <table class="sp-table" data-tid="sptbl-14" style="margin-bottom:0;">
     <tr><th style="width:140px;">영역</th><th style="width:200px;">스토리보드 기술</th><th style="width:220px;">DB 테이블/컬럼</th><th>불일치 내용</th><th style="width:60px;">심각도</th></tr>
     <tr><td class="td-elem">선박 기본정보</td><td style="font-size:11px;">assemblyAddr, fishingAddr<br><span class="td-cond">(단일 문자열)</span></td><td style="font-size:11px;">assembly_addr1, assembly_addr2, assembly_sido<br>fishing_addr1, fishing_addr2, fishing_sido</td><td><span class="sp-pt">주소 필드 분리 방식 불일치 — DB는 3단계(시도/상세/우편번호) 분리, 스토리보드는 하나의 문자열로 통합 처리</span><span class="sp-pt"><span class="hl-r">API 응답/요청 구조 불일치</span>, 데이터 파싱 로직 구현 필요</span></td><td style="text-align:center;font-size:16px;">🔴</td></tr>
     <tr><td class="td-elem">마스터상품 / 일자별상품</td><td style="font-size:11px;">fishSpecies: string[]<br><span class="td-cond">("갑오징어", "주꾸미")</span></td><td style="font-size:11px;">fish_species: number[]<br><span class="td-cond">(어종 코드 배열)</span></td><td><span class="sp-pt"><span class="hl-r">데이터 형식 불일치</span> — 스토리보드는 어종명 문자열, DB는 코드 숫자 배열</span><span class="sp-pt">모든 상품(마스터/일자별)에 영향. FISH_CODE_MAP 매핑 테이블 구현 필수</span></td><td style="text-align:center;font-size:16px;">🔴</td></tr>
@@ -5814,6 +6090,7 @@ document.addEventListener('click', function(e) {
     <tr><td class="td-elem">일자별상품</td><td style="font-size:11px;">date: string<br><span class="td-cond">("2026-02-27" ISO)</span></td><td style="font-size:11px;color:var(--dim);">파생 필드<br><span class="td-cond">bpi_s_release_dt에서 파생</span></td><td><span class="sp-pt">스토리보드 추가 필드: 날짜 렌더링/필터링용 헬퍼 필드. DB 영속화 불필요</span></td><td style="text-align:center;font-size:16px;">🟢</td></tr>
     <tr><td class="td-elem">마스터상품 (낚시터)</td><td style="font-size:11px;">할인/추가요금 필드 미반영</td><td style="font-size:11px;">is_add_rate, add_rate,<br>add_weekend_rate, add_person</td><td><span class="sp-pt">낚시터만 추가요금 개념 있음. 선박상품에는 미적용 (설계 의도)</span></td><td style="text-align:center;font-size:16px;">🟢</td></tr>
   </table>
+<button class="add-row-btn" onclick="addTableRow('sptbl-14')">+ 행 추가</button>
   <div style="margin-top:16px;padding:12px 16px;background:#F7F8FE;border-radius:8px;border-left:4px solid var(--blue);">
     <div style="font-size:12px;font-weight:800;color:var(--blk);margin-bottom:6px;">📋 우선순위별 개선 로드맵</div>
     <div style="font-size:11px;color:var(--body);line-height:1.8;">
@@ -5836,90 +6113,89 @@ var _walkSteps  = [];
 var _walkIdx    = 0;
 var _walkTarget = '';
 var WALK_STEPS = {
-  // steps: [{l, d, x, y, w, h, after}]
-  //   x,y = 영역 좌상단 (% of phone-screen 386×878)
-  //   w,h = 영역 크기 (%)
-  //   after = 터치 후 이동할 화면 (navigateProto target)
-  //
-  // phone-screen 레이아웃 (878px 기준):
-  //   상태바        0~6%    (0~56px)
-  //   앱헤더+선박    6~16%   (56~140px)
-  //   탭바           16~20%  (140~176px)
-  //   날짜필터       20~30%  (176~263px)
-  //   현황요약       30~38%  (263~334px)
-  //   카드 영역      38~93%  (334~816px)
-  //     카드 액션버튼  첫 카드 기준 ~60~65%
-  //     개별수정/마감  ~65~69%
-  //   하단 탭바      93~100% (816~878px)
+  // x,y = 영역 좌상단 (% of phone-screen 386×878)  w,h = 영역 크기 (%)
+  // ── phone-screen 378×878 실측 레이아웃 ──
+  //  status-bar       0 ~ 6.4%   (0~56px)
+  //  AppHeader        6.4~12.5%  (56~110px)
+  //  BoatSelector    12.5~19.4%  (110~170px)
+  //  탭(일자별/출조) 19.4~24.1%  (170~212px)
+  //  날짜선택헤더    24.1~29.8%  (212~262px)
+  //  날짜칩 row      29.8~35.1%  (262~308px)
+  //  날짜그룹헤더    35.1~40.8%  (308~358px)
+  //  카드영역        40.8~93.7%  (358~823px)
+  //    액션버튼(3개)  ≈55~62%
+  //    개별수정행     ≈62~65%
+  //  BottomNav       93.7~100%  (823~878px)
+  //    상품관리탭(3번) x=40~60%
 
-  s1:        [{l:'하단 탭바 상품관리 클릭', d:'하단 네비게이션에서 상품관리 탭을 선택합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'}],
+  s1:        [{l:'하단 탭바 상품관리 클릭', d:'하단 네비게이션 3번째 탭 — 상품관리를 선택합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'}],
 
-  s2:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭 진입 시 기본 활성 화면',
-               x:33, y:93, w:34, h:7, after:'s2_card'}],
+  s2:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭 진입 — 기본 화면(일자별상품)이 열립니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'}],
 
-  s2_filter: [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'},
-              {l:'날짜 칩 클릭', d:'상단의 날짜 칩을 선택해 해당 날짜 필터링',
-               x:3, y:23, w:94, h:6}],
+  s2_filter: [{l:'하단 탭바 상품관리 클릭', d:'먼저 상품관리 탭으로 진입합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'},
+              {l:'날짜 칩 선택', d:'날짜 칩을 탭해 해당 날짜만 필터링합니다',
+               x:3, y:30, w:94, h:6}],
 
-  s2_card:   [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'},
-              {l:'날짜 선택 후 카드 확인', d:'날짜별 카드가 그룹화되어 표시됩니다',
-               x:3, y:38, w:94, h:28}],
+  s2_card:   [{l:'하단 탭바 상품관리 클릭', d:'먼저 상품관리 탭으로 진입합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'},
+              {l:'날짜 헤더 터치 → 카드 펼침', d:'날짜 헤더를 탭하면 해당 날짜의 출조 카드가 펼쳐집니다',
+               x:3, y:35, w:94, h:6}],
 
-  m1:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'},
-              {l:'인원조정 버튼 클릭', d:'카드 하단 좌측 버튼을 누릅니다',
-               x:3, y:60, w:31, h:5, after:'m1'}],
+  m1:        [{l:'하단 탭바 상품관리 클릭', d:'먼저 상품관리 탭으로 진입합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'},
+              {l:'인원조정 버튼 클릭', d:'카드 하단 좌측 [인원조정] 버튼을 누릅니다',
+               x:2, y:56, w:32, h:6, after:'m1'}],
 
-  m2:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'},
-              {l:'예약추가 버튼 클릭', d:'카드 하단 가운데 버튼을 누릅니다',
-               x:34, y:60, w:32, h:5, after:'m2'}],
+  m2:        [{l:'하단 탭바 상품관리 클릭', d:'먼저 상품관리 탭으로 진입합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'},
+              {l:'예약추가 버튼 클릭', d:'카드 하단 가운데 [예약추가] 버튼을 누릅니다',
+               x:34, y:56, w:32, h:6, after:'m2'}],
 
-  m3:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'},
-              {l:'예약명단 버튼 클릭', d:'카드 하단 우측 버튼을 누릅니다',
-               x:66, y:60, w:31, h:5, after:'m3'}],
+  m3:        [{l:'하단 탭바 상품관리 클릭', d:'먼저 상품관리 탭으로 진입합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'},
+              {l:'예약명단 버튼 클릭', d:'카드 하단 우측 [예약명단] 버튼을 누릅니다',
+               x:67, y:56, w:31, h:6, after:'m3'}],
 
-  m4:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'},
-              {l:'개별수정 텍스트 클릭', d:'카드 최하단 좌측 텍스트 버튼을 누릅니다',
-               x:5, y:65, w:42, h:4.5, after:'m4'}],
+  m4:        [{l:'하단 탭바 상품관리 클릭', d:'먼저 상품관리 탭으로 진입합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'},
+              {l:'개별수정 텍스트 클릭', d:'카드 하단 [개별수정] 링크를 누릅니다',
+               x:5, y:63, w:42, h:5, after:'m4'}],
 
-  s4:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'},
-              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다',
-               x:50, y:16, w:48, h:4.5, after:'s4'}],
+  s4:        [{l:'하단 탭바 상품관리 클릭', d:'먼저 상품관리 탭으로 진입합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'},
+              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 [출조종류 관리] 탭을 선택합니다',
+               x:50, y:19, w:48, h:5, after:'s4'}],
 
-  m5:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'},
-              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다',
-               x:50, y:16, w:48, h:4.5, after:'s4'},
-              {l:'+ 출조종류 등록 버튼', d:'목록 상단 우측 파란 버튼을 누릅니다',
-               x:55, y:26, w:40, h:5, after:'m5'}],
+  m5:        [{l:'하단 탭바 상품관리 클릭', d:'먼저 상품관리 탭으로 진입합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'},
+              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 [출조종류 관리] 탭을 선택합니다',
+               x:50, y:19, w:48, h:5, after:'s4'},
+              {l:'+ 출조종류 등록 버튼 클릭', d:'목록 우측 상단 파란 버튼을 누릅니다',
+               x:55, y:33, w:40, h:6, after:'m5'}],
 
-  m6:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'},
-              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다',
-               x:50, y:16, w:48, h:4.5, after:'s4'},
-              {l:'수정 버튼 클릭', d:'마스터상품 카드 내 수정 버튼을 누릅니다',
-               x:5, y:52, w:30, h:5, after:'m6'}],
+  m6:        [{l:'하단 탭바 상품관리 클릭', d:'먼저 상품관리 탭으로 진입합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'},
+              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 [출조종류 관리] 탭을 선택합니다',
+               x:50, y:19, w:48, h:5, after:'s4'},
+              {l:'수정 버튼 클릭', d:'마스터 상품 카드의 [수정] 버튼을 누릅니다',
+               x:4, y:49, w:30, h:6, after:'m6'}],
 
-  m7:        [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'},
-              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다',
-               x:50, y:16, w:48, h:4.5, after:'s4'},
-              {l:'삭제 버튼 클릭', d:'마스터상품 카드 내 빨간 삭제 버튼',
-               x:36, y:52, w:30, h:5, after:'c15'}],
+  m7:        [{l:'하단 탭바 상품관리 클릭', d:'먼저 상품관리 탭으로 진입합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'},
+              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 [출조종류 관리] 탭을 선택합니다',
+               x:50, y:19, w:48, h:5, after:'s4'},
+              {l:'삭제 버튼 클릭', d:'마스터 상품 카드의 빨간 [삭제] 버튼을 누릅니다',
+               x:36, y:49, w:30, h:6, after:'c15'}],
 
-  c15:       [{l:'하단 탭바 상품관리 클릭', d:'상품관리 탭으로 먼저 진입합니다',
-               x:33, y:93, w:34, h:7, after:'s2_card'},
-              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 탭을 누릅니다',
-               x:50, y:16, w:48, h:4.5, after:'s4'},
-              {l:'삭제 버튼 클릭', d:'예약 없는 상품의 삭제 버튼',
-               x:36, y:52, w:30, h:5, after:'c15'}],
+  c15:       [{l:'하단 탭바 상품관리 클릭', d:'먼저 상품관리 탭으로 진입합니다',
+               x:40, y:94, w:20, h:6, after:'s2_card'},
+              {l:'출조종류 관리 탭 클릭', d:'상단 탭바 우측 [출조종류 관리] 탭을 선택합니다',
+               x:50, y:19, w:48, h:5, after:'s4'},
+              {l:'삭제 버튼 클릭', d:'예약 없는 상품의 빨간 [삭제] 버튼을 누릅니다',
+               x:36, y:49, w:30, h:6, after:'c15'}],
 };
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -5972,6 +6248,8 @@ function toggleAdmin() {
     document.getElementById('admin-btn').textContent = '🔒 관리자 모드';
     renderAllComments();
     updateFigmaUI();
+    // 관리자 모드 OFF → 편집 모드도 OFF
+    if (_editMode) toggleEditMode();
     return;
   }
   document.getElementById('admin-modal-bg').classList.add('open');
@@ -5988,6 +6266,8 @@ function checkAdminPw() {
     document.getElementById('admin-btn').textContent = '🔓 관리자 모드 ON';
     renderAllComments();
     updateFigmaUI();
+    // 관리자 모드 ON → 편집 모드 자동 활성화
+    if (!_editMode) toggleEditMode();
   } else {
     document.getElementById('admin-err').textContent = '비밀번호가 올바르지 않습니다.';
     document.getElementById('admin-pw').value = '';
@@ -6329,37 +6609,64 @@ function startWalkthrough(target) {
   setTimeout(function() { showWalkStep(0); }, 400);
 }
 
+// ── iframe 내 phone-screen의 실제 위치를 overlay 기준으로 반환 ──
+function getPhoneScreenRect() {
+  var iframe = document.getElementById('proto-iframe');
+  var overlay = document.getElementById('walk-overlay');
+  if (!iframe || !overlay) return null;
+  try {
+    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var ps = iframeDoc.querySelector('.phone-screen');
+    if (!ps) return null;
+    var psR  = ps.getBoundingClientRect();   // iframe 뷰포트 기준
+    var iR   = iframe.getBoundingClientRect(); // 메인 페이지 뷰포트 기준
+    var ovR  = overlay.getBoundingClientRect(); // overlay 기준 (= proto-panel 기준)
+    return {
+      left:   (iR.left + psR.left)  - ovR.left,
+      top:    (iR.top  + psR.top)   - ovR.top,
+      width:  psR.width,
+      height: psR.height
+    };
+  } catch(e) { return null; }
+}
+
 function showWalkStep(idx) {
   var steps = _walkSteps;
   if (idx >= steps.length) { endWalkthrough(); return; }
 
   var step = steps[idx];
   var overlay = document.getElementById('walk-overlay');
-  var frame   = document.querySelector('.proto-frame');
-  var fw = frame ? frame.offsetWidth  : 420;
-  var fh = frame ? frame.offsetHeight : 700;
-  var frameTop = frame ? frame.offsetTop : 0;
 
-  // ★ 폰 쉘 스케일 + 위치 정밀 계산 (phone-shell 414×910, padding 14/16, phone-screen 386×878)
-  var scale = Math.min(fh / 910, fw / 414, 1);
-  var shellLeft = (fw - 414 * scale) / 2;  // 중앙정렬
-  var screenLeft = shellLeft + 14 * scale;  // padding-left
-  var screenTop  = 16 * scale;              // padding-top
-  var screenW = 386 * scale;                // phone-screen width
-  var screenH = 878 * scale;                // phone-screen height
+  // ★ iframe DOM 직접 쿼리로 phone-screen 실측 위치 획득
+  var ps = getPhoneScreenRect();
+  var screenLeft, screenTop, screenW, screenH;
+  if (ps) {
+    screenLeft = ps.left;
+    screenTop  = ps.top;
+    screenW    = ps.width;
+    screenH    = ps.height;
+  } else {
+    // fallback: 수동 계산
+    var frame = document.querySelector('.proto-frame');
+    var fw = frame ? frame.offsetWidth  : 420;
+    var fh = frame ? frame.offsetHeight : 700;
+    var frameTop = frame ? frame.offsetTop : 0;
+    var scale = Math.min(fh / 910, fw / 414, 1);
+    screenLeft = (fw - 414 * scale) / 2 + 14 * scale;
+    screenTop  = frameTop + 16 * scale;
+    screenW    = 386 * scale;
+    screenH    = 878 * scale;
+  }
 
   // 이전 터치 제거, 새 하이라이트 영역 표시
   var old = overlay.querySelector('.walk-touch');
   if (old) old.remove();
   var touch = document.createElement('div');
   touch.className = 'walk-touch';
-  var tw = (step.w || 30) / 100 * screenW;
-  var th = (step.h || 6)  / 100 * screenH;
   touch.style.left   = (screenLeft + step.x / 100 * screenW) + 'px';
-  touch.style.top    = (frameTop + screenTop + step.y / 100 * screenH) + 'px';
-  touch.style.width  = tw + 'px';
-  touch.style.height = th + 'px';
-  // 라벨
+  touch.style.top    = (screenTop  + step.y / 100 * screenH) + 'px';
+  touch.style.width  = (step.w || 30) / 100 * screenW + 'px';
+  touch.style.height = (step.h || 6)  / 100 * screenH + 'px';
   var lbl = document.createElement('div');
   lbl.className = 'walk-touch-label';
   lbl.textContent = 'STEP ' + (idx+1);
@@ -6371,7 +6678,7 @@ function showWalkStep(idx) {
   document.getElementById('walk-label').textContent = step.l;
   document.getElementById('walk-desc').textContent  = step.d;
 
-  // 닷 인디케이터 (동적)
+  // 닷 인디케이터
   var dotsContainer = document.getElementById('walk-dots');
   if (dotsContainer) {
     var dotsHtml = '';
@@ -6385,14 +6692,13 @@ function showWalkStep(idx) {
   _walkTimer = setTimeout(function() {
     if (step.after) {
       var f = document.getElementById('proto-iframe');
-      if (f) f._lastTarget = null; // 다음 화면 전환 허용
+      if (f) f._lastTarget = null;
       navigateProto(step.after);
-      // postMessage는 즉시 → React 렌더 대기 후 다음 스텝
-      setTimeout(function() { showWalkStep(idx + 1); }, 600);
+      setTimeout(function() { showWalkStep(idx + 1); }, 700);
     } else {
       showWalkStep(idx + 1);
     }
-  }, 1800); // 터치 표시 1.8초
+  }, 2000);
 }
 
 function endWalkthrough() {
@@ -6456,52 +6762,124 @@ function toggleSpecSection(secId, event) {
 
 // ── 알림 칩 (T/C/A/P) 호버 툴팁 + 클릭 이동 ──
 var CHIP_INFO = {
-  'T 01': {desc:'노출 토글 변경 시 토스트 알림', section:'toast'},
-  'T 02': {desc:'즉시마감 완료 토스트 알림', section:'toast'},
-  'T 03': {desc:'인원조정 저장 완료 토스트', section:'toast'},
-  'T 04': {desc:'예약 직접추가 완료 토스트', section:'toast'},
-  'T 05': {desc:'연락처 복사 완료 토스트', section:'toast'},
-  'T 06': {desc:'명단 복사 완료 토스트', section:'toast'},
-  'T 07': {desc:'일자별 수정 저장 완료 토스트', section:'toast'},
-  'T 08': {desc:'출조종류 등록 완료 토스트', section:'toast'},
-  'T 09': {desc:'출조종류 수정 완료 토스트', section:'toast'},
-  'T 10': {desc:'출조종류 삭제 완료 토스트', section:'toast'},
-  'T 11': {desc:'일자별 삭제 완료 토스트', section:'toast'},
-  'C 02': {desc:'Confirm: 잔여 N석 폐기하고 마감. 되돌릴 수 없습니다.', section:'confirm'},
-  'C 03': {desc:'Confirm: 기존 예약 N건 유지. 노출 끄면 신규 예약 불가.', section:'confirm'},
-  'C 04': {desc:'Alert: 결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다.', section:'confirm'},
-  'C 05': {desc:'Confirm: 잔여 N석 폐기하고 즉시 마감. 되돌릴 수 없습니다.', section:'confirm'},
-  'C 08': {desc:'Alert: 판매가 마감된 상품. 인원조정으로 좌석을 늘린 후 예약하세요.', section:'confirm'},
-  'C 09': {desc:'Alert: 잔여석(N석)보다 많은 인원입니다.', section:'confirm'},
-  'C 10': {desc:'Confirm: 출항 당일 예약입니다. 계속 추가하시겠습니까?', section:'confirm'},
-  'C 13': {desc:'Confirm: [이름]님 예약 취소. 직접입금은 환불 직접 처리.', section:'confirm'},
-  'C 14': {desc:'Alert: 예약이 있는 상품은 삭제할 수 없습니다.', section:'confirm'},
-  'C 15': {desc:'Confirm: 연결된 날짜별 출조 N건 모두 삭제. 되돌릴 수 없습니다.', section:'confirm'},
-  'A 06': {desc:'마감 처리 후 알림', section:'confirm'},
-  'A 08': {desc:'매진상품 선택 시 Alert', section:'confirm'},
-  'A 14': {desc:'삭제 차단 Alert (예약 있음)', section:'confirm'},
-  'A 16': {desc:'출조종류 등록 완료 알림', section:'confirm'},
-  'P 01': {desc:'알림톡: 예약번호/상품명/출항일시/금액/선박연락처', section:'push'},
-  'P 02': {desc:'알림톡: 취소 확인 + 환불금액/방법/기간', section:'push'},
-  'P 03': {desc:'알림톡: 출조 취소 고지 + 환불 안내', section:'push'},
+  'T 01': {desc:'노출 토글 변경 시 토스트 알림', section:'toast', title:'Toast', body:'"노출 상태 변경됨"', btn:'—', action:'2.2초 자동소멸'},
+  'T 02': {desc:'즉시마감 완료 토스트 알림', section:'toast', title:'Toast', body:'"즉시 마감 처리됨"', btn:'—', action:'2.2초 자동소멸'},
+  'T 03': {desc:'인원조정 저장 완료 토스트', section:'toast', title:'Toast', body:'"판매 좌석 수 조정 완료"', btn:'—', action:'2.2초 자동소멸'},
+  'T 04': {desc:'예약 직접추가 완료 토스트', section:'toast', title:'Toast', body:'"예약이 추가됐습니다"', btn:'—', action:'2.2초 자동소멸'},
+  'T 05': {desc:'연락처 복사 완료 토스트', section:'toast', title:'Toast', body:'"[이름] 복사됨"', btn:'—', action:'2.2초 자동소멸'},
+  'T 06': {desc:'명단 복사 완료 토스트', section:'toast', title:'Toast', body:'"명단이 복사됐습니다"', btn:'—', action:'2.2초 자동소멸'},
+  'T 07': {desc:'일자별 수정 저장 완료 토스트', section:'toast', title:'Toast', body:'"개별 수정 완료"', btn:'—', action:'2.2초 자동소멸'},
+  'T 08': {desc:'출조종류 등록 완료 토스트', section:'toast', title:'Toast', body:'"출조종류 등록 완료"', btn:'—', action:'2.2초 자동소멸'},
+  'T 09': {desc:'출조종류 수정 완료 토스트', section:'toast', title:'Toast', body:'"출조종류 수정 완료"', btn:'—', action:'2.2초 자동소멸'},
+  'T 10': {desc:'출조종류 삭제 완료 토스트', section:'toast', title:'Toast', body:'"출조종류 삭제됨"', btn:'—', action:'2.2초 자동소멸'},
+  'T 11': {desc:'일자별 삭제 완료 토스트', section:'toast', title:'Toast', body:'"예약이 취소됐습니다"', btn:'—', action:'2.2초 자동소멸'},
+  'C 02': {desc:'Confirm: 잔여 N석 폐기하고 마감', section:'confirm', title:'Confirm', body:'잔여 N석 폐기하고 마감. 되돌릴 수 없습니다.', btn:'취소 / 마감', action:'마감 → T02 토스트'},
+  'C 03': {desc:'Confirm: 노출OFF + 예약있음', section:'confirm', title:'Confirm', body:'기존 예약 N건 유지. 노출 끄면 신규 예약 불가.', btn:'취소 / 끄기', action:'끄기 → 토글 OFF 전환'},
+  'C 04': {desc:'Alert: 좌석 축소 제한', section:'confirm', title:'Alert', body:'결제완료 예약 N명이 있어 N석 이하로 줄일 수 없습니다.', btn:'확인', action:'모달 닫기'},
+  'C 05': {desc:'Confirm: M1 즉시마감', section:'confirm', title:'Confirm', body:'잔여 N석 폐기하고 즉시 마감. 되돌릴 수 없습니다.', btn:'취소 / 마감', action:'마감 → T02 토스트 → 모달 닫기'},
+  'C 06': {desc:'Alert: 이미 마감 상태', section:'confirm', title:'Alert', body:'이미 마감 상태입니다.', btn:'확인', action:'모달 닫기'},
+  'C 07': {desc:'Alert: 0석 이하 입력', section:'confirm', title:'Alert', body:'0석 이하는 설정할 수 없습니다.', btn:'확인', action:'입력값 복원'},
+  'C 08': {desc:'Alert: 매진상품 선택 시', section:'confirm', title:'Alert', body:'판매가 마감된 상품. 인원조정으로 좌석을 늘린 후 예약하세요.', btn:'확인', action:'모달 닫기'},
+  'C 09': {desc:'Alert: 잔여석 초과 인원', section:'confirm', title:'Alert', body:'잔여석(N석)보다 많은 인원입니다.', btn:'확인', action:'인원 필드 포커스'},
+  'C 10': {desc:'Confirm: 출항 당일 예약', section:'confirm', title:'Confirm', body:'출항 당일 예약입니다. 계속 추가하시겠습니까?', btn:'취소 / 추가', action:'추가 → 예약저장 → T04 토스트'},
+  'C 11': {desc:'Confirm: 요금변경 + 기존예약', section:'confirm', title:'Confirm', body:'기존 N건 예약 금액 변경 안 됨. 새 예약부터 적용. 계속?', btn:'취소 / 저장', action:'저장 → T07 토스트'},
+  'C 12': {desc:'Confirm: 기간·요일 축소', section:'confirm', title:'Confirm', body:'변경된 기간 외 기존 날짜별 출조 자동삭제 안 됩니다.', btn:'취소 / 확인', action:'저장 진행'},
+  'C 13': {desc:'Confirm: 예약취소', section:'confirm', title:'Confirm', body:'[이름]님 예약 취소. 직접입금은 환불 직접 처리하세요.', btn:'취소 / 확인', action:'취소 → T11 토스트 → P02 알림톡'},
+  'C 14': {desc:'Alert: 예약있는 상품 삭제 차단', section:'confirm', title:'Alert', body:'예약이 있는 상품은 삭제할 수 없습니다. (N건) 취소 후 삭제.', btn:'확인', action:'모달 닫기'},
+  'C 15': {desc:'Confirm: 출조종류 삭제', section:'confirm', title:'Confirm', body:'상품명과 연결된 날짜별 출조 N건 모두 삭제. 되돌릴 수 없습니다.', btn:'취소 / 삭제', action:'삭제 → T10 토스트 → S4 갱신'},
+  'C 16': {desc:'인라인: 필수항목 미입력', section:'confirm', title:'인라인 에러', body:'해당 필드 빨간테두리 + 에러 메시지', btn:'—', action:'필드 포커스'},
+  'A 06': {desc:'마감 처리 후 알림', section:'confirm', title:'Alert', body:'마감 처리가 완료되었습니다.', btn:'확인', action:'모달 닫기'},
+  'A 08': {desc:'매진상품 선택 시 Alert', section:'confirm', title:'Alert', body:'판매가 마감된 상품입니다.', btn:'확인', action:'모달 닫기'},
+  'A 14': {desc:'삭제 차단 Alert (예약 있음)', section:'confirm', title:'Alert', body:'예약이 있는 상품은 삭제할 수 없습니다.', btn:'확인', action:'모달 닫기'},
+  'A 16': {desc:'출조종류 등록 완료 알림', section:'confirm', title:'Alert', body:'출조종류가 등록되었습니다.', btn:'확인', action:'S4 목록으로 이동'},
+  'P 01': {desc:'알림톡: 예약 확인', section:'push', title:'알림톡 (예약자)', body:'예약번호/상품명/출항일시/금액/선박연락처', btn:'—', action:'M2 예약추가 완료 시 자동발송'},
+  'P 02': {desc:'알림톡: 취소 확인 + 환불', section:'push', title:'알림톡 (예약자)', body:'취소 확인 + 환불금액/방법/기간', btn:'—', action:'M3 예약취소 처리 시 자동발송'},
+  'P 03': {desc:'알림톡: 출조 취소 고지', section:'push', title:'알림톡 (예약자 전체)', body:'출조 취소 고지 + 환불 안내', btn:'—', action:'M7 삭제 (예약있는 bpi) 시 자동발송'},
+  'P 04': {desc:'앱 푸시: 새 예약 알림', section:'push', title:'앱 푸시 (선주)', body:'[상품명]에 새 예약 — [이름] N명', btn:'—', action:'플랫폼 예약 신규 접수 시'},
+  'P 05': {desc:'앱 푸시: 예약 취소 요청', section:'push', title:'앱 푸시 (선주)', body:'[이름]님이 [상품명] 예약 취소 요청', btn:'—', action:'예약 취소 요청 시'},
+  'P 06': {desc:'알림톡: D-1 안내', section:'push', title:'알림톡 (예약자)', body:'출항일시/집결지/연락처/유의사항', btn:'—', action:'출조 D-1 자동 발송'},
 };
 
+// ── 칩 플로팅 툴팁 (position:fixed) ──
+var _chipTipEl = null;
+var _chipTipHideTimer = null;
+
+function showChipTip(chip, code, info) {
+  if (!_chipTipEl) _chipTipEl = document.getElementById('chip-float-tip');
+  if (!_chipTipEl) return;
+  if (_chipTipHideTimer) { clearTimeout(_chipTipHideTimer); _chipTipHideTimer = null; }
+
+  document.getElementById('cft-code').textContent = code;
+  document.getElementById('cft-desc').textContent = info.desc || '';
+  var setRow = function(rowId, valId, val) {
+    var row = document.getElementById(rowId);
+    var el  = document.getElementById(valId);
+    if (!val || val === '—') { if(row) row.style.display='none'; return; }
+    if(row) row.style.display='flex';
+    if(el) el.textContent = val;
+  };
+  setRow('cft-type-row','cft-type', info.title);
+  setRow('cft-body-row','cft-body', info.body);
+  setRow('cft-btn-row', 'cft-btn',  info.btn);
+  setRow('cft-act-row', 'cft-act',  info.action);
+
+  _chipTipEl.classList.add('show');
+
+  // 위치 계산: 칩 위 중앙
+  var r = chip.getBoundingClientRect();
+  var tw = _chipTipEl.offsetWidth || 260;
+  var th = _chipTipEl.offsetHeight || 120;
+  var left = r.left + r.width/2 - tw/2;
+  var top  = r.top - th - 10;
+  // 화면 왼쪽 밖으로 나가면 보정
+  if (left < 8) left = 8;
+  if (left + tw > window.innerWidth - 8) left = window.innerWidth - tw - 8;
+  // 위쪽에 공간 없으면 아래에 표시
+  if (top < 8) {
+    top = r.bottom + 10;
+    var arrow = _chipTipEl.querySelector('.cft-arrow');
+    if (arrow) { arrow.style.bottom='auto'; arrow.style.top='-6px'; arrow.style.transform='rotate(180deg)'; }
+  } else {
+    var arrow = _chipTipEl.querySelector('.cft-arrow');
+    if (arrow) { arrow.style.bottom=''; arrow.style.top=''; arrow.style.transform=''; }
+  }
+  _chipTipEl.style.left = left + 'px';
+  _chipTipEl.style.top  = top  + 'px';
+}
+
+function hideChipTip() {
+  if (!_chipTipEl) _chipTipEl = document.getElementById('chip-float-tip');
+  _chipTipHideTimer = setTimeout(function() {
+    if (_chipTipEl) _chipTipEl.classList.remove('show');
+  }, 80);
+}
+
 function initChipTooltips() {
+  _chipTipEl = document.getElementById('chip-float-tip');
+
   document.querySelectorAll('.chip').forEach(function(chip) {
     var code = chip.textContent.trim();
     var info = CHIP_INFO[code];
     if (!info) return;
-    // 툴팁 추가
-    var tip = document.createElement('div');
-    tip.className = 'chip-tooltip';
-    tip.innerHTML = '<b>' + code + '</b> — ' + info.desc;
-    chip.appendChild(tip);
-    // 클릭 시 해당 레퍼런스 섹션으로 스크롤
+
+    chip.addEventListener('mouseenter', function() { showChipTip(chip, code, info); });
+    chip.addEventListener('mouseleave', hideChipTip);
+
+    // 클릭 시 해당 행으로 스크롤 + 하이라이트
     chip.addEventListener('click', function(e) {
       e.stopPropagation();
-      var refSection = document.querySelector('.ref-section');
-      if (refSection) {
-        refSection.scrollIntoView({behavior:'smooth', block:'start'});
+      hideChipTip();
+      var codeNorm = code.replace(/\s/g, '');
+      var rowId = 'ref-' + codeNorm;
+      var row = document.getElementById(rowId);
+      if (row) {
+        row.scrollIntoView({behavior:'smooth', block:'center'});
+        row.classList.add('ref-flash');
+        setTimeout(function(){ row.classList.remove('ref-flash'); }, 2500);
+      } else {
+        // fallback: 레퍼런스 섹션으로 스크롤
+        var refSection = document.querySelector('.ref-section');
+        if (refSection) refSection.scrollIntoView({behavior:'smooth', block:'start'});
       }
     });
   });
@@ -6519,6 +6897,220 @@ document.addEventListener('click', function(e) {
   var delBtn = e.target.closest('.cbtn-del');
   if (delBtn) { deleteComment(delBtn.dataset.secid, Number(delBtn.dataset.cid)); return; }
 });
+
+
+// ══ 인라인 편집 모드 ═════════════════════════════════════════
+var _editMode = false;
+var _editEidCounter = 0;
+var EDIT_STORE_KEY = 'sb_edit_v2';
+
+// 모든 편집 가능 요소에 data-eid 부여 (한 번만)
+function assignEditIds() {
+  // 텍스트 편집 대상
+  var selectors = [
+    '.spec-hd-title', '.spec-hd-sub',
+    '.sdiv-t', '.sdiv-s',
+    '.sp-pt',
+    '.spec-table-wrap table td',
+    '.ref-table td',
+    '.sp-table td'
+  ];
+  selectors.forEach(function(sel) {
+    document.querySelectorAll(sel).forEach(function(el) {
+      if (!el.getAttribute('data-eid')) {
+        el.setAttribute('data-eid', 'eid-' + (++_editEidCounter));
+        el.setAttribute('data-editable', '1');
+      }
+    });
+  });
+}
+
+// 저장된 편집 내용 복원
+function loadEditContent() {
+  var raw = localStorage.getItem(EDIT_STORE_KEY);
+  if (!raw) return;
+  try {
+    var data = JSON.parse(raw);
+    Object.keys(data).forEach(function(eid) {
+      var el = document.querySelector('[data-eid="' + eid + '"]');
+      if (el) el.innerHTML = data[eid];
+    });
+  } catch(e) {}
+}
+
+// 편집 내용 저장
+function saveEditContent() {
+  var data = {};
+  document.querySelectorAll('[data-eid]').forEach(function(el) {
+    var orig = el.getAttribute('data-orig') || '';
+    if (el.innerHTML !== orig) {
+      data[el.getAttribute('data-eid')] = el.innerHTML;
+    }
+  });
+  // 삭제된 행 정보도 저장
+  var deletedRows = JSON.parse(localStorage.getItem(EDIT_STORE_KEY + '_del') || '[]');
+  localStorage.setItem(EDIT_STORE_KEY, JSON.stringify(data));
+  // 토스트 표시
+  var t = document.getElementById('edit-save-toast');
+  if (t) {
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
+  }
+}
+
+// 편집 모드 토글
+function toggleEditMode() {
+  _editMode = !_editMode;
+  var btn = document.getElementById('edit-mode-toggle-btn');
+  if (_editMode) {
+    document.body.classList.add('edit-mode');
+    if (btn) btn.classList.add('active');
+    // contenteditable 활성화
+    document.querySelectorAll('[data-editable]').forEach(function(el) {
+      // 원본 내용 백업
+      if (!el.getAttribute('data-orig')) {
+        el.setAttribute('data-orig', el.innerHTML);
+      }
+      el.setAttribute('contenteditable', 'true');
+    });
+    // 테이블 행에 삭제 버튼 삽입
+    addDeleteButtons();
+    // 저장 단축키 안내
+    showEditModeHint();
+  } else {
+    document.body.classList.remove('edit-mode');
+    if (btn) btn.classList.remove('active');
+    // contenteditable 비활성화 + 저장
+    document.querySelectorAll('[data-editable]').forEach(function(el) {
+      el.removeAttribute('contenteditable');
+    });
+    removeDeleteButtons();
+    saveEditContent();
+  }
+}
+
+function showEditModeHint() {
+  var t = document.getElementById('edit-save-toast');
+  if (!t) return;
+  t.textContent = '✏️ 편집 모드 ON — 텍스트 클릭 후 수정, 표는 행 추가/삭제 가능';
+  t.classList.add('show');
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.textContent = '편집 내용 저장됨 ✓'; }, 300);
+  }, 2800);
+}
+
+// 테이블 행에 삭제 버튼 추가
+function addDeleteButtons() {
+  document.querySelectorAll('.sp-table tbody tr, .sp-table tr, .ref-table tr').forEach(function(tr) {
+    // th 행 건너뜀
+    if (tr.querySelector('th')) return;
+    if (tr.querySelector('.row-del-btn')) return;
+    var lastTd = tr.querySelector('td:last-child');
+    if (!lastTd) return;
+    var btn = document.createElement('button');
+    btn.className = 'row-del-btn';
+    btn.innerHTML = '✕';
+    btn.title = '이 행 삭제';
+    btn.setAttribute('onclick', 'deleteTableRow(this)');
+    lastTd.appendChild(btn);
+  });
+}
+
+function removeDeleteButtons() {
+  document.querySelectorAll('.row-del-btn').forEach(function(b) { b.remove(); });
+}
+
+// 행 삭제
+function deleteTableRow(btn) {
+  var tr = btn.closest('tr');
+  if (!tr) return;
+  if (!confirm('이 행을 삭제하시겠습니까?')) return;
+  tr.remove();
+  saveEditContent();
+}
+
+// 행 추가
+function addTableRow(tid) {
+  var table = document.querySelector('[data-tid="' + tid + '"]');
+  if (!table) return;
+  // 마지막 데이터 행 복제 또는 새 빈 행 생성
+  var rows = table.querySelectorAll('tr');
+  var lastDataRow = null;
+  rows.forEach(function(r) { if (!r.querySelector('th')) lastDataRow = r; });
+
+  var newRow;
+  if (lastDataRow) {
+    newRow = lastDataRow.cloneNode(true);
+    // 셀 내용 비우기 (삭제 버튼 제외)
+    newRow.querySelectorAll('td').forEach(function(td) {
+      td.querySelectorAll('.row-del-btn').forEach(function(b) { b.remove(); });
+      td.innerHTML = '<span data-editable="1">새 내용</span>';
+    });
+  } else {
+    var colCount = table.querySelectorAll('tr')[0] ?
+      table.querySelectorAll('tr')[0].querySelectorAll('th,td').length : 3;
+    newRow = document.createElement('tr');
+    for (var i = 0; i < colCount; i++) {
+      var td = document.createElement('td');
+      td.innerHTML = '<span data-editable="1">새 내용</span>';
+      newRow.appendChild(td);
+    }
+  }
+
+  // tbody 또는 table에 추가
+  var tbody = table.querySelector('tbody') || table;
+  tbody.appendChild(newRow);
+
+  // 새 셀에 eid 부여 + contenteditable 활성화 (편집 모드 중이면)
+  newRow.querySelectorAll('[data-editable]').forEach(function(el) {
+    el.setAttribute('data-eid', 'eid-' + (++_editEidCounter));
+    if (_editMode) {
+      el.setAttribute('contenteditable', 'true');
+    }
+  });
+
+  // 삭제 버튼 추가 (편집 모드 중이면)
+  if (_editMode) {
+    var lastTd = newRow.querySelector('td:last-child');
+    if (lastTd) {
+      var delBtn = document.createElement('button');
+      delBtn.className = 'row-del-btn';
+      delBtn.innerHTML = '✕';
+      delBtn.title = '이 행 삭제';
+      delBtn.setAttribute('onclick', 'deleteTableRow(this)');
+      lastTd.appendChild(delBtn);
+    }
+  }
+
+  saveEditContent();
+}
+
+// 편집 내용 전체 초기화
+function resetAllEdits() {
+  if (!confirm('모든 편집 내용을 초기화하시겠습니까? 되돌릴 수 없습니다.')) return;
+  localStorage.removeItem(EDIT_STORE_KEY);
+  location.reload();
+}
+
+// 페이지 로드 시 편집 ID 부여 + 저장 내용 복원
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    assignEditIds();
+    loadEditContent();
+  }, 600);
+});
+
+// ── HTML 다운로드 ──
+function downloadHTML() {
+  var html = '<!DOCTYPE html>' + document.documentElement.outerHTML;
+  var blob = new Blob([html], {type:'text/html;charset=utf-8'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '어바웃피싱_선주앱_스토리보드_v5.1.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
 </script>
 </body>
 </html>
