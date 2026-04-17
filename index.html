@@ -7853,11 +7853,58 @@ function attachFirebaseListeners() {
     });
   });
 
-  // 4) 삭제된 행 정보
+  // 4) 삭제된 행 정보 (레거시 deletedRows — 유지)
   fb.onValue(fb.ref('deletedRows'), function(snap){
     var val = snap.val() || {};
     var arr = Object.keys(val).filter(function(k){ return val[k]; });
     localStorage.setItem(EDIT_STORE_KEY + '_del', JSON.stringify(arr));
+  });
+
+  // 5) 협업자가 추가한 스토리보드 행 구조 재생
+  //    /addedRows/{rowId} = {tid, cols, at, by}
+  //    셀 eid = rowId + '-c' + colIdx → 이후 /edits 리스너가 내용 채움
+  fb.onValue(fb.ref('addedRows'), function(snap){
+    var val = snap.val() || {};
+    Object.keys(val).forEach(function(rid){
+      var rec = val[rid]; if (!rec || !rec.tid) return;
+      if (document.querySelector('tr[data-row-id="' + rid + '"]')) return;
+      // 함수 호출 (skipFb=true 로 무한 루프 방지)
+      try { addTableRow(rec.tid, rid, true); } catch(e){ console.warn('[Firebase] addedRows 재생 실패', e); }
+    });
+    // RTDB 에서 제거되었으면 (다른 사용자가 되돌림) 로컬 DOM 에서도 제거
+    document.querySelectorAll('tr[data-row-id^="row-"]').forEach(function(tr){
+      var rid = tr.getAttribute('data-row-id');
+      if (!val[rid]) tr.remove();
+    });
+    // edits 가 이미 도착해 있으면 재생된 셀에 내용 채움
+    try {
+      var cached = JSON.parse(localStorage.getItem(EDIT_STORE_KEY) || '{}');
+      Object.keys(cached).forEach(function(eid){
+        var el = document.querySelector('[data-eid="' + eid + '"]');
+        if (el && !(_editMode && el.contains(document.activeElement))) el.innerHTML = cached[eid];
+      });
+    } catch(e){}
+  });
+
+  // 6) 원본 행 삭제 플래그 — /rowDeletions/{orig-<tid>-<idx>} = true
+  //    원본 테이블은 안정 식별자가 없어서 (tid, 행 인덱스) 로 매칭
+  fb.onValue(fb.ref('rowDeletions'), function(snap){
+    var val = snap.val() || {};
+    Object.keys(val).forEach(function(key){
+      if (!val[key]) return;
+      if (!/^orig-(.+)-(\d+)$/.test(key)) return;
+      var m = key.match(/^orig-(.+)-(\d+)$/);
+      var tid = m[1], idx = parseInt(m[2], 10);
+      var tbl = document.querySelector('[data-tid="' + tid + '"]');
+      if (!tbl) return;
+      var dataRows = Array.prototype.slice.call(tbl.querySelectorAll('tr'))
+        .filter(function(r){ return !r.querySelector('th'); });
+      var target = dataRows[idx];
+      if (target && !target.hasAttribute('data-deleted')) {
+        target.setAttribute('data-deleted', '1');
+        target.style.display = 'none';
+      }
+    });
   });
 }
 
@@ -10238,12 +10285,12 @@ function _qaCellCommit(td){
   }catch(e){console.warn('[QA/Firebase] 셀 저장 실패',e)}
 }
 document.addEventListener('input',function(e){
-  var td=e.target.closest('.tc-row td[contenteditable="true"]'); if(!td)return;
+  var td=e.target.closest('.tc-row td[contenteditable=&quot;true&quot;]'); if(!td)return;
   clearTimeout(_qaCellDeb);
   _qaCellDeb=setTimeout(function(){ _qaCellCommit(td); },500);
 });
 document.addEventListener('blur',function(e){
-  var td=e.target.closest('.tc-row td[contenteditable="true"]'); if(!td)return;
+  var td=e.target.closest('.tc-row td[contenteditable=&quot;true&quot;]'); if(!td)return;
   clearTimeout(_qaCellDeb);
   _qaCellCommit(td);
 },true);
@@ -10399,7 +10446,7 @@ function _qaApplyCell(td,val){
     // 번호 셀: 버튼 유지 + 텍스트만 교체
     var btn=td.querySelector('.tc-del');
     td.textContent=val;
-    if(btn)td.appendChild(btn); else td.insertAdjacentHTML('beforeend','<button class="tc-del" onclick="delRow(this)" title="삭제">×</button>');
+    if(btn)td.appendChild(btn); else td.insertAdjacentHTML('beforeend','<button class=&quot;tc-del&quot; onclick=&quot;delRow(this)&quot; title=&quot;삭제&quot;>×</button>');
   } else {
     td.textContent=val;
   }
