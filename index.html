@@ -3,56 +3,18 @@
 <title>상품관리 기획 스토리보드</title>
 <script>
 /* ═══════════════════════════════════════════════════════════════
-   안전 가드 (earliest possible)
+   최소 안전 가드 (earliest)
    - 직전 세션에서 남은 URL 해시(#/qa, #/flowboard, #/dataflow) 로 인해
      오버레이가 로드 즉시 열려 본 화면을 까맣게 덮던 이슈 방지
-   - body 의 overflow:hidden lock 이 닫히지 않은 경우 강제 해제
-   - 브라우저 확장(Liner / Dashlane / Bitdefender / Syno / Fusion) 이
-     주입한 오버레이/하이라이터가 클릭·스크롤을 막는 이슈 차단
+   - body overflow lock 이 남아있으면 해제
+   - Esc 2회 → 모든 오버레이 강제 닫기 (비상 탈출)
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   try{
-    // URL 해시 정리 (overlay 자동 오픈 방지)
     if(location.hash && /^#\//.test(location.hash)){
       try{ history.replaceState(null, '', location.pathname + location.search); }catch(e){}
     }
   }catch(e){}
-
-  // 확장 프로그램 주입 DOM 패턴 (CSS selector)
-  var EXT_SELECTORS = [
-    '.LImageHighlighter','.LImageHighlighter__optOut','.L-V6','.L-ImageTooltip',
-    '.L-GlobalModal','.L-OptIn','.L-OptOutContainerRoot','.L-ToastTurnOff','.L-ModalRoot',
-    '.L-PreCheckout','.L-TrialPayFail','.L-Toast','.L-ImagePromptBox','.L-MembershipModalContainer',
-    '.liner-mini-tooltip','.liner-mini-button','.liner-scroll-points-container',
-    '.liner-highlight-popup','.liner-extension-root',
-    '[class^="L-"]','[class*=" L-"]','[class^="liner-"]','[class*=" liner-"]',
-    '#syno-notification-is-installed','.syno-dic-popup','.fusion-selection',
-    'div[id^="dashlane-"]','iframe[src*="dashlanesso"]','iframe[src*="bitdefender"]',
-    'style.L-V6','style[class^="L-"]'
-  ];
-  function purgeExt(root){
-    try{
-      var r = root || document;
-      EXT_SELECTORS.forEach(function(sel){
-        try{
-          r.querySelectorAll(sel).forEach(function(el){
-            // 화이트리스트: 본 문서의 .L- / .liner- 와 충돌 가능성 낮음 (자체 선택자 없음)
-            try{ el.remove(); }catch(e){ try{ el.style.display='none'; el.style.pointerEvents='none'; }catch(_){} }
-          });
-        }catch(e){}
-      });
-      // Dashlane / Bitdefender 가 심어놓은 inline 속성도 정리
-      try{
-        r.querySelectorAll('[data-dashlane-rid],[data-dashlane-observed],[bis_skin_checked],[bis_register]')
-          .forEach(function(el){
-            el.removeAttribute('data-dashlane-rid');
-            el.removeAttribute('data-dashlane-observed');
-            el.removeAttribute('bis_skin_checked');
-            el.removeAttribute('bis_register');
-          });
-      }catch(e){}
-    }catch(e){}
-  }
 
   function nuke(){
     try{
@@ -60,43 +22,10 @@
       document.querySelectorAll('.fs-overlay.open, #fb-overlay.open, .admin-modal-bg.open')
         .forEach(function(el){ el.classList.remove('open'); });
     }catch(e){}
-    purgeExt();
   }
-
-  document.addEventListener('DOMContentLoaded', function(){
-    nuke();
-    // 확장이 DOM 을 계속 주입할 수 있으므로 MutationObserver 로 실시간 제거
-    try{
-      var obs = new MutationObserver(function(muts){
-        for(var i=0;i<muts.length;i++){
-          var m = muts[i];
-          if(m.addedNodes && m.addedNodes.length){
-            for(var j=0;j<m.addedNodes.length;j++){
-              var n = m.addedNodes[j];
-              if(n.nodeType !== 1) continue;
-              var cls = (n.className||'') + '';
-              var id  = (n.id||'') + '';
-              if(/^(L-|liner-)/.test(cls) || /LImageHighlighter|liner-|L-V6/.test(cls) ||
-                 /^(syno-|dashlane-|fusion-)/.test(id) || /^syno-notification/.test(id)){
-                try{ n.remove(); }catch(e){}
-              } else if(n.querySelectorAll){
-                // 중첩된 확장 DOM 도 청소
-                purgeExt(n);
-              }
-            }
-          }
-        }
-      });
-      obs.observe(document.documentElement, {childList:true, subtree:true});
-      window.__extObserver = obs;
-    }catch(e){ console.warn('[Guard] MutationObserver 실패:', e); }
-  });
+  document.addEventListener('DOMContentLoaded', nuke);
   window.addEventListener('load', nuke);
-  setTimeout(nuke, 800);
-  setTimeout(nuke, 2000);
-  setTimeout(nuke, 5000);
 
-  // 비상 탈출: Esc 2회 연속 → 모든 오버레이 강제 닫기 + overflow 해제 + 확장 주입 제거
   var _escT = 0;
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape'){
@@ -106,7 +35,6 @@
     }
   }, true);
   window.__nukeOverlays = nuke;
-  window.__purgeExt = purgeExt;
 })();
 </script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230041FF'/%3E%3Ctext x='50' y='68' font-family='-apple-system,BlinkMacSystemFont,sans-serif' font-size='60' font-weight='900' fill='%23fff' text-anchor='middle'%3E선%3C/text%3E%3C/svg%3E">
@@ -133,47 +61,7 @@ html{background:#FFFFFF !important}
 #fb-overlay:not(.open){display:none !important}
 .admin-modal-bg:not(.open){display:none !important}
 
-/* ═══════════════════════════════════════════════════════════════
-   브라우저 확장 프로그램 (Liner, Dashlane, Bitdefender, Syno 등) 이
-   런타임에 주입하는 오버레이/하이라이터가 클릭·스크롤을 먹어버리는 이슈 차단
-   — 특히 Liner 확장: liner-core.be.js 의 TypeError 로 인해 전체 화면이 먹통됨
-   ═══════════════════════════════════════════════════════════════ */
-.LImageHighlighter,
-.LImageHighlighter__optOut,
-.L-V6,
-.L-ImageTooltip,
-.L-GlobalModal,
-.L-OptIn,
-.L-OptOutContainerRoot,
-.L-ToastTurnOff,
-.L-ModalRoot,
-.L-PreCheckout,
-.L-TrialPayFail,
-.L-Toast,
-.L-ImagePromptBox,
-.L-MembershipModalContainer,
-.liner-mini-tooltip,
-.liner-mini-button,
-.liner-scroll-points-container,
-.liner-highlight-popup,
-.liner-extension-root,
-[class^="L-"],
-[class*=" L-"],
-[class^="liner-"],
-[class*=" liner-"],
-#syno-notification-is-installed,
-.syno-dic-popup,
-.fusion-selection,
-div[id^="dashlane-"],
-iframe[src*="dashlanesso"],
-iframe[src*="bitdefender"]{
-  display:none !important;
-  pointer-events:none !important;
-  visibility:hidden !important;
-  opacity:0 !important;
-  z-index:-1 !important;
-}
-/* 어떤 요소든 pointer-events:none 으로 클릭 차단하려는 외부 오버레이 대비 */
+/* 본 문서 루트는 항상 클릭 가능해야 함 */
 html,body,.app-shell,.proto-panel,.sb-panel{pointer-events:auto !important}
 
 /* ── 앱 레이아웃 ── */
