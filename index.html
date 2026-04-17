@@ -315,7 +315,7 @@ div[id^="dashlane-menu"]{
 .ph-cbtn.rd{color:var(--red);border:1px solid #FFCDD2;background:var(--rlt);}
 
 /* Confirm 다이얼로그 */
-.ph-confirm-wrap{flex:1;background:rgba(0,0,0,.40);display:flex;align-items:center;justify-content:center;padding:10px;}
+.ph-confirm-wrap{flex:1;background:rgba(0,0,0,.40);display:flex;align-items:center;justify-content:center;padding:10px;position:relative;}
 .ph-confirm{background:#fff;border-radius:9px;padding:14px;width:100%;}
 .ph-ct{font-size:9px;font-weight:800;color:var(--blk);margin-bottom:4px;}
 .ph-cm{font-size:5px;color:#767676;line-height:1.6;margin-bottom:8px;}
@@ -6841,7 +6841,6 @@ document.addEventListener('click', function(e) {
   <div class="ph-screen">
     <div class="ph-body">
 <div class="ph-confirm-wrap">
-<div class="ph-dim" style="position:absolute;inset:0;background:rgba(0,0,0,.40);"></div>
 <div class="ph-confirm" style="position:relative;z-index:10;">
   <div class="ph-ct">출조종류 삭제</div>
   <div class="ph-cm">'갑오징어/주꾸미'를 삭제합니다.<br>연결된 날짜별 출조도 함께 삭제됩니다.</div>
@@ -10764,7 +10763,6 @@ window.addEventListener('load', function(){ handleHashRoute({initial:true}); });
   <div class="ph-screen">
     <div class="ph-body">
 <div class="ph-confirm-wrap">
-<div class="ph-dim" style="position:absolute;inset:0;background:rgba(0,0,0,.40);"></div>
 <div class="ph-confirm" style="position:relative;z-index:10;">
   <div class="ph-ct">출조종류 삭제</div>
   <div class="ph-cm">'갑오징어/주꾸미'를 삭제합니다.<br>연결된 날짜별 출조도 함께 삭제됩니다.</div>
