@@ -7690,15 +7690,16 @@ document.addEventListener('click', function(e) {
      - 설정값이 비어있으면 자동으로 비활성화 → localStorage 폴백 동작
      ═══════════════════════════════════════════════════════════ -->
 <script type="module">
-  // TODO(USER): Firebase Console에서 생성한 firebaseConfig을 여기에 붙여넣으세요.
-  // 생성 후 Anonymous Authentication 과 Realtime Database(asia-southeast1) 활성화 필요.
-  // 콘솔: https://console.firebase.google.com
+  // Firebase project: aboutfishing-captain (asia-southeast1)
+  // 앱 ID: 1:348203690828:web:74b01b2f43aff3fc3dfde9
   const firebaseConfig = {
-    apiKey: "",              // ← 입력 필요
-    authDomain: "",          // ← 입력 필요 (예: aboutfishing-captain.firebaseapp.com)
-    databaseURL: "",         // ← 입력 필요 (예: https://...asia-southeast1.firebasedatabase.app)
-    projectId: "",           // ← 입력 필요
-    appId: ""                // ← 입력 필요
+    apiKey: "AIzaSyDtYqc0dRClnx9EZWkg98LGR-AnfqlIjdI",
+    authDomain: "aboutfishing-captain.firebaseapp.com",
+    databaseURL: "https://aboutfishing-captain-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "aboutfishing-captain",
+    storageBucket: "aboutfishing-captain.firebasestorage.app",
+    messagingSenderId: "348203690828",
+    appId: "1:348203690828:web:74b01b2f43aff3fc3dfde9"
   };
   const FB_PROJECT_KEY = 'captain-mobile'; // /projects/<key>/ 아래에 저장
 
@@ -8599,18 +8600,50 @@ function removeDeleteButtons() {
 }
 
 // 행 삭제
+// — 사용자가 직접 추가한 행(data-row-id 보유)은 Firebase /addedRows 에서 제거
+// — 원본 HTML 행은 /rowDeletions/{rowId=originId} 플래그로 숨김 처리 (협업자에게도 반영)
 function deleteTableRow(btn) {
   var tr = btn.closest('tr');
   if (!tr) return;
   if (!confirm('이 행을 삭제하시겠습니까?')) return;
+  var rid = tr.getAttribute('data-row-id');
+  var isAdded = !!rid;
+  var tid = tr.closest('[data-tid]') && tr.closest('[data-tid]').getAttribute('data-tid');
+  // 원본 행은 안정적 식별자가 없으므로 table-id + 인덱스로 대체
+  if (!rid) {
+    var tbl = tr.closest('[data-tid]');
+    if (tbl) {
+      var allRows = Array.prototype.slice.call(tbl.querySelectorAll('tr')).filter(function(r){return !r.querySelector('th');});
+      var idx = allRows.indexOf(tr);
+      rid = 'orig-' + tid + '-' + idx;
+    }
+  }
   tr.remove();
   saveEditContent();
+  // Firebase 반영
+  try{
+    if (window.__fb && window.__fb.enabled) {
+      if (isAdded) {
+        // 추가된 행: /addedRows/{rid} 에서 제거
+        window.__fb.set(window.__fb.ref('addedRows/' + rid), null);
+      } else if (rid) {
+        // 원본 행: /rowDeletions/{rid} = true
+        window.__fb.set(window.__fb.ref('rowDeletions/' + rid), true);
+      }
+    }
+  }catch(e){console.warn('[Firebase] 행 삭제 동기화 실패',e)}
 }
 
 // 행 추가
-function addTableRow(tid) {
+// presetRowId: Firebase 재생(replay) 시 같은 rowId 로 복원
+// skipFb: true 면 Firebase 푸시 생략
+function addTableRow(tid, presetRowId, skipFb) {
   var table = document.querySelector('[data-tid="' + tid + '"]');
-  if (!table) return;
+  if (!table) return null;
+  // rowId 확정
+  var rid = presetRowId || ('row-' + Date.now() + '-' + Math.random().toString(36).slice(2,7));
+  // 중복 방지 (이미 같은 rowId 의 행이 있으면 무시)
+  if (table.querySelector('tr[data-row-id="' + rid + '"]')) return null;
   // 마지막 데이터 행 복제 또는 새 빈 행 생성
   var rows = table.querySelectorAll('tr');
   var lastDataRow = null;
@@ -8619,7 +8652,6 @@ function addTableRow(tid) {
   var newRow;
   if (lastDataRow) {
     newRow = lastDataRow.cloneNode(true);
-    // 셀 내용 비우기 (삭제 버튼 제외)
     newRow.querySelectorAll('td').forEach(function(td) {
       td.querySelectorAll('.row-del-btn').forEach(function(b) { b.remove(); });
       td.innerHTML = '<span data-editable="1">새 내용</span>';
@@ -8634,20 +8666,20 @@ function addTableRow(tid) {
       newRow.appendChild(td);
     }
   }
+  newRow.setAttribute('data-row-id', rid);
 
   // tbody 또는 table에 추가
   var tbody = table.querySelector('tbody') || table;
   tbody.appendChild(newRow);
 
-  // 새 셀에 eid 부여 + contenteditable 활성화 (편집 모드 중이면)
-  newRow.querySelectorAll('[data-editable]').forEach(function(el) {
-    el.setAttribute('data-eid', 'eid-' + (++_editEidCounter));
-    if (_editMode) {
-      el.setAttribute('contenteditable', 'true');
-    }
+  // 셀별 안정적 eid = rowId + 컬럼 인덱스 (모든 사용자가 동일한 eid 공유)
+  var cells = newRow.querySelectorAll('[data-editable]');
+  cells.forEach(function(el, i) {
+    el.setAttribute('data-eid', rid + '-c' + i);
+    if (_editMode) el.setAttribute('contenteditable', 'true');
   });
 
-  // 삭제 버튼 추가 (편집 모드 중이면)
+  // 편집 모드면 삭제 버튼
   if (_editMode) {
     var lastTd = newRow.querySelector('td:last-child');
     if (lastTd) {
@@ -8660,7 +8692,22 @@ function addTableRow(tid) {
     }
   }
 
+  // 본인이 추가한 경우 Firebase 에 구조 push
+  if (!skipFb && !presetRowId) {
+    try{
+      if (window.__fb && window.__fb.enabled) {
+        window.__fb.set(window.__fb.ref('addedRows/' + rid), {
+          tid: tid,
+          cols: cells.length,
+          at: Date.now(),
+          by: window.__fb.uid || 'anon'
+        });
+      }
+    }catch(e){console.warn('[Firebase] addTableRow 구조 동기화 실패',e)}
+  }
+
   saveEditContent();
+  return newRow;
 }
 
 // 편집 내용 전체 초기화
@@ -9923,6 +9970,12 @@ td[contenteditable=true]:empty::before{content:attr(data-ph);color:#CCC;font-sty
 /* Priority select */
 .pri-sel{width:100%;border:none;background:transparent;font-size:10px;font-weight:600;cursor:pointer;outline:none;font-family:inherit;padding:2px 0;-webkit-appearance:none;appearance:none}
 
+/* TC 삭제 버튼 (첫 셀 우상단) */
+.tc-row td:first-child{position:relative}
+.tc-del{position:absolute;top:2px;right:2px;width:16px;height:16px;border:none;background:#FF5050;color:#fff;border-radius:50%;font-size:11px;font-weight:700;line-height:14px;text-align:center;cursor:pointer;opacity:0;transition:opacity .15s;padding:0;display:flex;align-items:center;justify-content:center}
+.tc-row:hover .tc-del{opacity:1}
+.tc-del:hover{background:#D93030}
+
 /* Add row */
 .add-row{display:flex;align-items:center;justify-content:center;gap:4px;padding:6px;font-size:11px;color:#3182F6;font-weight:600;cursor:pointer;border:1px dashed #3182F6;border-radius:6px;margin:2px 0 12px;transition:.15s;background:#fff}
 .add-row:hover{background:#F0F4FF}
@@ -10080,7 +10133,7 @@ function stSel(v){
   return '<select class=&quot;st-sel '+c+'&quot; onchange=&quot;chSt(this)&quot;><option value=&quot;&quot;'+(v===''?' selected':'')+'>-</option><option value=&quot;PASS&quot;'+(v==='PASS'?' selected':'')+'>PASS</option><option value=&quot;FAIL&quot;'+(v==='FAIL'?' selected':'')+'>FAIL</option><option value=&quot;FIXED&quot;'+(v==='FIXED'?' selected':'')+'>FIXED</option><option value=&quot;N/T&quot;'+(v==='N/T'?' selected':'')+'>N/T</option></select>';
 }
 function prSel(v){
-  var o=['Critical','High','Medium','Low'],s='<select class=&quot;pri-sel&quot; onchange=&quot;recount()&quot;>';
+  var o=['Critical','High','Medium','Low'],s='<select class=&quot;pri-sel&quot; onchange=&quot;chPr(this);recount()&quot;>';
   o.forEach(function(x){s+='<option value=&quot;'+x+'&quot;'+(v===x?' selected':'')+'>'+x+'</option>'});
   return s+'</select>';
 }
@@ -10097,8 +10150,8 @@ function renderAll(){
     h+='</tr></thead><tbody>';
     mod.tcs.forEach(function(tc,ti){
       var rc=(tc.aos==='FAIL'||tc.ios==='FAIL')?' fail-row':'';
-      h+='<tr class=&quot;tc-row'+rc+'&quot; data-mi=&quot;'+mi+'&quot;>';
-      h+='<td contenteditable=&quot;true&quot; data-ph=&quot;번호&quot;>'+tc.no+'</td>';
+      h+='<tr class=&quot;tc-row'+rc+'&quot; data-mi=&quot;'+mi+'&quot; data-tcid=&quot;'+tc.no+'&quot;>';
+      h+='<td contenteditable=&quot;true&quot; data-ph=&quot;번호&quot;>'+tc.no+'<button class=&quot;tc-del&quot; onclick=&quot;delRow(this)&quot; title=&quot;삭제&quot;>×</button></td>';
       h+='<td contenteditable=&quot;true&quot; data-ph=&quot;화면&quot;>'+tc.scr+'</td>';
       h+='<td contenteditable=&quot;true&quot; data-ph=&quot;분류&quot;>'+tc.cat+'</td>';
       h+='<td contenteditable=&quot;true&quot; data-ph=&quot;기능명&quot;>'+tc.func+'</td>';
@@ -10127,7 +10180,7 @@ function chSt(sel){
   recount();
   // Firebase: TC 상태 동기화
   try{
-    var tcId=tr.cells[0].textContent.trim();
+    var tcId=_qaTcId(tr);
     var sels=tr.querySelectorAll('.st-sel');
     var aos=sels[0]?sels[0].value:'';
     var ios=sels[1]?sels[1].value:'';
@@ -10136,6 +10189,83 @@ function chSt(sel){
       fb.update(fb.ref('qa/testCases/'+tcId),{aos:aos,ios:ios,updatedAt:Date.now(),updatedBy:fb.uid||'anon'});
     }
   }catch(e){console.warn('[QA/Firebase] chSt 동기화 실패',e)}
+}
+
+// TC 행의 안정적 ID (데이터셋 우선, 없으면 첫 셀에서 버튼 제외한 텍스트)
+function _qaTcId(tr){
+  if(tr.dataset&amp;&amp;tr.dataset.tcid)return tr.dataset.tcid;
+  var c=tr.cells[0]; if(!c)return 'tc-'+Date.now();
+  var clone=c.cloneNode(true);
+  clone.querySelectorAll('.tc-del').forEach(function(b){b.remove()});
+  return clone.textContent.trim()||('tc-'+Date.now());
+}
+// 첫 셀에서 번호만 추출 (버튼 제외)
+function _qaTcNoText(c){
+  if(!c)return '';
+  var clone=c.cloneNode(true);
+  clone.querySelectorAll('.tc-del').forEach(function(b){b.remove()});
+  return clone.textContent.trim();
+}
+
+// 우선순위(priority) 변경 동기화
+function chPr(sel){
+  try{
+    var tr=sel.closest('tr');
+    var tcId=_qaTcId(tr);
+    var fb=window.parent&amp;&amp;window.parent.__fb;
+    if(fb&amp;&amp;fb.enabled){
+      fb.update(fb.ref('qa/testCases/'+tcId),{pri:sel.value,updatedAt:Date.now(),updatedBy:fb.uid||'anon'});
+    }
+  }catch(e){console.warn('[QA/Firebase] chPr 실패',e)}
+}
+
+// 셀(contenteditable) 편집 동기화 — debounce 로 타이핑 중 트래픽 절감
+var _qaCellDeb=null;
+function _qaCellCommit(td){
+  try{
+    var tr=td.closest('tr'); if(!tr)return;
+    var tcId=_qaTcId(tr);
+    var fieldMap=['no','scr','cat','func','pre','step','exp','pri','aos','ios','note'];
+    var idx=Array.prototype.indexOf.call(tr.cells,td);
+    var field=fieldMap[idx]; if(!field)return;
+    // 번호 셀은 버튼 텍스트 제외
+    var val=(idx===0)?_qaTcNoText(td):td.innerText;
+    var fb=window.parent&amp;&amp;window.parent.__fb;
+    if(fb&amp;&amp;fb.enabled){
+      var patch={};patch[field]=val;patch.updatedAt=Date.now();patch.updatedBy=fb.uid||'anon';
+      fb.update(fb.ref('qa/testCases/'+tcId),patch);
+    }
+  }catch(e){console.warn('[QA/Firebase] 셀 저장 실패',e)}
+}
+document.addEventListener('input',function(e){
+  var td=e.target.closest('.tc-row td[contenteditable="true"]'); if(!td)return;
+  clearTimeout(_qaCellDeb);
+  _qaCellDeb=setTimeout(function(){ _qaCellCommit(td); },500);
+});
+document.addEventListener('blur',function(e){
+  var td=e.target.closest('.tc-row td[contenteditable="true"]'); if(!td)return;
+  clearTimeout(_qaCellDeb);
+  _qaCellCommit(td);
+},true);
+
+// TC 행 삭제
+function delRow(btn){
+  if(!confirm('이 테스트 케이스를 삭제하시겠습니까?'))return;
+  var tr=btn.closest('tr'); if(!tr)return;
+  var tcId=_qaTcId(tr);
+  var tbl=tr.closest('table');
+  tr.remove();
+  if(tbl){
+    var bg=tbl.previousElementSibling&amp;&amp;tbl.previousElementSibling.querySelector('.bg');
+    if(bg)bg.textContent=tbl.querySelectorAll('tbody tr').length+'개';
+  }
+  recount();
+  try{
+    var fb=window.parent&amp;&amp;window.parent.__fb;
+    if(fb&amp;&amp;fb.enabled){
+      fb.set(fb.ref('qa/deletedTcs/'+tcId),true);
+    }
+  }catch(e){console.warn('[QA/Firebase] 삭제 동기화 실패',e)}
 }
 
 function recount(){
@@ -10166,15 +10296,17 @@ function recount(){
   document.getElementById('fCnt').textContent=shown+' / '+tt+' TC';
 }
 
-function addRow(mi,afterRow){
+function addRow(mi,afterRow,presetTcId){
   var tbl=document.querySelector('table[data-mi=&quot;'+mi+'&quot;] tbody');
-  if(!tbl)return;
+  if(!tbl)return null;
   var mod=DATA[mi];
   var n=tbl.rows.length+1;
-  var pfx=mod.tcs.length>0?mod.tcs[0].no.split('-')[0]:'TC';
+  var pfx=mod&amp;&amp;mod.tcs.length>0?mod.tcs[0].no.split('-')[0]:'TC';
+  var defaultNo=pfx+'-'+String(n).padStart(3,'0');
+  var tcNo=presetTcId||defaultNo;
   var tr=document.createElement('tr');
-  tr.className='tc-row';tr.dataset.mi=mi;
-  tr.innerHTML='<td contenteditable=&quot;true&quot; data-ph=&quot;번호&quot;>'+pfx+'-'+String(n).padStart(3,'0')+'</td>'+
+  tr.className='tc-row';tr.dataset.mi=mi;tr.dataset.tcid=tcNo;
+  tr.innerHTML='<td contenteditable=&quot;true&quot; data-ph=&quot;번호&quot;>'+tcNo+'<button class=&quot;tc-del&quot; onclick=&quot;delRow(this)&quot; title=&quot;삭제&quot;>×</button></td>'+
     '<td contenteditable=&quot;true&quot; data-ph=&quot;화면&quot;>'+pfx+'</td>'+
     '<td contenteditable=&quot;true&quot; data-ph=&quot;분류&quot;></td>'+
     '<td contenteditable=&quot;true&quot; data-ph=&quot;기능명&quot;></td>'+
@@ -10189,15 +10321,18 @@ function addRow(mi,afterRow){
   else tbl.appendChild(tr);
   var bg=tbl.closest('table').previousElementSibling.querySelector('.bg');
   if(bg)bg.textContent=tbl.rows.length+'개';
-  recount();tr.querySelector('td').focus();
-  // Firebase: 새 TC 원격 반영
-  try{
-    var fb=window.parent&amp;&amp;window.parent.__fb;
-    if(fb&amp;&amp;fb.enabled){
-      var tcId=tr.cells[0].textContent.trim();
-      fb.set(fb.ref('qa/addedTcs/'+tcId),{mi:mi,no:tcId,at:Date.now(),by:fb.uid||'anon'});
-    }
-  }catch(e){console.warn('[QA/Firebase] addRow 동기화 실패',e)}
+  recount();
+  if(!presetTcId){
+    tr.querySelector('td').focus();
+    // 본인이 추가한 경우에만 Firebase 푸시
+    try{
+      var fb=window.parent&amp;&amp;window.parent.__fb;
+      if(fb&amp;&amp;fb.enabled){
+        fb.set(fb.ref('qa/addedTcs/'+tcNo),{mi:mi,no:tcNo,at:Date.now(),by:fb.uid||'anon'});
+      }
+    }catch(e){console.warn('[QA/Firebase] addRow 동기화 실패',e)}
+  }
+  return tr;
 }
 
 // Double-click TC번호 cell = insert row below
@@ -10237,43 +10372,92 @@ renderAll();
 
 // ── Firebase 실시간 동기화 (QA) ──
 // window.parent.__fb 를 통해 부모 페이지의 Firebase 연결을 공유.
-// qa/testCases/{tcId} = {aos, ios, updatedAt, updatedBy}
+// qa/testCases/{tcId} = {no,scr,cat,func,pre,step,exp,pri,aos,ios,note,updatedAt,updatedBy}
 // qa/deletedTcs/{tcId} = true
-// 원격 변경 시 select 값/행 삭제를 DOM 에 반영 후 recount().
+// qa/addedTcs/{tcId}  = {mi,no,at,by}
+// 원격 변경 시 DOM 에 반영. 편집 중인 셀은 건드리지 않음.
+function _qaFindRow(tcId){
+  var row=null;
+  document.querySelectorAll('.tc-row').forEach(function(r){
+    if(r.dataset&amp;&amp;r.dataset.tcid===tcId){row=r;return}
+    if(!row&amp;&amp;r.cells[0]&amp;&amp;_qaTcNoText(r.cells[0])===tcId)row=r;
+  });
+  return row;
+}
+function _qaApplySel(sel,val){
+  if(!sel||val==null||sel.value===val)return;
+  sel.value=val;
+  sel.className='st-sel '+(val==='PASS'?'v-PASS':val==='FAIL'?'v-FAIL':val==='FIXED'?'v-FIXED':val==='N/T'?'v-NT':'v-NONE');
+}
+function _qaApplyCell(td,val){
+  if(!td||val==null)return;
+  // 사용자가 해당 셀에 포커스 / 편집 중이면 건드리지 않음
+  if(document.activeElement===td)return;
+  var cur=td===td.closest('tr').cells[0]?_qaTcNoText(td):td.innerText;
+  if(cur===val)return;
+  if(td===td.closest('tr').cells[0]){
+    // 번호 셀: 버튼 유지 + 텍스트만 교체
+    var btn=td.querySelector('.tc-del');
+    td.textContent=val;
+    if(btn)td.appendChild(btn); else td.insertAdjacentHTML('beforeend','<button class="tc-del" onclick="delRow(this)" title="삭제">×</button>');
+  } else {
+    td.textContent=val;
+  }
+}
 function _qaFbBind(fb){
   if(!fb||!fb.enabled)return;
-  // 상태 변경 수신
+  // 1) testCases: 모든 필드 실시간 반영
   fb.onValue(fb.ref('qa/testCases'),function(snap){
     var val=snap.val()||{};
     Object.keys(val).forEach(function(tcId){
-      var row=null;
-      document.querySelectorAll('.tc-row').forEach(function(r){
-        if(r.cells[0]&amp;&amp;r.cells[0].textContent.trim()===tcId)row=r;
-      });
-      if(!row)return;
-      var rec=val[tcId];
+      var row=_qaFindRow(tcId); if(!row)return;
+      var rec=val[tcId]||{};
+      var tds=row.cells;
+      // index 0~6 + 10 = contenteditable 셀
+      if(rec.no!=null) _qaApplyCell(tds[0],rec.no);
+      if(rec.scr!=null) _qaApplyCell(tds[1],rec.scr);
+      if(rec.cat!=null) _qaApplyCell(tds[2],rec.cat);
+      if(rec.func!=null) _qaApplyCell(tds[3],rec.func);
+      if(rec.pre!=null) _qaApplyCell(tds[4],rec.pre);
+      if(rec.step!=null) _qaApplyCell(tds[5],rec.step);
+      if(rec.exp!=null) _qaApplyCell(tds[6],rec.exp);
+      if(rec.note!=null) _qaApplyCell(tds[10],rec.note);
+      // priority select
+      if(rec.pri!=null){
+        var pr=row.querySelector('.pri-sel');
+        if(pr&amp;&amp;pr.value!==rec.pri&amp;&amp;document.activeElement!==pr)pr.value=rec.pri;
+      }
+      // aos / ios select
       var sels=row.querySelectorAll('.st-sel');
-      if(sels[0]&amp;&amp;rec.aos!=null&amp;&amp;sels[0].value!==rec.aos){
-        sels[0].value=rec.aos;
-        sels[0].className='st-sel '+(rec.aos==='PASS'?'v-PASS':rec.aos==='FAIL'?'v-FAIL':rec.aos==='FIXED'?'v-FIXED':rec.aos==='N/T'?'v-NT':'v-NONE');
-      }
-      if(sels[1]&amp;&amp;rec.ios!=null&amp;&amp;sels[1].value!==rec.ios){
-        sels[1].value=rec.ios;
-        sels[1].className='st-sel '+(rec.ios==='PASS'?'v-PASS':rec.ios==='FAIL'?'v-FAIL':rec.ios==='FIXED'?'v-FIXED':rec.ios==='N/T'?'v-NT':'v-NONE');
-      }
+      if(document.activeElement!==sels[0])_qaApplySel(sels[0],rec.aos);
+      if(document.activeElement!==sels[1])_qaApplySel(sels[1],rec.ios);
       var hasFail=false;
       row.querySelectorAll('.st-sel').forEach(function(s){if(s.value==='FAIL')hasFail=true});
       row.classList.toggle('fail-row',hasFail);
     });
     recount();
   });
-  // 삭제 수신
+  // 2) addedTcs: 원격 추가된 TC 재생
+  fb.onValue(fb.ref('qa/addedTcs'),function(snap){
+    var val=snap.val()||{};
+    Object.keys(val).forEach(function(tcId){
+      if(_qaFindRow(tcId))return;           // 이미 존재
+      var rec=val[tcId]||{};
+      var mi=(rec.mi!=null)?rec.mi:0;
+      // 추가할 때 Firebase push 를 다시 트리거하지 않도록 presetTcId 전달
+      addRow(mi,null,tcId);
+    });
+  });
+  // 3) deletedTcs: 삭제 반영
   fb.onValue(fb.ref('qa/deletedTcs'),function(snap){
     var val=snap.val()||{};
     Object.keys(val).forEach(function(tcId){
-      document.querySelectorAll('.tc-row').forEach(function(r){
-        if(r.cells[0]&amp;&amp;r.cells[0].textContent.trim()===tcId)r.remove();
-      });
+      var r=_qaFindRow(tcId); if(r){r.remove()}
+    });
+    // 헤더의 카운트 재계산
+    document.querySelectorAll('table.qa-tbl').forEach(function(t){
+      var bg=t.previousElementSibling&amp;&amp;t.previousElementSibling.querySelector('.bg');
+      if(bg)bg.textContent=t.querySelectorAll('tbody tr').length+'개';
     });
     recount();
   });
