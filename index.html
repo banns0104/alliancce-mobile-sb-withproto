@@ -64,8 +64,53 @@ html{background:#FFFFFF !important}
 /* 본 문서 루트는 항상 클릭 가능해야 함 */
 html,body,.app-shell,.proto-panel,.sb-panel{pointer-events:auto !important}
 
+/* ═══════════════════════════════════════════════════════════════
+   확장 프로그램 방어 — 명시적 클래스명/ID 만 타겟 (wildcard 금지)
+   Liner / Dashlane / Syno / Bitdefender / Fusion 가 주입하는 오버레이가
+   클릭·스크롤을 가로채는 이슈 차단. display:none 으로 숨기기만, DOM 은
+   그대로 둠 → MutationObserver 불필요, 페이지 다른 기능에 영향 없음.
+   ═══════════════════════════════════════════════════════════════ */
+.LImageHighlighter,
+.LImageHighlighter__optOut,
+.L-ImageTooltip,
+.L-GlobalModal,
+.L-ModalRoot,
+.L-OptIn,
+.L-OptOutContainerRoot,
+.L-ToastTurnOff,
+.L-PreCheckout,
+.L-TrialPayFail,
+.L-Toast,
+.L-ImagePromptBox,
+.L-MembershipModalContainer,
+.liner-mini-tooltip,
+.liner-mini-button,
+.liner-scroll-points-container,
+.liner-highlight-popup,
+.liner-extension-root,
+#syno-notification-is-installed,
+.syno-dic-popup,
+.fusion-selection{
+  display:none !important;
+  pointer-events:none !important;
+  visibility:hidden !important;
+  opacity:0 !important;
+}
+/* Dashlane 이 주입하는 최상위 iframe / div (고유 접두어로 식별) */
+iframe[src*="dashlanesso"],
+iframe[src*="bitdefender"],
+div[id^="dashlane-root"],
+div[id^="dashlane-menu"]{
+  display:none !important;
+  pointer-events:none !important;
+}
+
 /* ── 앱 레이아웃 ── */
-.app-shell{display:grid;grid-template-columns:420px 1fr;height:100vh;overflow:hidden;}
+/* position:relative + z-index 1 으로 스태킹 컨텍스트 형성 → 확장 주입 div 가
+   앱 위를 덮더라도 본 앱의 포커스/클릭을 유지. z-index 999 이상 fixed 오버레이는
+   따로 관리(.fs-overlay / #fb-overlay / .admin-modal-bg). */
+.app-shell{display:grid;grid-template-columns:420px 1fr;height:100vh;overflow:hidden;
+  position:relative;z-index:1;}
 
 /* ── 왼쪽: 프로토타입 패널 ── */
 .proto-panel{display:flex;flex-direction:column;height:100vh;
@@ -8880,7 +8925,7 @@ td[contenteditable=true]:empty::before{content:attr(data-ph);color:#CCC;font-sty
 <div class=&quot;agt-wrap&quot;>
   <div class=&quot;agt-head&quot;>
     <div class=&quot;agt-title&quot;><span class=&quot;ico&quot;>AI</span>에이전트 리뷰 — QA · UX/UI · CPO 3중 검토</div>
-    <button class=&quot;agt-tgl&quot; id=&quot;agtTgl&quot; onclick=&quot;agtToggle()&quot;>접기 ▲</button>
+    <button class=&quot;agt-tgl&quot; id=&quot;agtTgl&quot; onclick=&quot;agtToggle()&quot;>펼치기 ▼</button>
   </div>
   <div class=&quot;agt-tabs&quot;>
     <button class=&quot;agt-tab on&quot; data-ag=&quot;QA&quot; onclick=&quot;agtTab('QA',this)&quot;><span class=&quot;dot&quot;></span>QA 에이전트</button>
@@ -8888,7 +8933,7 @@ td[contenteditable=true]:empty::before{content:attr(data-ph);color:#CCC;font-sty
     <button class=&quot;agt-tab&quot; data-ag=&quot;CPO&quot; onclick=&quot;agtTab('CPO',this)&quot;><span class=&quot;dot&quot;></span>CPO 에이전트</button>
   </div>
 
-  <div class=&quot;agt-body&quot; id=&quot;agt-QA&quot;>
+  <div class=&quot;agt-body fold&quot; id=&quot;agt-QA&quot;>
     <h4>🎯 커버리지 & 리스크 분석</h4>
     <ul>
       <li><span class=&quot;tag hi&quot;>Critical</span>S1 → S2b 날짜 탭 펼침, M1 인원조정 +N, M2 예약등록, M4 좌석 하한(현재 예약수 이하 차단)이 전체 예약 무결성의 핵심 경로. 자동화 우선 후보.</li>
