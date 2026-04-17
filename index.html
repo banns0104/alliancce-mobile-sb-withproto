@@ -76,10 +76,26 @@ html,body{height:100vh;overflow:hidden;background:#0d0d0d;
 .figma-link{font-size:11px;font-weight:700;color:var(--blue);text-decoration:none;
   padding:4px 10px;border:1px solid var(--blue);border-radius:5px;white-space:nowrap;}
 .figma-link:hover{background:var(--blt);}
-.admin-btn{font-size:11px;font-weight:700;padding:5px 12px;border-radius:5px;
+.admin-btn{font-size:11px;font-weight:700;padding:0 12px;border-radius:5px;
   border:1px solid var(--line2);background:#fff;cursor:pointer;
-  display:flex;align-items:center;gap:5px;color:var(--desc);}
+  height:28px;box-sizing:border-box;line-height:1;
+  display:inline-flex;align-items:center;gap:5px;color:var(--desc);}
 .admin-btn.active{background:var(--rlt);color:var(--red);border-color:#FCA5A5;}
+/* 헤더 내 모든 버튼·링크 높이 통일 (관리자 모드 버튼 기준 28px) */
+.sb-hd .admin-btn,
+.sb-hd .edit-mode-btn,
+.sb-hd .figma-link,
+.sb-hd #figma-display-link,
+.sb-hd #html-download-btn{
+  height:28px !important;
+  padding:0 12px !important;
+  border-width:1px !important;
+  box-sizing:border-box;
+  display:inline-flex;
+  align-items:center;
+  line-height:1;
+}
+.sb-hd .figma-input{height:28px;box-sizing:border-box;padding:0 10px;}
 
 /* ── 섹션 구분 헤더 ── */
 .sdiv{background:var(--blk);padding:13px 36px;position:sticky;top:56px;z-index:200;}
@@ -682,9 +698,10 @@ body{min-width:1400px;}
 
 /* ══ 인라인 편집 모드 ══════════════════════════════════ */
 .edit-mode-btn{
-  font-size:11px;font-weight:700;padding:5px 12px;border-radius:5px;
+  font-size:11px;font-weight:700;padding:0 12px;border-radius:5px;
   border:1px solid var(--line2);background:#fff;cursor:pointer;
-  display:flex;align-items:center;gap:5px;color:var(--desc);
+  height:28px;box-sizing:border-box;line-height:1;
+  display:inline-flex;align-items:center;gap:5px;color:var(--desc);
   transition:all .15s;
 }
 .edit-mode-btn:hover{border-color:#0041FF;color:#0041FF;}
@@ -3641,7 +3658,7 @@ document.addEventListener('click', function(e) {
       <div class="sb-hd-title">어바웃피싱 <s>·</s> 상품관리 스토리보드</div>
       <div class="figma-wrap" id="figma-wrap">
         <div id="figma-display" style="display:none;">
-          <a id="figma-display-link" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#A259FF;text-decoration:none;padding:5px 12px;border:1.5px solid #A259FF;border-radius:6px;background:#F9F5FF;white-space:nowrap;">
+          <a id="figma-display-link" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#A259FF;text-decoration:none;padding:0 12px;border:1px solid #A259FF;border-radius:5px;background:#F9F5FF;white-space:nowrap;height:28px;box-sizing:border-box;line-height:1;">
             <svg width="14" height="14" viewBox="0 0 38 57" fill="none"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"></path><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"></path><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"></path><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"></path><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"></path></svg>
             Figma 디자인 열기
           </a>
@@ -7170,6 +7187,13 @@ function loadFigmaLink() {
   if (inp) inp.value = url;
   updateFigmaUI();
 }
+function _isValidFigmaUrl(v){
+  if(!v || typeof v !== 'string') return false;
+  var s = v.trim();
+  if(s.length < 10) return false;
+  // http(s)://... 만 유효한 URL 로 간주 — 빈 값/부분 입력으로 Firebase 공유 링크가 덮여쓰여지는 사고 방지
+  return /^https?:\/\/.+/.test(s);
+}
 function saveFigmaLink(v) {
   // 로컬에 즉시 반영 (네트워크 지연 대응)
   localStorage.setItem('sb_figma_url', v);
@@ -7177,12 +7201,31 @@ function saveFigmaLink(v) {
   // 원격 반영은 debounce
   clearTimeout(_figmaDebounce);
   _figmaDebounce = setTimeout(function(){
-    if (window.__fb && window.__fb.enabled) {
-      window.__fb.set(window.__fb.ref('figmaUrl'), v).catch(function(e){
-        console.warn('[Firebase] figmaUrl 저장 실패:', e);
-      });
+    if (!(window.__fb && window.__fb.enabled)) return;
+    // 빈 값이나 유효하지 않은 URL 은 Firebase 에 반영하지 않음
+    // (실수로 전체 지우기/부분 입력 중에도 다른 사용자가 보는 공유 링크가 날아가지 않도록)
+    if (!_isValidFigmaUrl(v)) {
+      console.info('[Firebase] figmaUrl 유효하지 않음 — 원격 저장 skip ("' + (v||'') + '")');
+      return;
     }
-  }, 300);
+    window.__fb.set(window.__fb.ref('figmaUrl'), v.trim()).then(function(){
+      console.info('[Firebase] figmaUrl 저장 완료:', v.trim());
+    }).catch(function(e){
+      console.warn('[Firebase] figmaUrl 저장 실패:', e);
+    });
+  }, 500);
+}
+// 관리자가 "Figma URL 완전 삭제" 를 원할 때 호출 — 수동 확인 후 Firebase 노드 제거
+function clearFigmaLinkRemote(){
+  if(!confirm('모든 사용자가 보는 공유 Figma 링크를 삭제합니다. 계속할까요?')) return;
+  localStorage.removeItem('sb_figma_url');
+  var inp = document.getElementById('figma-input'); if(inp) inp.value = '';
+  updateFigmaUI();
+  if (window.__fb && window.__fb.enabled){
+    window.__fb.set(window.__fb.ref('figmaUrl'), null).catch(function(e){
+      console.warn('[Firebase] figmaUrl 삭제 실패:', e);
+    });
+  }
 }
 function updateFigmaUI() {
   var url = localStorage.getItem('sb_figma_url') || '';
@@ -8703,7 +8746,7 @@ body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;letter
 .mod-hd.fold .chv{transform:rotate(-90deg)}
 
 .qa-tbl{width:100%;border-collapse:collapse;margin-bottom:8px;table-layout:fixed;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #EEE}
-.qa-tbl thead th{background:#F5F7FA;padding:6px 6px;font-size:10px;font-weight:700;color:#555;text-align:left;border-bottom:2px solid #EEE;position:sticky;top:92px;z-index:80;white-space:nowrap}
+.qa-tbl thead th{background:#F5F7FA;padding:6px 6px;font-size:10px;font-weight:700;color:#555;text-align:left;border-bottom:2px solid #EEE;white-space:nowrap}
 .qa-tbl tbody td{padding:6px 6px;font-size:11px;border-bottom:1px solid #F5F6F8;vertical-align:top;color:#333}
 .qa-tbl tbody tr:hover{background:#FAFBFF}
 .qa-tbl tbody tr.fail-row{background:#FFF5F5}
@@ -9618,8 +9661,21 @@ document.addEventListener('keydown', function(e) {
 });
 
 // ── Hash routing: #/flowboard, #/dataflow, #/qa ──
-function handleHashRoute() {
+// ⚠️ 초기 로드 시 해시가 남아있으면 오버레이가 자동으로 열려 본 화면(프로토타입/스토리보드)을
+//     까만 오버레이로 덮어버리는 이슈가 있었음 → 로드 시에는 해시를 정리만 하고 오버레이는 열지 않음.
+//     사용자가 직접 클릭 / hashchange 로 진입했을 때만 오버레이 오픈.
+function handleHashRoute(opts) {
   var hash = location.hash;
+  var isInitial = !!(opts && opts.initial);
+  if(isInitial){
+    // 초기 진입: 잔여 해시 정리만 수행
+    if(hash){ try{ history.replaceState(null, '', location.pathname); }catch(e){} }
+    // 혹시 어떤 이유로 open 상태가 남아있는 오버레이가 있다면 강제로 닫기
+    document.querySelectorAll('.fs-overlay.open').forEach(function(el){ el.classList.remove('open'); });
+    var fbo = document.getElementById('fb-overlay'); if(fbo) fbo.classList.remove('open');
+    document.body.style.overflow = '';
+    return;
+  }
   if(hash === '#/flowboard' || hash === '#/flow') {
     setTimeout(function(){ if(window.openFB) openFB(); }, 300);
   } else if(hash === '#/dataflow' || hash === '#/data') {
@@ -9628,8 +9684,8 @@ function handleHashRoute() {
     setTimeout(function(){ openOverlay('qa'); }, 300);
   }
 }
-window.addEventListener('hashchange', handleHashRoute);
-window.addEventListener('load', handleHashRoute);
+window.addEventListener('hashchange', function(){ handleHashRoute(); });
+window.addEventListener('load', function(){ handleHashRoute({initial:true}); });
 
 // ══════════════════════════════════════════════════════
 // ── Flowboard: pan / zoom / minimap / node focus ──
