@@ -7717,11 +7717,12 @@ document.addEventListener('click', function(e) {
     projectKey: FB_PROJECT_KEY
   };
 
-  function _renderStatus(state){
+  let _fbLastError = '';
+  function _renderStatus(state, errMsg){
     const el = document.getElementById('fb-sync-dot');
     if(!el) return;
     if(state === 'live'){
-      el.title = '실시간 동기화 ON';
+      el.title = '실시간 동기화 ON — 클릭하면 상세';
       el.style.background = '#10B981';
       el.style.boxShadow = '0 0 0 3px rgba(16,185,129,.2)';
     } else if(state === 'offline'){
@@ -7729,10 +7730,50 @@ document.addEventListener('click', function(e) {
       el.style.background = '#BCBCBC';
       el.style.boxShadow = 'none';
     } else if(state === 'error'){
-      el.title = '연결 실패 — 로컬 저장으로 폴백';
+      if(errMsg) _fbLastError = errMsg;
+      const diag = _fbDiagnose(_fbLastError);
+      el.title = '❌ Firebase 연결 실패\n\n에러: ' + _fbLastError + '\n\n원인: ' + diag.cause + '\n\n해결: ' + diag.fix + '\n\n(클릭하면 상세 복사)';
       el.style.background = '#FF5050';
       el.style.boxShadow = '0 0 0 3px rgba(255,80,80,.2)';
     }
+  }
+  // 에러 메시지 → 원인/해결책 추론
+  function _fbDiagnose(msg){
+    const m = (msg || '').toLowerCase();
+    if(m.includes('auth/unauthorized-domain') || m.includes('unauthorized-domain') || m.includes('not authorized')){
+      return {
+        cause:'현재 도메인이 Firebase Authentication 의 Authorized Domains 에 없음',
+        fix:'Firebase 콘솔 → Authentication → Settings → Authorized domains 에 '+location.hostname+' 추가'
+      };
+    }
+    if(m.includes('admin-restricted-operation') || m.includes('operation-not-allowed') || m.includes('not allowed')){
+      return {
+        cause:'Anonymous 인증 제공자(Provider) 가 꺼져 있음',
+        fix:'Firebase 콘솔 → Authentication → Sign-in method → Anonymous 를 사용 설정(Enable)'
+      };
+    }
+    if(m.includes('api-key-not-valid') || m.includes('invalid-api-key')){
+      return {
+        cause:'apiKey 가 잘못되었거나 프로젝트에 속하지 않음',
+        fix:'Firebase 콘솔 → 프로젝트 설정 → SDK 설정 및 구성 값을 다시 복사'
+      };
+    }
+    if(m.includes('network') || m.includes('failed to fetch') || m.includes('cors')){
+      return {
+        cause:'네트워크 실패 또는 CORS 차단',
+        fix:'브라우저 확장 프로그램 / 회사 네트워크 / VPN 을 해제하고 재시도'
+      };
+    }
+    if(m.includes('database') && m.includes('url')){
+      return {
+        cause:'databaseURL 이 비어있거나 형식이 틀림',
+        fix:'Firebase 콘솔 → Realtime Database 를 생성하고 URL 을 다시 복사. 리전 접미어 (-rtdb.asia-southeast1) 포함 확인'
+      };
+    }
+    return {
+      cause:'원인 자동 감지 실패',
+      fix:'브라우저 콘솔(F12) 을 열어 [Firebase] 초기화 실패 로그의 전문을 확인'
+    };
   }
 
   // 상태 인디케이터 DOM 삽입 (헤더 우측 상단 floating)
@@ -7780,9 +7821,19 @@ document.addEventListener('click', function(e) {
         });
       } catch(e){
         console.error('[Firebase] 초기화 실패:', e);
-        _renderStatus('error');
+        const msg = (e && (e.code ? e.code + ': ' : '') + (e.message || String(e))) || String(e);
+        _renderStatus('error', msg);
       }
     })();
+    // 빨간 점 클릭 시 에러 상세를 클립보드에 복사 + alert
+    document.addEventListener('click', function(e){
+      if(!e.target || e.target.id !== 'fb-sync-dot') return;
+      if(!_fbLastError) return;
+      const diag = _fbDiagnose(_fbLastError);
+      const text = 'Firebase 연결 실패\n도메인: '+location.hostname+'\n에러: '+_fbLastError+'\n추정 원인: '+diag.cause+'\n해결: '+diag.fix;
+      try{ navigator.clipboard.writeText(text); }catch(_){}
+      alert(text);
+    });
   }
 </script>
 
@@ -10721,20 +10772,29 @@ window.addEventListener('load', handleHashRoute);
     }
   });
 
-  // ── Zoom (scroll wheel) ──
+  // ── Wheel: 기본=pan, Shift=horizontal pan, Ctrl/Cmd=zoom ──
   document.addEventListener('wheel', function(e){
     if(!refs()) return;
     var overlay = document.getElementById('fb-overlay');
     if(!overlay || !overlay.classList.contains('open')) return;
-    // Only zoom if mouse is over viewport
     var r = vp.getBoundingClientRect();
     if(e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) return;
     e.preventDefault();
-    var mx = e.clientX - r.left, my = e.clientY - r.top;
-    var prev = sc;
-    sc = Math.min(2, Math.max(0.08, sc * (e.deltaY > 0 ? 0.92 : 1.08)));
-    px = mx - (mx - px) * (sc / prev);
-    py = my - (my - py) * (sc / prev);
+    if(e.ctrlKey || e.metaKey){
+      // Zoom (Ctrl/Cmd + wheel) — centered on cursor
+      var mx = e.clientX - r.left, my = e.clientY - r.top;
+      var prev = sc;
+      sc = Math.min(2, Math.max(0.08, sc * (e.deltaY > 0 ? 0.92 : 1.08)));
+      px = mx - (mx - px) * (sc / prev);
+      py = my - (my - py) * (sc / prev);
+    } else if(e.shiftKey){
+      // Horizontal pan
+      px -= e.deltaY;
+    } else {
+      // Default: pan vertically, and also horizontally if deltaX exists (trackpad)
+      px -= e.deltaX;
+      py -= e.deltaY;
+    }
     applyTransform();
   }, {passive: false});
 
@@ -10762,7 +10822,7 @@ window.addEventListener('load', handleHashRoute);
     <div class="fb-bar-zoom" id="fbZoom">100%</div>
     <button class="fb-bar-btn" onclick="fbReset()">리셋</button>
     <button class="fb-bar-btn" onclick="fbFitAll()">전체 보기</button>
-    <div class="fb-bar-help">Space+드래그: 이동 · 스크롤: 줌 · 클릭: 포커스</div>
+    <div class="fb-bar-help">휠: 상하이동 · Shift+휠: 좌우 · Ctrl+휠: 줌 · Space+드래그: 이동 · 클릭: 포커스</div>
     <button class="fb-bar-close" onclick="closeFB()">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       닫기 (ESC)
@@ -11041,12 +11101,28 @@ window.addEventListener('load', handleHashRoute);
   <div class="fb-node-screen"><div class="ph-frame ph-lg">
   <div class="ph-island"></div>
   <div class="ph-screen">
-    <div class="ph-body">
-<div class="ph-dim">
-<div class="ph-modal" style="opacity:0.3;pointer-events:none;">
-<div class="ph-sb"><span>9:41</span><span style="font-size:7px;">●●● ▐▐ ▊</span></div>
-<div style="height:60px;background:#f5f5f5;opacity:0.5;"></div>
+    <div class="ph-body" style="position:relative;">
+<!-- Parent screen backdrop (S2b context) -->
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;background:#fff;filter:saturate(.75);opacity:.55;pointer-events:none;">
+  <div class="ph-sb"><span>9:41</span><span style="font-size:7px;">●●● ▐▐ ▊</span></div>
+  <div class="ph-hd" style="padding:5px 8px;border-bottom:none;">
+    <div class="ph-ht">상품관리.</div>
+    <div style="display:flex;gap:5px;align-items:center;">
+      <div style="width:11px;height:11px;border:1.5px solid #191919;border-radius:2px;"></div>
+      <div style="width:11px;height:11px;border:1.5px solid #191919;border-radius:2px;"></div>
+      <div style="width:14px;height:14px;border-radius:50%;background:#3182F6;"></div>
+    </div>
+  </div>
+  <div class="ph-drop" style="display:flex;align-items:center;gap:4px;margin:0 6px 3px;padding:5px 8px;border-radius:6px;">왕감자호 <span style="font-size:7px;color:#aaa;">20인승</span><span style="font-size:7px;color:#aaa;margin-left:auto;">▼</span></div>
+  <div class="ph-tabs"><div class="ph-tab on" style="border-bottom:2px solid #191919;color:#191919;">일자별상품</div><div class="ph-tab">출조종류 관리</div></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:#333;border-radius:4px;margin:3px 6px;flex-shrink:0;"><span style="font-size:8px;font-weight:800;color:#fff;">2026.02.27 (금)</span><span style="font-size:6px;color:#aaa;">∧</span></div>
+  <div style="margin:2px 6px;background:#fff;border:1px solid #eee;border-radius:6px;padding:5px 7px;flex-shrink:0;border-left:4px solid #3182F6;">
+    <div style="font-size:8px;font-weight:800;color:#191919;">갑오징어/주꾸미</div>
+    <div style="font-size:6px;color:#888;">94,000원 · 5/11석</div>
+  </div>
 </div>
+<!-- Dim + modal -->
+<div class="ph-dim" style="position:relative;z-index:2;">
 <div class="ph-modal" style="border-radius:12px 12px 0 0;">
   <div class="ph-mhd"><div class="ph-mtt">인원 조정</div><span style="font-size:14px;cursor:pointer;">×</span></div>
   <div class="ph-mbody">
@@ -11181,11 +11257,32 @@ window.addEventListener('load', handleHashRoute);
   <div class="fb-node-screen"><div class="ph-frame ph-lg">
   <div class="ph-island"></div>
   <div class="ph-screen">
-    <div class="ph-body">
-<div class="ph-dim" style="opacity:0.3;">
-<div style="height:180px;background:#f5f5f5;"></div>
+    <div class="ph-body" style="position:relative;">
+<!-- Parent screen backdrop (S2b context) -->
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;background:#fff;filter:saturate(.7);opacity:.5;pointer-events:none;">
+  <div class="ph-sb"><span>9:41</span><span style="font-size:7px;">●●● ▐▐ ▊</span></div>
+  <div style="padding:6px 8px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;">
+    <div style="font-size:10px;font-weight:800;color:#191919;">상품관리.</div>
+    <div style="display:flex;gap:4px;">
+      <span style="font-size:8px;">🔔</span><span style="font-size:8px;">👤</span>
+    </div>
+  </div>
+  <div style="padding:4px 8px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:4px;">
+    <div style="font-size:7px;font-weight:700;color:#191919;">왕감자호 ▾</div>
+  </div>
+  <div style="padding:4px 8px;display:flex;gap:6px;border-bottom:2px solid #191919;">
+    <span style="font-size:7px;font-weight:700;color:#191919;">일자별 상품</span>
+    <span style="font-size:7px;color:#888;">출조종류 관리</span>
+  </div>
+  <div style="padding:5px 8px;background:#F5F7FA;font-size:6px;font-weight:700;color:#191919;">2026.02.27 (금)</div>
+  <div style="margin:4px 6px;border:1px solid #eee;border-radius:4px;padding:5px;">
+    <div style="font-size:7px;font-weight:800;color:#191919;">갑오징어/주꾸미</div>
+    <div style="font-size:5px;color:#888;margin-top:2px;">94,000원 · 5/11석</div>
+  </div>
 </div>
-<div class="ph-modal" style="border-radius:12px 12px 0 0;max-height:220px;">
+<!-- Dim + modal -->
+<div class="ph-dim" style="position:relative;z-index:2;opacity:1;">
+<div class="ph-modal" style="border-radius:12px 12px 0 0;max-height:220px;position:relative;z-index:3;">
   <div class="ph-mhd"><div class="ph-mtt">예약자 명단</div><span style="font-size:14px;cursor:pointer;">×</span></div>
   <div style="padding:6px 8px;border-bottom:1px solid #eee;font-size:5px;color:#888;"><span style="color:#191919;font-weight:800;">갑오징어/주꾸미</span> · 2026년 2월 27일 · 총 <b>2건</b></div>
   <div class="ph-mbody" style="max-height:120px;">
@@ -11210,6 +11307,7 @@ window.addEventListener('load', handleHashRoute);
     <button style="background:#FF5050;color:#fff;border:none;border-radius:3px;font-size:7px;font-weight:700;cursor:pointer;">명단 복사</button>
     <button style="background:#fff;border:1px solid #eee;border-radius:3px;font-size:7px;font-weight:700;cursor:pointer;">닫기</button>
   </div>
+</div>
 </div>
     </div>
 </div>
